@@ -5,6 +5,7 @@ import "./index.css";
 import { BrowserRouter } from "react-router-dom";
 import env from "react-dotenv";
 import { Auth0Provider } from '@auth0/auth0-react';
+import 'flowbite';
 
 
 
