@@ -8,10 +8,11 @@ import NavBar from './pages/navbar/NavBar';
 
 function App() {
   document.documentElement.classList.add("dark")
-
+  
   return (
     <>
     <NavBar/>
+
     <Routes>
     <Route path = "/test" element = {<><Test/></>}></Route>
     </Routes>

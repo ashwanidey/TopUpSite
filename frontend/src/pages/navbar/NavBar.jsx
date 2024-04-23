@@ -1,12 +1,16 @@
 import React, { useEffect } from "react";
 import "flowbite";
 import { initFlowbite } from "flowbite";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const NavBar = () => {
+  const { loginWithRedirect,isAuthenticated,logout,user } = useAuth0();
+  console.log(user)
 
   useEffect(() => {
     initFlowbite();
-  }, []);
+  }, [isAuthenticated]);
+
   return (
     <>
       <nav class="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
@@ -21,12 +25,53 @@ const NavBar = () => {
             </span>
           </a>
           <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+            {!isAuthenticated ? 
             <button
               type="button"
               class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              onClick={() => loginWithRedirect()}
             >
               Login
-            </button>
+            </button> 
+            : <>
+            {/* <button
+            type="button"
+            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}
+          >
+            LogOut
+          </button>  */}
+          <div class="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+      <button type="button" class="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
+        <span class="sr-only">Open user menu</span>
+        <img class="w-8 h-8 rounded-full" src={`${user.picture}`} alt="user photo"/>
+      </button>
+  
+      <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600" id="user-dropdown">
+        <div class="px-4 py-3">
+          <span class="block text-sm text-gray-900 dark:text-white">{user.name}</span>
+          <span class="block text-sm  text-gray-500 truncate dark:text-gray-400">{user.email}</span>
+        </div>
+        <ul class="py-2" aria-labelledby="user-menu-button">
+          <li>
+            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Dashboard</a>
+          </li>
+          <li>
+            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Settings</a>
+          </li>
+          <li>
+            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Earnings</a>
+          </li>
+          <li>
+            <a  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white" onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>Sign out</a>
+          </li>
+        </ul>
+      </div>
+      
+  </div>
+          </>
+            }
+            
             <button
               data-collapse-toggle="navbar-sticky"
               type="button"
