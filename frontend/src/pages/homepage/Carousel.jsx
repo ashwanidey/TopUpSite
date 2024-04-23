@@ -10,7 +10,7 @@ const Carousel = () => {
   return (
     <>
 
-    <div id="default-carousel" class="relative " data-carousel="slide">
+    <div id="default-carousel" class="relative z-10" data-carousel="slide">
         
         <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
 

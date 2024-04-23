@@ -9,7 +9,11 @@ const HomePage = () => {
       
         <Carousel/>
        
+       <div>Games</div>
         <CardsScroller />
+        <div>OTT</div>
+        <CardsScroller />
+        
         
       </div>
     </>
