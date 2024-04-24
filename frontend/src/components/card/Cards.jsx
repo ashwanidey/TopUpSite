@@ -2,22 +2,21 @@ import React from "react";
 
 const Cards = () => {
   return (
-    <div className="w-[115px] max-w-[250px] flex-shrink-0 ">
+    <div className="md:w-[16%] lg:w-[20%] w-[115px] max-w-[250px] flex-shrink-0  ">
       <a
         href={`/product/mb`}
-        className="relative rounded-[8px] flex items-center text-center flex-col mt-[30px] px-[8px] pt-[33px] pb-[8px] bg-red-900 "
+        className="relative rounded-[8px] flex items-center text-center flex-col mt-[30px] px-[8px] pt-[33px] pb-[8px] bg-[#262a35] "
+        style={{boxShadow: "0 3px 14px 0 rgba(4, 0, 0, .51)"}}
       >
-        <div className="w-[56px] h-[56px] bg-red-400 absolute top-[-30px]">
+        <div className="w-[56px] h-[56px] lg:w-[70px] lg:h-[70px] bg-red-400 absolute top-[-30px]">
           {" "}
         </div>
-        <div className="grow-1 text-[11px]">
-          <div className="overflow-hidden ">Unipin</div>
-          <div className="h-[3em] font-[500] line-clamp-2">Unipin Voucher </div>
+        <div className="grow-1  w-full md:mt-4">
+          <div className="overflow-hidden text-[#abadaf] text-[1.3rem] md:mt-3">Unipin</div>
+          <div className="h-[3em] md:text-[1.5rem] text-[1.3rem] font-[800] text-white line-clamp-2">Discount</div>
 
-          <div className="w-full mt-[10px]">
-            <div class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
-              Default
-            </div>
+          <div className="w-full h-full md:mt-3">
+            <div className="text-[#ff962d] p-[3px] w-full rounded-full " style={{border: "1px solid #ff962d"}}>TOP UP</div>
           </div>
         </div>
       </a>
