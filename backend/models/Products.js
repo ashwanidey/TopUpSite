@@ -20,6 +20,10 @@ const productSchema = mongoose.Schema(
       type:String,
       default : "",
     },
+    isTrending : {
+      type:String,
+      default : "",
+    },
     inputs : {
       type : Array,
       default : [],

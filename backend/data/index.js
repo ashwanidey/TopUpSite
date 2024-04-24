@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const ProductIds = [
   new mongoose.Types.ObjectId(),
-  
+  new mongoose.Types.ObjectId(),
 ];
 
 // const ItemsIds = [
@@ -20,6 +20,7 @@ export const products = [
     name: "Mobile Legends",
     type: "games",
     productid: 13,
+    isTrending : "true",
     imgPath: "",
     inputs: [{label : "Player ID"},{label : "Zone ID"}],
     items : [],
@@ -35,7 +36,6 @@ export const items = [
     name: "BGMI - 60 UC",
     itemid : 1,
     productid: ProductIds[0],
-    username: "Ralph",
     originalprice: 100,
     discountedprice : 99,
     imgpath : "",
