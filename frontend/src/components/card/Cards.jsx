@@ -12,8 +12,8 @@ const Cards = () => {
           {" "}
         </div>
         <div className="grow-1  w-full md:mt-4">
-          <div className="overflow-hidden text-[#abadaf] text-[1.3rem] md:mt-3">Unipin</div>
-          <div className="h-[3em] md:text-[1.5rem] text-[1.3rem] font-[800] text-white line-clamp-2">Discount</div>
+          <div className="overflow-hidden text-[#abadaf] md:text-[1.3rem] text-[1rem] md:mt-3">Unipin</div>
+          <div className="h-[3em] md:text-[1.5rem] text-[1rem] font-[800] text-white line-clamp-2">Discount</div>
 
           <div className="w-full h-full md:mt-3">
             <div className="text-[#ff962d] p-[3px] w-full rounded-full " style={{border: "1px solid #ff962d"}}>TOP UP</div>

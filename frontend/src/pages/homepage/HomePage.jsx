@@ -5,7 +5,7 @@ import Carousel from "./Carousel";
 const HomePage = () => {
   return (
     <>
-      <div className="mt-[5rem] lg:mx-[6rem] flex flex-col gap-5">
+      <div className="mt-[5rem] lg:mx-[6rem] mx-[1rem] flex flex-col gap-5">
       
         <Carousel/>
        
