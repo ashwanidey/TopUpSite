@@ -33,7 +33,7 @@ function App() {
           }
         ></Route>
         <Route
-          path="/product/:productName"
+          path="/product/:productId"
           element={
             <>
               <ProductPage/>

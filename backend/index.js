@@ -8,6 +8,7 @@ import { authCheck } from "./middleware/verifyToken.js";
 import Product from "./models/Products.js";
 import Items from "./models/Items.js";
 import productRoutes from "./routes/products.js"
+import itemRoutes from "./routes/items.js"
 
 import { products, items } from "./data/index.js";
 
@@ -25,8 +26,12 @@ app.use(cors());
 //   console.log("Unprotected Route");
 //   res.send("Unprotected Route");
 // });
-
+app.use("/item",itemRoutes)
 app.use("/product",productRoutes)
+
+app.get("/keep-alive", (req, res) => {
+  res.send("Server is alive.");
+});
 
 // app.get("/protected", authCheck, (req, res) => {
 //   console.log("Protected Route");

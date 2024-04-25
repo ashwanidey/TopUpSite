@@ -5,7 +5,7 @@ const GridCards = ({data}) => {
   return (
     <div className="w-full">
       <a
-        href={`/product/mb`}
+        href={`/product/${data._id}`}
         className="relative rounded-[1em] flex items-center text-center flex-col mt-[30px] px-[8px] pt-[33px] pb-[8px] bg-[#23292A] "
         style={{boxShadow: "0 3px 14px 0 rgba(4, 0, 0, .51)"}}
       >

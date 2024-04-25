@@ -7,7 +7,7 @@ const Cards = ({data}) => {
   return (
     <div className="md:w-[16%] lg:w-[18%] w-[115px] max-w-[250px] flex-shrink-0 h-[180px] md:h-[240px]">
       <a
-        href={`/product/mb`}
+        href={`/product/${data._id}`}
         className="relative rounded-[1em] flex items-center text-center flex-col mt-[30px] px-[8px] pt-[33px] pb-[8px] bg-[#23292A] h-full "
         style={{boxShadow: "0 3px 14px 0 rgba(4, 0, 0, .51)"}}
       >
