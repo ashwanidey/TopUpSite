@@ -5,10 +5,12 @@ import Payments from './Payments'
 
 const ProductPage = () => {
   return (
-    <div className='mt-[5rem] mx-5'>
-      <UserIDForm/>
+    <div className='mt-[5rem] md:mx-9 mx-5 flex md:flex-row flex-col gap-3'>
       <Products/>
+      <div className='flex flex-col  md:w-[50%] gap-5'>
+      <UserIDForm/>
       <Payments/>
+      </div>
     </div>
   )
 }

@@ -16,7 +16,10 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       clientId={import.meta.env.VITE_REACT_CLIENT_ID}
       authorizationParams={{
         redirect_uri: window.location.origin,
+        audience:'This is a unique identifier',
+      scope :"openid profile email"
       }}
+      
     >
       <App />
     </Auth0Provider>
