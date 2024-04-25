@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react'
 
-const Cards = () => {
+const GridCards = () => {
   return (
-    <div className="md:w-[16%] lg:w-[18%] w-[115px] max-w-[250px] flex-shrink-0  ">
+    <div className="w-full">
       <a
         href={`/product/mb`}
         className="relative rounded-[1em] flex items-center text-center flex-col mt-[30px] px-[8px] pt-[33px] pb-[8px] bg-[#23292A] "
@@ -21,7 +21,7 @@ const Cards = () => {
         </div>
       </a>
     </div>
-  );
-};
+  )
+}
 
-export default Cards;
+export default GridCards
