@@ -867,9 +867,7 @@ export const items = [  //10-50: BR, 210-250: PH
     discountedprice : 8000,
     imgpath : "itemimage/pubgkoreauc.jpeg",
   },
-]
 
-export const items_roboloxlogin = [       //460-500
   {
     _id: new mongoose.Types.ObjectId(),
     name: "80 Robux",
