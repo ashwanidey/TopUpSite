@@ -2,8 +2,8 @@ import { createContext, useEffect, useState ,useLayoutEffect} from "react";
 
 export const VariableContext= createContext({});
 export const VariableProvider = ({children}) => {
-  const [selectedConversation,setSelectedConversation] = useState(null);
-  const [messages,setMessages] = useState([]);
+  // const host = "https://topupsite.onrender.com";
+  const host = "http://localhost:3001";
  
   
     
@@ -11,7 +11,7 @@ export const VariableProvider = ({children}) => {
   return(
     <VariableContext.Provider
     value={{
-      selectedConversation,setSelectedConversation,messages,setMessages
+      host
     }}
   >
     {children}

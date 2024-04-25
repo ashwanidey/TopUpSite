@@ -1,16 +1,18 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { VariableContext } from "../context/VariableContext";
 
 export const useGetProducts = () => {
   const [isLoading, setIsLoading] = useState(null);
   const [games, setGames] = useState([]);
   const [trending, setTrending] = useState([]);
   const [ott, setOtt] = useState([]);
+  const {host} = useContext(VariableContext);
 
   const getProducts = async () => {
     setIsLoading(true);
 
     try {
-      const gamesResponse = await fetch(`http://localhost:3001/product/games`, {
+      const gamesResponse = await fetch(`${host}/product/games`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -21,7 +23,7 @@ export const useGetProducts = () => {
 
       setGames(await gamesResponse.json());
 
-      const ottResponse = await fetch(`http://localhost:3001/product/ott`, {
+      const ottResponse = await fetch(`${host}/product/ott`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -32,7 +34,7 @@ export const useGetProducts = () => {
       setOtt(await ottResponse.json());
 
       const trendingResponse = await fetch(
-        `http://localhost:3001/product/trending`,
+        `${host}/product/trending`,
         {
           method: "GET",
           headers: {
