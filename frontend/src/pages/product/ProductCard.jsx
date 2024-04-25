@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { VariableContext } from "../../context/VariableContext";
 
 const ProductCard = ({data}) => {
   const {selected,setSelected} = useState(null);
+  const {imageUrl} = useContext(VariableContext);
 
   
   // console.log(selected)
@@ -10,7 +12,12 @@ const ProductCard = ({data}) => {
       <div>
       
       <div className='p-[1em] bg-[#23292A] rounded-[1em] flex gap-5'>
-      <img src={"https://i0.wp.com/zerostoreofficial.com/wp-content/uploads/2024/03/1640269077-some.png?resize=74%2C60&ssl=1"} alt="" />
+      <img 
+      // src={`${imageUrl}${data.imgpath}?raw=true`} 
+      src={`/src/assets/${data.imgpath}`} 
+      onError={(e) => {
+        e.target.src = "https://i0.wp.com/zerostoreofficial.com/wp-content/uploads/2024/03/1640269077-some.png?resize=74%2C60&ssl=1";
+      }}alt="" />
       <div >
         <div className='text-white font-[500]'>{data.name}</div>
         <div className='flex gap-2 items-center'>
