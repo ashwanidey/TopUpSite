@@ -28,10 +28,10 @@ const ProductIds = [
 export const products = [
   {
     _id: ProductIds[0],
-    name: "Mobile Legends",
+    name: "mobilelegends",
     type: "games",
     productid: 100,
-    imgpath: "productimage/mobilelegends.jpeg",
+    imgPath: "productimage/mobilelegends.jpeg",
     istrending : true,
     importantnote : " ",
     inputs: [{label : "userid"},{label : "zoneid"}],
@@ -41,10 +41,10 @@ export const products = [
 
   {
     _id: ProductIds[1],
-    name: "PUBG Global",
+    name: "pubgglobal",
     type: "games",
     productid: 101,
-    imgpath: "productimage/pubgglobal.jpeg",
+    imgPath: "productimage/pubgglobal.jpeg",
     istrending : false,
     importantnote : " ",
     inputs: [{label : "playerid"},{label : "username"}],
@@ -54,10 +54,10 @@ export const products = [
 
   {
     _id: ProductIds[2],
-    name: "BGMI",
+    name: "pubgbattlegrounds",
     type: "games",
     productid: 102,
-    imgpath: "productimage/bgmi.jpeg",
+    imgPath: "productimage/bgmi.jpeg",
     istrending : true,
     importantnote : " ",
     inputs: [{label : "playerid"},{label : "username"}],
@@ -66,10 +66,10 @@ export const products = [
   },
   {
     _id: ProductIds[3],
-    name: "Genshin Impact",
+    name: "genshinimpact",
     type: "games",
     productid: 103,
-    imgpath: "productimage/genshinimpact.jpeg",
+    imgPath: "productimage/genshinimpact.jpeg",
     istrending : true,
     importantnote : " ",
     inputs: [{label : "userid"},{label : "server"}],
@@ -78,46 +78,46 @@ export const products = [
   },
   {
     _id: ProductIds[4],
-    name: "Bigo Live",
+    name: "bigolive",
     type: "games",
     productid: 104,
-    imgpath: "productimage/bigolive.jpeg",
+    imgPath: "productimage/bigolive.jpeg",
     istrending : false,
     importantnote : " ",
-    inputs: [{label : "bigoid"},{label : "username"}],
+    inputs: [{label : "bigoid"}],
     items : ['211','212','213','214'],
     __v: 0,
   },
   {
     _id: ProductIds[5],
-    name: "Free Fire",
+    name: "freefire",
     type: "games",
     productid: 105,
-    imgpath: "productimage/freefire.jpeg",
+    imgPath: "productimage/freefire.jpeg",
     istrending : true,
     importantnote : " ",
-    inputs: [{label : "playerid"},{label : "username"}],
+    inputs: [{label : "playerid"}],
     items : ['261','262','263','264','265','266','267','268'],
     __v: 0,
   },
   {
     _id: ProductIds[6],
-    name: "Clash Of Clans",
+    name: "clashofclans",
     type: "games",
     productid: 106,
-    imgpath: "productimage/clashofclans.jpeg",
+    imgPath: "productimage/clashofclans.jpeg",
     istrending : true,
     importantnote : " ",
-    inputs: [{label : "userid"},{label : "username"}],
+    inputs: [{label : "userid"}],
     items : ['311','312','313','314','315','316'],
     __v: 0,
   },
   {
     _id: ProductIds[7],
-    name: "MLBB Login",
+    name: "mobilelegendslogin",
     type: "games",
     productid: 107,
-    imgpath: "productimage/mobilelegendslogin.jpeg",
+    imgPath: "productimage/mobilelegendslogin.jpeg",
     istrending : false,
     importantnote : " ",
     inputs: [{label : "email"},{password : "password"}],
@@ -126,10 +126,10 @@ export const products = [
   },
   {
     _id: ProductIds[8],
-    name: "PUBG KR Login",
+    name: "pubgkorealogin",
     type: "games",
     productid: 108,
-    imgpath: "productimage/pubgkorea.jpeg",
+    imgPath: "productimage/pubgkorea.jpeg",
     istrending : false,
     importantnote : " ",
     inputs: [{label : "email"},{password : "password"}],
@@ -138,10 +138,10 @@ export const products = [
   },
   {
     _id: ProductIds[9],
-    name: "Robolox",
+    name: "robolox",
     type: "games",
     productid: 109,
-    imgpath: "productimage/robolox.jpeg",
+    imgPath: "productimage/robolox.jpeg",
     istrending : false,
     importantnote : " ",
     inputs: [{label : "email"},{password : "password"}],
@@ -150,10 +150,10 @@ export const products = [
   },
   {
     _id: ProductIds[10],
-    name: "Youtube Premium",
+    name: "youtubepremium",
     type: "ott",
     productid: 111,
-    imgpath: "productimage/youtube.jpeg",
+    imgPath: "youtube",
     istrending : true,
     importantnote : " ",
     inputs: [{label : "email"},{label : "whatsapp"}],
@@ -162,10 +162,10 @@ export const products = [
   },
   {
     _id: ProductIds[11],
-    name: "Spotify Premium",
+    name: "spotifypremium",
     type: "ott",
     productid: 112,
-    imgpath: "productimage/spotify.jpeg",
+    imgPath: "spotify",
     istrending : true,
     importantnote : " ",
     inputs: [{label : "email"},{label : "whatsapp"}],
@@ -175,12 +175,11 @@ export const products = [
 
 ]
 
-export const items = [  //10-50: BR, 210-250: PH
+export const items_mobile_legends = [  //10-50: BR, 210-250: PH
 
   {
     _id: new mongoose.Types.ObjectId(),
-    name : "Weekly Pass",
-    sku: "mobilelegends BR Weekly Pass",
+    name: "mobilelegends BR Weekly Pass",
     itemid : 1642,
     productid: ProductIds[0],
     originalprice: 180,
@@ -189,8 +188,7 @@ export const items = [  //10-50: BR, 210-250: PH
   },
   {
     _id: new mongoose.Types.ObjectId(),
-    name : "Twilight Pass",
-    sku: "mobilelegends BR Twilight Pass",
+    name: "mobilelegends BR Twilight Pass",
     itemid : 33,
     productid: ProductIds[0],
     originalprice: 800,
@@ -199,8 +197,7 @@ export const items = [  //10-50: BR, 210-250: PH
   },
   {
     _id: new mongoose.Types.ObjectId(),
-    name : "11 Diamonds",
-    sku: "Mobile Legends PH-diamond_11",
+    name: "Mobile Legends PH-diamond_11",
     itemid : 212,
     productid: ProductIds[0],
     originalprice: 25,
@@ -209,8 +206,7 @@ export const items = [  //10-50: BR, 210-250: PH
   },
   {
     _id: new mongoose.Types.ObjectId(),
-    name : "22 Diamonds",
-    sku : "Mobile Legends PH-diamond_22",
+    name: "Mobile Legends PH-diamond_22",
     itemid : 213,
     productid: ProductIds[0],
     originalprice: 45,
@@ -219,8 +215,7 @@ export const items = [  //10-50: BR, 210-250: PH
   },
   {
     _id: new mongoose.Types.ObjectId(),
-    name : "56 Diamonds",
-    sku: "Mobile Legends PH-diamond_56",
+    name: "Mobile Legends PH-diamond_56",
     itemid : 214,
     productid: ProductIds[0],
     originalprice: 90,
@@ -229,8 +224,7 @@ export const items = [  //10-50: BR, 210-250: PH
   },
   {
     _id: new mongoose.Types.ObjectId(),
-    name: "86 Diamonds",
-    sku: "mobilelegends BR 86 Diamond",
+    name: "mobilelegends BR 86 Diamond",
     itemid : 13,
     productid: ProductIds[0],
     originalprice: 130,
@@ -239,8 +233,7 @@ export const items = [  //10-50: BR, 210-250: PH
   },
   {
     _id: new mongoose.Types.ObjectId(),
-    name: "112 Diamonds",
-    sku: "Mobile Legends PH-diamond_112",
+    name: "Mobile Legends PH-diamond_112",
     itemid : 215,
     productid: ProductIds[0],
     originalprice: 170,
@@ -249,8 +242,7 @@ export const items = [  //10-50: BR, 210-250: PH
   },
   {
     _id: new mongoose.Types.ObjectId(),
-    name: "172 Diamonds",
-    sku: "mobilelegends BR 172 Diamond",
+    name: "mobilelegends BR 172 Diamond",
     itemid : 23,
     productid: ProductIds[0],
     originalprice: 250,
@@ -259,8 +251,7 @@ export const items = [  //10-50: BR, 210-250: PH
   },
   {
     _id: new mongoose.Types.ObjectId(),
-    name: "223 Diamonds",
-    sku: "Mobile Legends PH-diamond_223",
+    name: "Mobile Legends PH-diamond_223",
     itemid : 216,
     productid: ProductIds[0],
     originalprice: 330,
@@ -269,8 +260,7 @@ export const items = [  //10-50: BR, 210-250: PH
   },
   {
     _id: new mongoose.Types.ObjectId(),
-    name: "257 Diamonds",
-    sku: "mobilelegends BR 257 Diamond",
+    name: "mobilelegends BR 257 Diamond",
     itemid : 25,
     productid: ProductIds[0],
     originalprice: 370,
@@ -279,8 +269,7 @@ export const items = [  //10-50: BR, 210-250: PH
   },
   {
     _id: new mongoose.Types.ObjectId(),
-    name: "336 Diamonds",
-    sku: "Mobile Legends PH-diamond_336",
+    name: "Mobile Legends PH-diamond_336",
     itemid : 217,
     productid: ProductIds[0],
     originalprice: 470,
@@ -289,8 +278,7 @@ export const items = [  //10-50: BR, 210-250: PH
   },
   {
     _id: new mongoose.Types.ObjectId(),
-    name: "570 Diamonds",
-    sku: "Mobile Legends PH-diamond_570",
+    name: "Mobile Legends PH-diamond_570",
     itemid : 218,
     productid: ProductIds[0],
     originalprice: 770,
@@ -299,8 +287,7 @@ export const items = [  //10-50: BR, 210-250: PH
   },
   {
     _id: new mongoose.Types.ObjectId(),
-    name: "706 Diamonds",
-    sku: "mobilelegends BR 706 Diamond",
+    name: "mobilelegends BR 706 Diamond",
     itemid : 26,
     productid: ProductIds[0],
     originalprice: 1050,
@@ -309,8 +296,7 @@ export const items = [  //10-50: BR, 210-250: PH
   },
   {
     _id: new mongoose.Types.ObjectId(),
-    name: "1163 Diamonds",
-    sku: "Mobile Legends PH-diamond_1163",
+    name: "Mobile Legends PH-diamond_1163",
     itemid : 219,
     productid: ProductIds[0],
     originalprice: 890,
@@ -319,8 +305,7 @@ export const items = [  //10-50: BR, 210-250: PH
   },
   {
     _id: new mongoose.Types.ObjectId(),
-    name: "2195 Diamonds",
-    sku: "mobilelegends BR 2195 Diamond",
+    name: "mobilelegends BR 2195 Diamond",
     itemid : 27,
     productid: ProductIds[0],
     originalprice: 3000,
@@ -329,8 +314,7 @@ export const items = [  //10-50: BR, 210-250: PH
   },
   {
     _id: new mongoose.Types.ObjectId(),
-    name: "2398 Diamonds",
-    sku: "Mobile Legends PH-diamond_2398",
+    name: "Mobile Legends PH-diamond_2398",
     itemid : 220,
     productid: ProductIds[0],
     originalprice: 3200,
@@ -339,8 +323,7 @@ export const items = [  //10-50: BR, 210-250: PH
   },
   {
     _id: new mongoose.Types.ObjectId(),
-    name: "3688 Diamonds",
-    sku: "mobilelegends BR 3688 Diamond",
+    name: "mobilelegends BR 3688 Diamond",
     itemid : 28,
     productid: ProductIds[0],
     originalprice: 4700,
@@ -349,8 +332,7 @@ export const items = [  //10-50: BR, 210-250: PH
   },
   {
     _id: new mongoose.Types.ObjectId(),
-    name: "5532 Diamonds",
-    sku: "mobilelegends BR 5532 Diamond",
+    name: "mobilelegends BR 5532 Diamond",
     itemid : 29,
     productid: ProductIds[0],
     originalprice: 7000,
@@ -359,8 +341,7 @@ export const items = [  //10-50: BR, 210-250: PH
   },
   {
     _id: new mongoose.Types.ObjectId(),
-    name: "6042 Diamonds",
-    sku: "Mobile Legends PH-diamond_6042",
+    name: "Mobile Legends PH-diamond_6042",
     itemid : 221,
     productid: ProductIds[0],
     originalprice: 7600,
@@ -369,8 +350,7 @@ export const items = [  //10-50: BR, 210-250: PH
   },
   {
     _id: new mongoose.Types.ObjectId(),
-    name: "9288 Diamonds",
-    sku: "mobilelegends BR 9288 Diamond",
+    name: "mobilelegends BR 9288 Diamond",
     itemid : 30,
     productid: ProductIds[0],
     originalprice: 11600,
@@ -378,12 +358,13 @@ export const items = [  //10-50: BR, 210-250: PH
     imgpath : "itemimage/mlbbbulkdiamonds.jpeg",
   },
 
-     //60-100
+]
+
+export const items_pubg_global = [     //60-100
 
   {
     _id: new mongoose.Types.ObjectId(),
-    name: "60 UC",
-    sku: "pubgglobal GB 60 UC",
+    name: "pubgglobal GB 60 UC",
     itemid : 61,
     productid: ProductIds[1],
     originalprice: 110,
@@ -392,8 +373,7 @@ export const items = [  //10-50: BR, 210-250: PH
   },
   {
     _id: new mongoose.Types.ObjectId(),
-    name: "335 UC",
-    sku: "pubgglobal GB 355 UC",
+    name: "pubgglobal GB 355 UC",
     itemid : 62,
     productid: ProductIds[1],
     originalprice: 470,
@@ -402,8 +382,7 @@ export const items = [  //10-50: BR, 210-250: PH
   },
   {
     _id: new mongoose.Types.ObjectId(),
-    name: "720 UC",
-    sku: "pubgglobal GB 720 UC",
+    name: "pubgglobal GB 720 UC",
     itemid : 63,
     productid: ProductIds[1],
     originalprice: 870,
@@ -412,8 +391,7 @@ export const items = [  //10-50: BR, 210-250: PH
   },
   {
     _id: new mongoose.Types.ObjectId(),
-    name: "1950 UC",
-    sku: "pubgglobal GB 1950 UC",
+    name: "pubgglobal GB 1950 UC",
     itemid : 64,
     productid: ProductIds[1],
     originalprice: 2200,
@@ -422,8 +400,7 @@ export const items = [  //10-50: BR, 210-250: PH
   },
   {
     _id: new mongoose.Types.ObjectId(),
-    name: "4000 UC",
-    sku: "pubgglobal GB 4000 UC",
+    name: "pubgglobal GB 4000 UC",
     itemid : 65,
     productid: ProductIds[1],
     originalprice: 4200,
@@ -432,19 +409,19 @@ export const items = [  //10-50: BR, 210-250: PH
   },
   {
     _id: new mongoose.Types.ObjectId(),
-    name: "8400 UC",
-    sku: "pubgglobal GB 8400 UC",
+    name: "pubgglobal GB 8400 UC",
     itemid : 66,
     productid: ProductIds[1],
     originalprice: 8000,
     discountedprice : 7700,
     imgpath : "itemimage/pubgglobaluc.jpeg",
   },
+]
 
+export const items_pubg_battlegrounds = [  //110-150
   {
     _id: new mongoose.Types.ObjectId(),
-    name: "60 UC",
-    sku: "pubgbattlegrounds IN 60 UC",
+    name: "pubgbattlegrounds IN 60 UC",
     itemid : 111,
     productid: ProductIds[2],
     originalprice: 110,
@@ -453,8 +430,7 @@ export const items = [  //10-50: BR, 210-250: PH
   },
   {
     _id: new mongoose.Types.ObjectId(),
-    name: "335 UC",
-    sku: "pubgbattlegrounds IN 325 UC",
+    name: "pubgbattlegrounds IN 325 UC",
     itemid : 112,
     productid: ProductIds[2],
     originalprice: 450,
@@ -463,8 +439,7 @@ export const items = [  //10-50: BR, 210-250: PH
   },
   {
     _id: new mongoose.Types.ObjectId(),
-    name: "660 UC",
-    sku: "pubgbattlegrounds IN 660 UC",
+    name: "pubgbattlegrounds IN 660 UC",
     itemid : 113,
     productid: ProductIds[2],
     originalprice: 820,
@@ -473,8 +448,7 @@ export const items = [  //10-50: BR, 210-250: PH
   },
   {
     _id: new mongoose.Types.ObjectId(),
-    name: "1800 UC",
-    sku: "pubgbattlegrounds IN 1800 UC",
+    name: "pubgbattlegrounds IN 1800 UC",
     itemid : 114,
     productid: ProductIds[2],
     originalprice: 2200,
@@ -483,8 +457,7 @@ export const items = [  //10-50: BR, 210-250: PH
   },
   {
     _id: new mongoose.Types.ObjectId(),
-    name: "3850 UC",
-    sku: "pubgbattlegrounds IN 3850 UC",
+    name: "pubgbattlegrounds IN 3850 UC",
     itemid : 115,
     productid: ProductIds[2],
     originalprice: 4000,
@@ -493,80 +466,76 @@ export const items = [  //10-50: BR, 210-250: PH
   },
   {
     _id: new mongoose.Types.ObjectId(),
-    name: "8100 UC",
-    sku: "pubgbattlegrounds IN 8100 UC",
+    name: "pubgbattlegrounds IN 8100 UC",
     itemid : 116,
     productid: ProductIds[2],
     originalprice: 7800,
     discountedprice : 7600,
     imgpath : "itemimage/bgmiuc.jpeg",
   },
-    //160-200
+]
+
+export const items_genshin_impact = [      //160-200
   {
     _id: new mongoose.Types.ObjectId(),
-    name: "60 Crystal",
-    sku: "genshinimpact GB 60 Crystal",
+    name: "genshinimpact GB 60 Crystall",
     itemid : 161,
     productid: ProductIds[3],
     originalprice: 90,
     discountedprice : 70,
-    imgpath : "itemimage/genshincrystal.jpeg",
+    imgpath : "itemimage/genshincrystall.jpeg",
   },
   {
     _id: new mongoose.Types.ObjectId(),
-    name: "330 Crystal",
-    sku: "genshinimpact GB 330 Crystall",
+    name: "genshinimpact GB 330 Crystall",
     itemid : 162,
     productid: ProductIds[3],
     originalprice: 390,
     discountedprice : 350,
-    imgpath : "itemimage/genshincrystal.jpeg",
+    imgpath : "itemimage/genshincrystall.jpeg",
   },
   {
     _id: new mongoose.Types.ObjectId(),
-    name: "1090 Crystal",
-    sku: "genshinimpact GB 1090 Crystall",
+    name: "genshinimpact GB 1090 Crystall",
     itemid : 163,
     productid: ProductIds[3],
     originalprice: 1100,
     discountedprice : 1050,
-    imgpath : "itemimage/genshincrystal.jpeg",
+    imgpath : "itemimage/genshincrystall.jpeg",
   },
   {
     _id: new mongoose.Types.ObjectId(),
-    name: "2240 Crystal",
-    sku: "genshinimpact GB 2240 Crystall",
+    name: "genshinimpact GB 2240 Crystall",
     itemid : 164,
     productid: ProductIds[3],
     originalprice: 2400,
     discountedprice : 2250,
-    imgpath : "itemimage/genshincrystal.jpeg",
+    imgpath : "itemimage/genshincrystall.jpeg",
   },
   {
     _id: new mongoose.Types.ObjectId(),
-    name: "3880 Crystal",
-    sku: "genshinimpact GB 3880 Crystall",
+    name: "genshinimpact GB 3880 Crystall",
     itemid : 165,
     productid: ProductIds[3],
     originalprice: 3600,
     discountedprice : 3400,
-    imgpath : "itemimage/genshincrystal.jpeg",
+    imgpath : "itemimage/genshincrystall.jpeg",
   },
   {
     _id: new mongoose.Types.ObjectId(),
-    name: "8050 Crystal",
-    sku: "genshinimpact GB 8080 Crystall",
+    name: "genshinimpact GB 8080 Crystall",
     itemid : 166,
     productid: ProductIds[3],
     originalprice: 7000,
     discountedprice : 6800,
-    imgpath : "itemimage/genshincrystal.jpeg",
+    imgpath : "itemimage/genshincrystall.jpeg",
   },
-      //210-250
+]
+
+export const items_bigolive = [           //210-250
   {
     _id: new mongoose.Types.ObjectId(),
-    name: "40 Diamonds",
-    sku: "bigolive GB 40 Diamond",
+    name: "bigolive GB 40 Diamond",
     itemid : 211,
     productid: ProductIds[4],
     originalprice: 115,
@@ -575,8 +544,7 @@ export const items = [  //10-50: BR, 210-250: PH
   },
   {
     _id: new mongoose.Types.ObjectId(),
-    name: "100 Diamonds",
-    sku: "bigolive GB 100 Diamond",
+    name: "bigolive GB 100 Diamond",
     itemid : 212,
     productid: ProductIds[4],
     originalprice: 220,
@@ -585,8 +553,7 @@ export const items = [  //10-50: BR, 210-250: PH
   },
   {
     _id: new mongoose.Types.ObjectId(),
-    name: "200 Diamonds",
-    sku: "bigolive GB 200 Diamond",
+    name: "bigolive GB 200 Diamond",
     itemid : 213,
     productid: ProductIds[4],
     originalprice: 420,
@@ -595,19 +562,19 @@ export const items = [  //10-50: BR, 210-250: PH
   },
   {
     _id: new mongoose.Types.ObjectId(),
-    name: "500 Diamonds",
-    sku: "bigolive GB 500 Diamond",
+    name: "bigolive GB 500 Diamond",
     itemid : 214,
     productid: ProductIds[4],
     originalprice: 1000,
     discountedprice : 950,
     imgpath : "itemimage/bigolivediamonds.jpeg",
   },
-       //260-300
+]
+
+export const items_freefire = [           //260-300
   {
     _id: new mongoose.Types.ObjectId(),
-    name: "100 Diamonds",
-    sku: "freefire GB 100 Diamond",
+    name: "freefire GB 100 Diamond",
     itemid : 261,
     productid: ProductIds[5],
     originalprice: 110,
@@ -616,8 +583,7 @@ export const items = [  //10-50: BR, 210-250: PH
   },
   {
     _id: new mongoose.Types.ObjectId(),
-    name: "210 Diamonds",
-    sku: "freefire GB 210 Diamond",
+    name: "freefire GB 210 Diamond",
     itemid : 262,
     productid: ProductIds[5],
     originalprice: 220,
@@ -626,8 +592,7 @@ export const items = [  //10-50: BR, 210-250: PH
   },
   {
     _id: new mongoose.Types.ObjectId(),
-    name: "530 Diamonds",
-    sku: "freefire GB 530 Diamond",
+    name: "freefire GB 530 Diamond",
     itemid : 263,
     productid: ProductIds[5],
     originalprice: 500,
@@ -636,8 +601,7 @@ export const items = [  //10-50: BR, 210-250: PH
   },
   {
     _id: new mongoose.Types.ObjectId(),
-    name: "625 Diamonds",
-    sku: "freefire GB 625 Diamond",
+    name: "freefire GB 625 Diamond",
     itemid : 264,
     productid: ProductIds[5],
     originalprice: 600,
@@ -646,8 +610,7 @@ export const items = [  //10-50: BR, 210-250: PH
   },
   {
     _id: new mongoose.Types.ObjectId(),
-    name: "1080 Diamonds",
-    sku: "freefire GB 1080 Diamond",
+    name: "freefire GB 1080 Diamond",
     itemid : 265,
     productid: ProductIds[5],
     originalprice: 1000,
@@ -656,8 +619,7 @@ export const items = [  //10-50: BR, 210-250: PH
   },
   {
     _id: new mongoose.Types.ObjectId(),
-    name: "2200 Diamonds",
-    sku: "freefire GB 2200 Diamond",
+    name: "freefire GB 2200 Diamond",
     itemid : 266,
     productid: ProductIds[5],
     originalprice: 1950,
@@ -666,8 +628,7 @@ export const items = [  //10-50: BR, 210-250: PH
   },
   {
     _id: new mongoose.Types.ObjectId(),
-    name: "4450 Diamonds",
-    sku: "freefire GB 4450 Diamond",
+    name: "freefire GB 4450 Diamond",
     itemid : 267,
     productid: ProductIds[5],
     originalprice: 3900,
@@ -676,19 +637,19 @@ export const items = [  //10-50: BR, 210-250: PH
   },
   {
     _id: new mongoose.Types.ObjectId(),
-    name: "6900 Diamonds",
-    sku: "freefire GB 6900 Diamond",
+    name: "freefire GB 6900 Diamond",
     itemid : 268,
     productid: ProductIds[5],
     originalprice: 4700,
     discountedprice : 4500,
     imgpath : "itemimage/freefireiamonds.jpeg",
   },
-     //310-350
+]
+
+export const items_clashoflcans = [       //310-350
   {
     _id: new mongoose.Types.ObjectId(),
-    name: "88 Gems",
-    sku: "clashofclans GB 88 Gem",
+    name: "clashofclans GB 88 Gem",
     itemid : 311,
     productid: ProductIds[6],
     originalprice: 110,
@@ -697,8 +658,7 @@ export const items = [  //10-50: BR, 210-250: PH
   },
   {
     _id: new mongoose.Types.ObjectId(),
-    name: "550 Gems",
-    sku: "clashofclans GB 550 Gem",
+    name: "clashofclans GB 550 Gem",
     itemid : 312,
     productid: ProductIds[6],
     originalprice: 450,
@@ -707,8 +667,7 @@ export const items = [  //10-50: BR, 210-250: PH
   },
   {
     _id: new mongoose.Types.ObjectId(),
-    name: "1320 Gems",
-    sku: "clashofclans GB 1320 Gem",
+    name: "clashofclans GB 1320 Gem",
     itemid : 313,
     productid: ProductIds[6],
     originalprice: 850,
@@ -717,8 +676,7 @@ export const items = [  //10-50: BR, 210-250: PH
   },
   {
     _id: new mongoose.Types.ObjectId(),
-    name: "2750 Gems",
-    sku: "clashofclans GB 2750 Gem",
+    name: "clashofclans GB 2750 Gem",
     itemid : 314,
     productid: ProductIds[6],
     originalprice: 1800,
@@ -727,8 +685,7 @@ export const items = [  //10-50: BR, 210-250: PH
   },
   {
     _id: new mongoose.Types.ObjectId(),
-    name: "7150 Gems",
-    sku: "clashofclans GB 7150 Gem",
+    name: "clashofclans GB 7150 Gem",
     itemid : 315,
     productid: ProductIds[6],
     originalprice: 4150,
@@ -737,19 +694,19 @@ export const items = [  //10-50: BR, 210-250: PH
   },
   {
     _id: new mongoose.Types.ObjectId(),
-    name: "15400 Gems",
-    sku: "clashofclans GB 15400 Gem",
+    name: "clashofclans GB 15400 Gem",
     itemid : 316,
     productid: ProductIds[6],
     originalprice: 8400,
     discountedprice : 8000,
     imgpath : "itemimage/cocgems.jpeg",
   },
-    //360-400
+]
+
+export const items_mobilelegends_login = [       //360-400
   {
     _id: new mongoose.Types.ObjectId(),
-    name: "565 Diamonds",
-    sku: "mobilelegendslogin GB 565 Diamond",
+    name: "mobilelegendslogin GB 565 Diamond",
     itemid : 361,
     productid: ProductIds[7],
     originalprice: 800,
@@ -758,8 +715,7 @@ export const items = [  //10-50: BR, 210-250: PH
   },
   {
     _id: new mongoose.Types.ObjectId(),
-    name: "1155 Diamonds",
-    sku: "mobilelegendslogin GB 1155 Diamond",
+    name: "mobilelegendslogin GB 1155 Diamond",
     itemid : 362,
     productid: ProductIds[7],
     originalprice: 1500,
@@ -768,8 +724,7 @@ export const items = [  //10-50: BR, 210-250: PH
   },
   {
     _id: new mongoose.Types.ObjectId(),
-    name: "1765 Diamonds",
-    sku: "mobilelegendslogin GB 1765 Diamond",
+    name: "mobilelegendslogin GB 1765 Diamond",
     itemid : 363,
     productid: ProductIds[7],
     originalprice: 2200,
@@ -778,8 +733,7 @@ export const items = [  //10-50: BR, 210-250: PH
   },
   {
     _id: new mongoose.Types.ObjectId(),
-    name: "2975 Diamonds",
-    sku: "mobilelegendslogin GB 2975 Diamond",
+    name: "mobilelegendslogin GB 2975 Diamond",
     itemid : 364,
     productid: ProductIds[7],
     originalprice: 3500,
@@ -788,8 +742,7 @@ export const items = [  //10-50: BR, 210-250: PH
   },
   {
     _id: new mongoose.Types.ObjectId(),
-    name: "6000 Diamonds",
-    sku: "mobilelegendslogin GB 6000 Diamond",
+    name: "mobilelegendslogin GB 6000 Diamond",
     itemid : 365,
     productid: ProductIds[7],
     originalprice: 6000,
@@ -798,19 +751,19 @@ export const items = [  //10-50: BR, 210-250: PH
   },
   {
     _id: new mongoose.Types.ObjectId(),
-    name: "12000 Diamonds",
-    sku: "mobilelegendslogin GB 12000 Diamond",
+    name: "mobilelegendslogin GB 12000 Diamond",
     itemid : 366,
     productid: ProductIds[7],
     originalprice: 12000,
     discountedprice : 11200,
     imgpath : "itemimage/mlbbbulkdiamonds.jpeg",
   },
-    //410-450
+]
+
+export const items_pubgkrlogin = [        //410-450
   {
     _id: new mongoose.Types.ObjectId(),
-    name: "60 UC",
-    sku: "pubgkrlogin KR 60 UC",
+    name: "pubgkrlogin KR 60 UC",
     itemid : 411,
     productid: ProductIds[8],
     originalprice: 120,
@@ -819,8 +772,7 @@ export const items = [  //10-50: BR, 210-250: PH
   },
   {
     _id: new mongoose.Types.ObjectId(),
-    name: "550 UC",
-    sku: "pubgkrlogin KR 550 UC",
+    name: "pubgkrlogin KR 550 UC",
     itemid : 412,
     productid: ProductIds[8],
     originalprice: 450,
@@ -829,8 +781,7 @@ export const items = [  //10-50: BR, 210-250: PH
   },
   {
     _id: new mongoose.Types.ObjectId(),
-    name: "1320 UC",
-    sku: "pubgkrlogin KR 1320 UC",
+    name: "pubgkrlogin KR 1320 UC",
     itemid : 413,
     productid: ProductIds[8],
     originalprice: 850,
@@ -839,8 +790,7 @@ export const items = [  //10-50: BR, 210-250: PH
   },
   {
     _id: new mongoose.Types.ObjectId(),
-    name: "2750 UC",
-    sku: "pubgkrlogin KR 2750 UC",
+    name: "pubgkrlogin KR 2750 UC",
     itemid : 414,
     productid: ProductIds[8],
     originalprice: 1800,
@@ -849,8 +799,7 @@ export const items = [  //10-50: BR, 210-250: PH
   },
   {
     _id: new mongoose.Types.ObjectId(),
-    name: "7150 UC",
-    sku: "pubgkrlogin KR 7150 UC",
+    name: "pubgkrlogin KR 7150 UC",
     itemid : 415,
     productid: ProductIds[8],
     originalprice: 4200,
@@ -859,8 +808,7 @@ export const items = [  //10-50: BR, 210-250: PH
   },
   {
     _id: new mongoose.Types.ObjectId(),
-    name: "15400 UC",
-    sku: "pubgkrlogin KR 15400 UC",
+    name: "pubgkrlogin KR 15400 UC",
     itemid : 416,
     productid: ProductIds[8],
     originalprice: 8500,
@@ -872,8 +820,7 @@ export const items = [  //10-50: BR, 210-250: PH
 export const items_roboloxlogin = [       //460-500
   {
     _id: new mongoose.Types.ObjectId(),
-    name: "80 Robux",
-    sku: "roboloxlogin GB 80 Robux",
+    name: "roboloxlogin GB 80 Robux",
     itemid : 461,
     productid: ProductIds[9],
     originalprice: 120,
@@ -882,8 +829,7 @@ export const items_roboloxlogin = [       //460-500
   },
   {
     _id: new mongoose.Types.ObjectId(),
-    name: "400 Robux",
-    sku: "roboloxlogin GB 400 Robux",
+    name: "roboloxlogin GB 400 Robux",
     itemid : 462,
     productid: ProductIds[9],
     originalprice: 450,
@@ -892,8 +838,7 @@ export const items_roboloxlogin = [       //460-500
   },
   {
     _id: new mongoose.Types.ObjectId(),
-    name: "800 Robux",
-    sku: "roboloxlogin GB 800 Robux",
+    name: "roboloxlogin GB 800 Robux",
     itemid : 463,
     productid: ProductIds[9],
     originalprice: 900,
@@ -902,8 +847,7 @@ export const items_roboloxlogin = [       //460-500
   },
   {
     _id: new mongoose.Types.ObjectId(),
-    name: "1700 Robux",
-    sku: "roboloxlogin GB 1700 Robux",
+    name: "roboloxlogin GB 1700 Robux",
     itemid : 464,
     productid: ProductIds[9],
     originalprice: 1850,
@@ -912,8 +856,7 @@ export const items_roboloxlogin = [       //460-500
   },
   {
     _id: new mongoose.Types.ObjectId(),
-    name: "4500 Robux",
-    sku: "roboloxlogin GB 4500 Robux",
+    name: "roboloxlogin GB 4500 Robux",
     itemid : 465,
     productid: ProductIds[9],
     originalprice: 4300,
@@ -922,8 +865,7 @@ export const items_roboloxlogin = [       //460-500
   },
   {
     _id: new mongoose.Types.ObjectId(),
-    name: "10000 Robux",
-    sku: "roboloxlogin GB 10000 Robux",
+    name: "roboloxlogin GB 10000 Robux",
     itemid : 466,
     productid: ProductIds[9],
     originalprice: 8300,
@@ -932,19 +874,19 @@ export const items_roboloxlogin = [       //460-500
   },
   {
     _id: new mongoose.Types.ObjectId(),
-    name: "22500 Robux",
-    sku: "roboloxlogin GB 22500 Robux",
+    name: "roboloxlogin GB 22500 Robux",
     itemid : 467,
     productid: ProductIds[9],
     originalprice: 16000,
     discountedprice : 15550,
     imgpath : "itemimage/roboluxrobux.jpeg",
   },
-   //510-550
+]
+
+export const items_youtubepremium = [     //510-550
   {
     _id: new mongoose.Types.ObjectId(),
-    name: "Youtube Premium 6 Months",
-    sku: "youtubepremium 6 Month ",
+    name: "youtubepremium 6 Month ",
     itemid : 511,
     productid: ProductIds[10],
     originalprice: 774,
@@ -953,19 +895,18 @@ export const items_roboloxlogin = [       //460-500
   },
   {
     _id: new mongoose.Types.ObjectId(),
-    name: "Youtube Premium 12 Months",
-    sku: "youtubepremium 12 Month ",
+    name: "youtubepremium 6 Month ",
     itemid : 512,
     productid: ProductIds[10],
     originalprice: 1290,
     discountedprice : 600,
     imgpath : "itemimage/youtubepremium.jpeg",
   },
-
+]
+export const items_spotifypremium = [
   {
     _id: new mongoose.Types.ObjectId(),
-    name: "Spotify Premium 6 Months",
-    sku: "spotifypremium 12 Month ",
+    name: "spotifypremium 12 Month ",
     itemid : 513,
     productid: ProductIds[11],
     originalprice: 750,

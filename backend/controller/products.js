@@ -22,7 +22,7 @@ export const getOtt = async(req,res) => {
 
 export const getTrending = async(req,res) => {
   try{
-    const trending = await Product.find({isTrending : "true"});
+    const trending = await Product.find({istrending : "true"});
     res.status(200).json(trending);
   }
   catch(err){

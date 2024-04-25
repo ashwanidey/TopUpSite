@@ -20,7 +20,7 @@ const productSchema = mongoose.Schema(
       type:String,
       default : "",
     },
-    isTrending : {
+    istrending : {
       type:String,
       default : "",
     },

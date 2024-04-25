@@ -6,11 +6,13 @@ import { BrowserRouter } from "react-router-dom";
 import env from "react-dotenv";
 import { Auth0Provider } from '@auth0/auth0-react';
 import 'flowbite';
+import { VariableProvider } from "./context/VariableContext";
 
 
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <BrowserRouter>
+  <VariableProvider>
     <Auth0Provider
       domain= {import.meta.env.VITE_REACT_DOMAIN}
       clientId={import.meta.env.VITE_REACT_CLIENT_ID}
@@ -23,5 +25,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     >
       <App />
     </Auth0Provider>
+    </VariableProvider>
   </BrowserRouter>
 );
