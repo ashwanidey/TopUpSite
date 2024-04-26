@@ -388,7 +388,7 @@ export const items = [  //10-50: BR, 210-250: PH
     productid: ProductIds[1],
     originalprice: 110,
     discountedprice : 90,
-    imgpath : "itemimage/pubgglobaluc.jpeg",
+    imgpath : "itemimage/pubgglobaluc.png",
   },
   {
     _id: new mongoose.Types.ObjectId(),
@@ -510,7 +510,7 @@ export const items = [  //10-50: BR, 210-250: PH
     productid: ProductIds[3],
     originalprice: 90,
     discountedprice : 70,
-    imgpath : "itemimage/genshincrystal.jpeg",
+    imgpath : "itemimage/genshincrystal.png",
   },
   {
     _id: new mongoose.Types.ObjectId(),
@@ -876,7 +876,7 @@ export const items = [  //10-50: BR, 210-250: PH
     productid: ProductIds[9],
     originalprice: 120,
     discountedprice : 90,
-    imgpath : "itemimage/roboluxrobux.png",
+    imgpath : "itemimage/roboloxrobux.png",
   },
   {
     _id: new mongoose.Types.ObjectId(),
@@ -886,7 +886,7 @@ export const items = [  //10-50: BR, 210-250: PH
     productid: ProductIds[9],
     originalprice: 450,
     discountedprice : 430,
-    imgpath : "itemimage/roboluxrobux.png",
+    imgpath : "itemimage/roboloxrobux.png",
   },
   {
     _id: new mongoose.Types.ObjectId(),
@@ -896,7 +896,7 @@ export const items = [  //10-50: BR, 210-250: PH
     productid: ProductIds[9],
     originalprice: 900,
     discountedprice : 850,
-    imgpath : "itemimage/roboluxrobux.png",
+    imgpath : "itemimage/roboloxrobux.png",
   },
   {
     _id: new mongoose.Types.ObjectId(),
@@ -906,7 +906,7 @@ export const items = [  //10-50: BR, 210-250: PH
     productid: ProductIds[9],
     originalprice: 1850,
     discountedprice : 1700,
-    imgpath : "itemimage/roboluxrobux.png",
+    imgpath : "itemimage/roboloxrobux.png",
   },
   {
     _id: new mongoose.Types.ObjectId(),
@@ -916,7 +916,7 @@ export const items = [  //10-50: BR, 210-250: PH
     productid: ProductIds[9],
     originalprice: 4300,
     discountedprice : 4100,
-    imgpath : "itemimage/roboluxrobux.png",
+    imgpath : "itemimage/roboloxrobux.png",
   },
   {
     _id: new mongoose.Types.ObjectId(),
@@ -926,7 +926,7 @@ export const items = [  //10-50: BR, 210-250: PH
     productid: ProductIds[9],
     originalprice: 8300,
     discountedprice : 8000,
-    imgpath : "itemimage/roboluxrobux.png",
+    imgpath : "itemimage/roboloxrobux.png",
   },
   {
     _id: new mongoose.Types.ObjectId(),
@@ -936,7 +936,7 @@ export const items = [  //10-50: BR, 210-250: PH
     productid: ProductIds[9],
     originalprice: 16000,
     discountedprice : 15550,
-    imgpath : "itemimage/roboluxrobux.png",
+    imgpath : "itemimage/roboloxrobux.png",
   },
    //510-550
   {
