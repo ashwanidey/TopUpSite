@@ -12,10 +12,11 @@ const Products = () => {
 
   const {selected,setSelected} = useContext(VariableContext)
   
+  
 
   const handleSelected = (data)=>{
     setSelected(data);
-   
+  
   }
  
 

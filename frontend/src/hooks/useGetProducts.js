@@ -6,45 +6,46 @@ export const useGetProducts = () => {
   const [games, setGames] = useState([]);
   const [trending, setTrending] = useState([]);
   const [ott, setOtt] = useState([]);
-  const {host} = useContext(VariableContext);
+  const { host } = useContext(VariableContext);
 
   const getProducts = async () => {
     setIsLoading(true);
 
     try {
-      const gamesResponse = await fetch(`${host}/product/games`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          //  Authorization: `Bearer ${token}`,
-        },
-      });
-     
-
-      setGames(await gamesResponse.json());
-
-      const ottResponse = await fetch(`${host}/product/ott`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          //  Authorization: `Bearer ${token}`,
-        },
-      });
-
-      setOtt(await ottResponse.json());
-
-      const trendingResponse = await fetch(
-        `${host}/product/trending`,
-        {
+      // Perform multiple API calls in parallel using Promise.all()
+      const [gamesResponse, ottResponse, trendingResponse] = await Promise.all([
+        fetch(`${host}/product/games`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
-            //  Authorization: `Bearer ${token}`,
+            // Authorization: `Bearer ${token}`,
           },
-        }
-      );
+        }),
+        fetch(`${host}/product/ott`, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            // Authorization: `Bearer ${token}`,
+          },
+        }),
+        fetch(`${host}/product/trending`, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            // Authorization: `Bearer ${token}`,
+          },
+        }),
+      ]);
 
-      setTrending(await trendingResponse.json());
+      // Process responses concurrently
+      const gamesData = await gamesResponse.json();
+      const ottData = await ottResponse.json();
+      const trendingData = await trendingResponse.json();
+
+      // Update state once all responses are available
+      setGames(gamesData);
+      setOtt(ottData);
+      setTrending(trendingData);
 
       setIsLoading(false);
     } catch (err) {
@@ -52,8 +53,9 @@ export const useGetProducts = () => {
     }
   };
 
-  return {games,ott,trending,isLoading,getProducts}
+  return { games, ott, trending, isLoading, getProducts };
 };
+
 
 
 

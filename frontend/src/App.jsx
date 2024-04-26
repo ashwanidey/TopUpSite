@@ -7,6 +7,8 @@ import Test from "./components/Test/Test";
 import NavBar from "./pages/navbar/NavBar";
 import HomePage from "./pages/homepage/HomePage";
 import ProductPage from "./pages/product/ProductPage";
+import Dashboard from "./pages/dashboard/Dashboard";
+import Confirmation from "./pages/confirmationPage/Confirmation";
 
 function App() {
   document.documentElement.classList.add("dark");
@@ -36,7 +38,25 @@ function App() {
           path="/product/:productId"
           element={
             <>
-              <ProductPage/>
+              <ProductPage />
+            </>
+          }
+        ></Route>
+
+        <Route
+          path="/dashboard"
+          element={
+            <>
+              <Dashboard />
+            </>
+          }
+        ></Route>
+
+<Route
+          path="/confirmation"
+          element={
+            <>
+              <Confirmation />
             </>
           }
         ></Route>

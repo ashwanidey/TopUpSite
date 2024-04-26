@@ -3,7 +3,7 @@ import jwks from 'jwks-rsa';
 import dotenv from "dotenv";
 dotenv.config();
 
-export const authCheck = jwt({
+ export const authCheck = jwt({
   secret: jwks.expressJwtSecret({
     cache: true,
     rateLimit: true,
@@ -14,4 +14,6 @@ export const authCheck = jwt({
   issuer: process.env.ISSUER,
   algorithms: ['RS256'],
 });
+
+
 

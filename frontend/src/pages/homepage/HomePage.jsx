@@ -47,7 +47,7 @@ const HomePage = () => {
   // }
   return (
     <>
-    {!isLoading && <div className="mt-[5rem] lg:mx-[6rem] mx-[1rem] flex flex-col gap-3">
+    {!isLoading && <div className="mt-[6rem] lg:mx-[6rem] mx-[1rem] flex flex-col gap-3">
         <Carousel />
         {/* <button onClick={callUnProtected}>Protected</button>
        <button onClick={callProtected}>Not Protected</button> */}
