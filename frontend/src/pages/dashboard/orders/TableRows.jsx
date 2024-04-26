@@ -1,5 +1,7 @@
 import React from 'react'
 
+
+
 const TableRows = ({data}) => {
     console.log(data)
   return (
@@ -10,7 +12,8 @@ const TableRows = ({data}) => {
                 <td class="px-6 py-4">
                     {data?.itemname}
                 </td>
-                <td class="px-6 py-4">
+                <td class="px-6 py-4" style={data?.status === "Processing" ? {color : "#FF962D"} : 
+              (data?.status === "Completed" ? {color : "#9ACD32"} : {color : "#FF4646"})}>
                 {data?.status}
                 </td>
                 <td class="px-6 py-4">

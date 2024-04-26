@@ -4,7 +4,7 @@ import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
 import helmet from "helmet";
-import { authCheck } from "./middleware/verifyToken.js";
+import { authCheck, checkScopes } from "./middleware/verifyToken.js";
 import Product from "./models/Products.js";
 import Items from "./models/Items.js";
 import productRoutes from "./routes/products.js"
@@ -31,14 +31,17 @@ app.use("/item",itemRoutes)
 app.use("/product",productRoutes)
 app.use("/order",orderRoutes)
 
+
 app.get("/keep-alive", (req, res) => {
   res.send("Server is alive.");
 });
 
-// app.get("/protected", authCheck, (req, res) => {
-//   console.log("Protected Route");
-//   res.send("Protected Route");
-// });
+app.get("/protected", authCheck ,checkScopes,(req, res) => {
+  
+ 
+    res.send("Protected");
+  
+});
 
 const PORT = process.env.PORT || 6001;
 mongoose

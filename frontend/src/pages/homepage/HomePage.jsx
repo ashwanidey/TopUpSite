@@ -7,7 +7,7 @@ import CardsGrid from "../../components/card/CardsGrid";
 import { useGetProducts } from "../../hooks/useGetProducts";
 
 const HomePage = () => {
-  const { getAccessTokenSilently } = useAuth0();
+  const { getAccessTokenSilently} = useAuth0();
   
 
   const {getProducts,isLoading,games,trending,ott} = useGetProducts();
@@ -26,31 +26,33 @@ const HomePage = () => {
   //   })
   // }
 
-  // const callProtected = async() =>{
-  //   try{
-  //   const token = await getAccessTokenSilently();
-  //   console.log(token);
+  const callProtected = async() =>{
+    try{
+    const token = await getAccessTokenSilently();
+    // console.log(token);
 
-  //   // const response = await fetch(`http://localhost:3001/protected`,{
-  //   //   method:"GET",
-  //   //   headers: { Authorization: `Bearer ${token}` },
-  //   // })
+    // const response = await fetch(`http://localhost:3001/protected`,{
+    //   method:"GET",
+    //   headers: { Authorization: `Bearer ${token}` },
+    // })
 
-  //   const response = await axios.get('http://localhost:3001/protected',{
-  //     headers : {
-  //       authorization : `Bearer ${token}`,
-  //     }
-  //   })
-  // }catch(err){
-  //   console.log(err.message);
-  // }
-  // }
+    const response = await axios.get('http://localhost:3001/protected',{
+      headers : {
+        authorization : `Bearer ${token}`,
+      },
+      
+    })
+    console.log(response.data)
+  }catch(err){
+    console.log(err.message);
+  }
+  }
   return (
     <>
     {!isLoading && <div className="mt-[6rem] lg:mx-[6rem] mx-[1rem] flex flex-col gap-3">
         <Carousel />
-        {/* <button onClick={callUnProtected}>Protected</button>
-       <button onClick={callProtected}>Not Protected</button> */}
+        {/* <button onClick={callUnProtected}>Protected</button> */}
+       {/* <button onClick={callProtected}>Not Protected</button> */}
         <div className="mt-5 flex flex-col gap-4">
 
           <div>

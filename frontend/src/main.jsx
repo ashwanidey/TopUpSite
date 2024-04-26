@@ -24,7 +24,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       authorizationParams={{
         redirect_uri: window.location.origin,
         audience:'This is a unique identifier',
-      scope :"openid profile email"
+      scope :"openid profile email update:price"
       }}
       useRefreshTokens={useRefreshTokens}
       cacheLocation={useRefreshTokens ? 'localstorage' : 'memory'}

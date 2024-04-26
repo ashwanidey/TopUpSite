@@ -21,10 +21,10 @@ const OrdersBox = ({orders}) => {
                         Status : {order?.status}
                         </div>
                         <div class="text-sm text-gray-500 truncate dark:text-gray-400">
-                        Input 1 : {order?.input1}
+                        Userid/Email : {order?.input1}
                         </div>
                         <div class="text-sm text-gray-500 truncate dark:text-gray-400">
-                        Input 2 : {order?.input2}
+                        Username/Number : {order?.input2}
                         </div>
                         <div class="text-sm text-gray-500 truncate dark:text-gray-400">
                         Price : ₹ {order?.value}

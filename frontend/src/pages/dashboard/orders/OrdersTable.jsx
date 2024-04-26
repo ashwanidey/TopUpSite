@@ -21,10 +21,11 @@ const OrdersTable = ({orders}) => {
                   Status
                 </th>
                 <th scope="col" class="px-6 py-3">
-                  Input 1
+                Userid/Email
+
                 </th>
                 <th scope="col" class="px-6 py-3">
-                  Input 2 
+                Username/Number 
                 </th>
                 <th scope="col" class="px-6 py-3">
                   Price
