@@ -21,11 +21,11 @@ const OrdersTable = ({orders}) => {
                   Status
                 </th>
                 <th scope="col" class="px-6 py-3">
-                Userid/Email
+                Userid/ Email
 
                 </th>
                 <th scope="col" class="px-6 py-3">
-                Username/Number 
+                Username/ Number 
                 </th>
                 <th scope="col" class="px-6 py-3">
                   Price
@@ -33,6 +33,10 @@ const OrdersTable = ({orders}) => {
                 <th scope="col" class="px-6 py-3">
                   Payment Method
                 </th>
+                <th scope="col" class="px-6 py-3">
+                  Order Date
+                </th>
+                
               </tr>
             </thead>
             <tbody>

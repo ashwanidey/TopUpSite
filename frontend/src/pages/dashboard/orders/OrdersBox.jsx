@@ -18,7 +18,7 @@ const OrdersBox = ({orders}) => {
                         ItemName : {order?.itemname}
                         </div>
                         <div class="text-sm text-gray-500 truncate dark:text-gray-400">
-                        Status : {order?.status}
+                        Status : {order?.status} {order?.status === "Refunded" && `Reason : ${order?.reason}`}
                         </div>
                         <div class="text-sm text-gray-500 truncate dark:text-gray-400">
                         Userid/Email : {order?.input1}

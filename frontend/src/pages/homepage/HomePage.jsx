@@ -29,14 +29,14 @@ const HomePage = () => {
   const callProtected = async() =>{
     try{
     const token = await getAccessTokenSilently();
-    // console.log(token);
+    console.log(token);
 
     // const response = await fetch(`http://localhost:3001/protected`,{
     //   method:"GET",
     //   headers: { Authorization: `Bearer ${token}` },
     // })
 
-    const response = await axios.get('http://localhost:3001/protected',{
+    const response = await axios.get('http://localhost:3001/admin/processing',{
       headers : {
         authorization : `Bearer ${token}`,
       },

@@ -10,6 +10,7 @@ import Items from "./models/Items.js";
 import productRoutes from "./routes/products.js"
 import itemRoutes from "./routes/items.js"
 import orderRoutes from "./routes/orders.js"
+import adminRoutes from "./routes/admin.js"
 
 import { products, items } from "./data/index.js";
 
@@ -30,6 +31,7 @@ app.use(cors());
 app.use("/item",itemRoutes)
 app.use("/product",productRoutes)
 app.use("/order",orderRoutes)
+app.use("/admin",adminRoutes)
 
 
 app.get("/keep-alive", (req, res) => {

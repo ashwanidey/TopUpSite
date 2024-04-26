@@ -9,6 +9,7 @@ import HomePage from "./pages/homepage/HomePage";
 import ProductPage from "./pages/product/ProductPage";
 import Dashboard from "./pages/dashboard/Dashboard";
 import Confirmation from "./pages/confirmationPage/Confirmation";
+import AdminPage from "./pages/admin/AdminPage";
 
 function App() {
   document.documentElement.classList.add("dark");
@@ -52,11 +53,19 @@ function App() {
           }
         ></Route>
 
-<Route
+        <Route
           path="/confirmation"
           element={
             <>
               <Confirmation />
+            </>
+          }
+        ></Route>
+        <Route
+          path="/admin"
+          element={
+            <>
+              <AdminPage />
             </>
           }
         ></Route>

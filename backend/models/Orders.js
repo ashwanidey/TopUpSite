@@ -29,7 +29,12 @@ const orderSchema = mongoose.Schema({
     type : String,
     required: true,
   },
-})
+  reason :{
+    type : String,
+    default : "",
+  },
+},
+{ timestamps: true })
 
 const Order = mongoose.model("Order",orderSchema);
 export default Order;
