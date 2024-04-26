@@ -7,7 +7,12 @@ import env from "react-dotenv";
 import { Auth0Provider } from '@auth0/auth0-react';
 import 'flowbite';
 import { VariableProvider } from "./context/VariableContext";
+import {isSafari, isFirefox } from 'react-device-detect'
 
+const isBrave = async()=> {
+  return (navigator.brave && await navigator.brave.isBrave() || false)
+}
+let useRefreshTokens = isSafari || isFirefox || isBrave ? true : false
 
 
 ReactDOM.createRoot(document.getElementById("root")).render(
@@ -21,6 +26,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         audience:'This is a unique identifier',
       scope :"openid profile email"
       }}
+      useRefreshTokens={useRefreshTokens}
+      cacheLocation={useRefreshTokens ? 'localstorage' : 'memory'}
       
     >
       <App />
