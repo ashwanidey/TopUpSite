@@ -15,3 +15,14 @@ export const createOrder = async (req,res) => {
     res.status(500).json({error : err.message}); 
    }
 }
+
+export const getOrders = async(req,res) =>{
+  try{
+    const {userId} = req.params;
+    const orders = await Order.find({userid:userId});
+    res.status(200).json(orders);
+  }
+  catch(e){
+    res.status(500).json({error : err.message});
+  }
+}

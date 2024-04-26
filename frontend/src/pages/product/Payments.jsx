@@ -3,9 +3,13 @@ import { VariableContext } from '../../context/VariableContext'
 import { useAuth0 } from '@auth0/auth0-react'
 import { usePostOrder } from '../../hooks/usePostOrder'
 import { useNavigate } from 'react-router-dom'
+import { extractPart } from '../../utils/userIdExtractor'
 
 const Payments = () => {
   const {selected,setSelected,payment,setPayment,input1,input2,order,setOrder,after,setAfter,setInput1,setInput2} = useContext(VariableContext)
+
+  
+
 
   const {postOrder,response} = usePostOrder();
   const navigate = useNavigate();
@@ -16,7 +20,7 @@ const Payments = () => {
     const values = {
       itemname : selected.name,
       status : "Processing",
-      userid : user.sub,
+      userid : extractPart(user.sub),
       input1,
       input2,
       paymentmode : payment,
