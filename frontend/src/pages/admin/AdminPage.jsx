@@ -1,6 +1,6 @@
 import React from "react";
 import OrdersAdminTable from "./OrdersAdminTable";
-import ChangePrice from "./ChangePrice";
+import ChangePrice from "./ChangePriceDropdown";
 import { useAuth0 } from "@auth0/auth0-react";
 
 const AdminPage = () => {

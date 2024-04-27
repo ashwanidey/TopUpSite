@@ -8,6 +8,23 @@ export const useGetProducts = () => {
   const [ott, setOtt] = useState([]);
   const { host } = useContext(VariableContext);
 
+  const [products,seProducts] = useState([]);
+
+  const getAllProducts = async(token)=>{
+    setIsLoading(true);
+    const response = await fetch(`${host}/product/allproducts`,{
+      method : "GET",
+      headers: {
+        "Content-Type": "application/json",
+         Authorization: `Bearer ${token}`,
+      },
+    })
+
+    seProducts(await response.json());
+    setIsLoading(false);
+
+  }
+
   const getProducts = async () => {
     setIsLoading(true);
 
@@ -53,7 +70,7 @@ export const useGetProducts = () => {
     }
   };
 
-  return { games, ott, trending, isLoading, getProducts };
+  return { games, ott, trending, isLoading, getProducts,getAllProducts,products };
 };
 
 

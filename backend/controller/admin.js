@@ -1,3 +1,4 @@
+import Items from "../models/Items.js";
 import Order from "../models/Orders.js"
 
 export const getProcessingOrders = async(req,res) =>{
@@ -20,6 +21,20 @@ export const updateOrder = async(req,res) => {
       
     )
     res.status(200).send(updatedOrder)
+  }
+  catch(err){
+    res.status(500).send({error: err.message})
+  }
+}
+
+export const updatePrice = async(req,res) => {
+  try{
+    const {itemId,price} = req.params;
+
+    const updatedOrder = await Items.findByIdAndUpdate(
+      itemId,
+      {discountedprice : price}
+    )
   }
   catch(err){
     res.status(500).send({error: err.message})

@@ -41,3 +41,13 @@ export const getProduct = async(req,res) => {
     res.status(500).json({ message: err.message });
   }
 }
+
+
+export const getAllProducts = async(req,res) => {
+  try{
+    const product = await Product.find();
+    res.status(200).json(product);
+  }catch(err){
+    res.status(500).json({ message: err.message });
+  }
+}
