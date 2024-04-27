@@ -4,6 +4,7 @@ import image from "../../assets/WhatsApp Image 2024-04-25 at 10.48.28.jpeg";
 import { useGetItems } from '../../hooks/useGetItems';
 import { useParams } from 'react-router-dom';
 import { VariableContext } from '../../context/VariableContext';
+import Skeleton from '../../components/Skeleton';
 
 const Products = () => {
   const { isLoading, getItems, items } = useGetItems();
@@ -29,8 +30,12 @@ const Products = () => {
 
   return (
     <div className='w-full'>
-      {isLoading ? (
-        <p>Loading...</p>
+      {!isLoading ? (
+        <div className='grid xl:grid-cols-3 lg:grid-cols-2 grid-cols-1 gap-5 w-full'>
+        <Skeleton height = "7rem"/>
+        <Skeleton height = "7rem"/>
+        <Skeleton height = "7rem"/>
+        </div>
       ) : (
         <ul className='grid xl:grid-cols-3 lg:grid-cols-2 grid-cols-1 gap-5 w-full'>
           {items.map((item, index) => (

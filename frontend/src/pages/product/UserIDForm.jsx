@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { useGetProduct } from "../../hooks/useGetProduct";
 import Input from "./Input";
 import { VariableContext } from "../../context/VariableContext";
+import Skeleton from "../../components/Skeleton";
 
 const UserIDForm = () => {
   const { productId } = useParams();
@@ -17,7 +18,8 @@ const UserIDForm = () => {
   
   return (
     <>
-    {!isLoading && <div className="py-[1.5em] px-[2em]  bg-[#293133] flex flex-col items-center rounded-[1em] w-full">
+    {!isLoading ?
+     <div className="py-[1.5em] px-[2em]  bg-[#293133] flex flex-col items-center rounded-[1em] w-full">
       <div className="text-white font-[500]">Order Information</div>
       <form className="flex flex-col gap-3 mt-5 w-full">
         
@@ -54,7 +56,7 @@ const UserIDForm = () => {
         </div>
         
       </form>
-    </div>}
+    </div> : <Skeleton height={`7rem`}/>}
     
     </>
   );
