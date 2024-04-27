@@ -9,6 +9,7 @@ export const VariableProvider = ({children}) => {
 
   const admin1 = "google-oauth2|117233432545840735238"
   const admin2 = "google-oauth2|101231187167198927926"
+  const admin3 = "auth0|662ca421e8cb006d9637608e"
 
   const [selected,setSelected] = useState(null);
   const [input1,setInput1] = useState(null);
@@ -25,7 +26,7 @@ export const VariableProvider = ({children}) => {
   return(
     <VariableContext.Provider
     value={{
-      host,imageUrl,selected,setSelected,input1,setInput1,input2,setInput2,payment,setPayment,order,setOrder,product,setProduct,after,setAfter,admin1,admin2
+      host,imageUrl,selected,setSelected,input1,setInput1,input2,setInput2,payment,setPayment,order,setOrder,product,setProduct,after,setAfter,admin1,admin2,admin3
     }}
   >
     {children}

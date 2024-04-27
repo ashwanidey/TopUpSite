@@ -6,7 +6,7 @@ import { VariableContext } from "../../context/VariableContext";
 
 const NavBar = () => {
   const { loginWithRedirect,isAuthenticated,logout,user,isLoading } = useAuth0();
-  const {admin1,admin2} = useContext(VariableContext)
+  const {admin1,admin2,admin3} = useContext(VariableContext)
   console.log(user)
 
   useEffect(() => {
@@ -58,7 +58,7 @@ const NavBar = () => {
         <li>
           <a href="/dashboard" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Dashboard</a>
         </li>
-        {(user.sub === admin1 || user.sub === admin2) && <li>
+        {(user.sub === admin1 || user.sub === admin2 || user.sub === admin3) && <li>
           <a href="/admin" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Admin Dashboard</a>
         </li>}
         

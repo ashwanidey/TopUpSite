@@ -10,6 +10,8 @@ import ProductPage from "./pages/product/ProductPage";
 import Dashboard from "./pages/dashboard/Dashboard";
 import Confirmation from "./pages/confirmationPage/Confirmation";
 import AdminPage from "./pages/admin/AdminPage";
+import OrdersAdminTable from "./pages/admin/OrdersAdminTable";
+import ChangePrice from "./pages/admin/ChangePriceDropdown";
 
 function App() {
   document.documentElement.classList.add("dark");
@@ -66,6 +68,22 @@ function App() {
           element={
             <>
               <AdminPage />
+            </>
+          }
+        ></Route>
+        <Route
+          path="/admin/orders"
+          element={
+            <>
+              <OrdersAdminTable />
+            </>
+          }
+        ></Route>
+        <Route
+          path="/admin/price"
+          element={
+            <>
+              <ChangePrice />
             </>
           }
         ></Route>

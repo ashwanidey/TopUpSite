@@ -24,7 +24,7 @@ const ChangePrice = () => {
   
   return (
     <>{!isLoading && 
-      <>
+      <div className="mt-[6rem] lg:mx-[6rem] mx-[1rem] flex flex-col gap-3">
       <select onChange={handleChange}>
       
       {products.map(product=>{
@@ -34,7 +34,7 @@ const ChangePrice = () => {
       })}
     </select>
     <ChangePriceList productId = {selectedOption}/>
-    </>
+    </div>
     }</>
     
   )
