@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { useGetProduct } from "../../hooks/useGetProduct";
 import Input from "./Input";
 import { VariableContext } from "../../context/VariableContext";
-import Skeleton from "../../components/Skeleton";
+import Skeleton from "../../components/skeletons/Skeleton";
 
 const UserIDForm = () => {
   const { productId } = useParams();

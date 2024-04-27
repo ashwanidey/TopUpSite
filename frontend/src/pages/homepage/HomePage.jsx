@@ -5,9 +5,12 @@ import { useAuth0 } from "@auth0/auth0-react";
 import axios from "axios";
 import CardsGrid from "../../components/card/CardsGrid";
 import { useGetProducts } from "../../hooks/useGetProducts";
+import ProductSkeletons from "../../components/skeletons/ProductSkeletons";
 
 const HomePage = () => {
   const { getAccessTokenSilently} = useAuth0();
+  const iterations = Array.from({ length: 30 }, (_, index) => index);
+  
   
 
   const {getProducts,isLoading,games,trending,ott} = useGetProducts();
@@ -49,12 +52,14 @@ const HomePage = () => {
   }
   return (
     <>
-    {!isLoading && <div className="mt-[6rem] lg:mx-[6rem] mx-[1rem] flex flex-col gap-3">
+    
+    <div className="mt-[6rem] lg:mx-[6rem] mx-[1rem] flex flex-col gap-3">
         <Carousel />
         {/* <button onClick={callUnProtected}>Protected</button> */}
        {/* <button onClick={callProtected}>Not Protected</button> */}
         <div className="mt-5 flex flex-col gap-4">
-
+        {!isLoading ? 
+        <>
           <div>
             <div className="font-[800] text-white md:text-[2rem] text-[1.5rem]">
               Trending
@@ -75,6 +80,23 @@ const HomePage = () => {
             </div>
             <CardsGrid data = {ott}/>
           </section>
+          </>
+          : 
+          <div className="flex  flex-col w-full gap-4 overflow-auto">
+           
+             <div className="font-[800] text-white md:text-[2rem] text-[1.5rem]">
+              Trending
+            </div>
+            <div className="flex gap-5">
+            {iterations.map(it=>{
+              return (
+                <ProductSkeletons/>
+              )
+            })}
+            </div>
+
+            
+            </div>}
        
        
         </div>
@@ -82,7 +104,7 @@ const HomePage = () => {
         
 
 
-      </div>}
+      </div> 
       
     </>
   );

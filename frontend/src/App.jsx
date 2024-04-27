@@ -12,6 +12,7 @@ import Confirmation from "./pages/confirmationPage/Confirmation";
 import AdminPage from "./pages/admin/AdminPage";
 import OrdersAdminTable from "./pages/admin/OrdersAdminTable";
 import ChangePrice from "./pages/admin/ChangePriceDropdown";
+import Footer from "./pages/footer/Footer";
 
 function App() {
   document.documentElement.classList.add("dark");
@@ -88,6 +89,8 @@ function App() {
           }
         ></Route>
       </Routes>
+
+      <Footer/>
     </>
   );
 }

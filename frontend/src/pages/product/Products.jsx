@@ -4,7 +4,7 @@ import image from "../../assets/WhatsApp Image 2024-04-25 at 10.48.28.jpeg";
 import { useGetItems } from '../../hooks/useGetItems';
 import { useParams } from 'react-router-dom';
 import { VariableContext } from '../../context/VariableContext';
-import Skeleton from '../../components/Skeleton';
+import Skeleton from '../../components/skeletons/Skeleton';
 
 const Products = () => {
   const { isLoading, getItems, items } = useGetItems();
