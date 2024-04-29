@@ -2,11 +2,11 @@ import React from 'react'
 
 const Footer = () => {
   return (
-    <div className='flex flex-col w-full py-[50px] md:px-[100px] px-[50px] border-t mt-10 bg-black'>
+    <div className='flex flex-col w-full py-[50px] md:px-[100px] px-[50px] border-t mt-10 bg-[#23292A]'>
       <div className='flex flex-col items-center w-full gap-4'>
-        <div className='font-[800] text-white text-[2rem]'>WEBSITE NAME</div>
-        <div className='text-white'>Welcome to WebsiteName – your fast and secure game top-up hub! Explore popular games, enjoy instant transactions, and elevate your gaming with our user-friendly platform.</div>
-        <div className='text-white'>+91 98630 52375 | thoihen.customer.service@gmail.com | Manipur Imphal West, 795003</div>
+        <div className='font-[800] text-white text-[2rem]'>Miraki Store</div>
+        <div className='text-white'>Welcome to Miraki Store! We're your go-to spot for topping up games quickly and safely. Discover popular games, enjoy fast transactions, and level up your gaming experience with our easy platform.</div>
+        <div className='text-white'>+91 70857 42871 | mirakistore@gmail.com | Lengte, Mizoram 796501</div>
       </div>
 
       <div className='grid md:grid-cols-3 sm:grid-cols-2 gap-4 mt-6 text-white'>
