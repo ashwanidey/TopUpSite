@@ -18,6 +18,9 @@ export const VariableProvider = ({children}) => {
   const [order,setOrder] = useState(null);
   const [product,setProduct] = useState(null);
   const [after,setAfter] = useState(null);
+
+  const [show,setShow] = useState(false);
+  
   
  
   
@@ -26,7 +29,7 @@ export const VariableProvider = ({children}) => {
   return(
     <VariableContext.Provider
     value={{
-      host,imageUrl,selected,setSelected,input1,setInput1,input2,setInput2,payment,setPayment,order,setOrder,product,setProduct,after,setAfter,admin1,admin2,admin3
+      host,imageUrl,selected,setSelected,input1,setInput1,input2,setInput2,payment,setPayment,order,setOrder,product,setProduct,after,setAfter,admin1,admin2,admin3,show,setShow
     }}
   >
     {children}

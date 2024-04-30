@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
@@ -13,13 +13,19 @@ import AdminPage from "./pages/admin/AdminPage";
 import OrdersAdminTable from "./pages/admin/OrdersAdminTable";
 import ChangePrice from "./pages/admin/ChangePriceDropdown";
 import Footer from "./pages/footer/Footer";
+import { VariableContext } from "./context/VariableContext";
+import BootStrapToast from "./components/BootStrapToast";
+import Toast from "./components/Toast";
 
 function App() {
   document.documentElement.classList.add("dark");
+  const {show,setShow} = useContext(VariableContext)
 
   return (
     <>
       <NavBar />
+      
+      <Toast/>
 
       <Routes>
         <Route
