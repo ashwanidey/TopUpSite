@@ -4,6 +4,7 @@ import { useGetProduct } from "../../hooks/useGetProduct";
 import Input from "./Input";
 import { VariableContext } from "../../context/VariableContext";
 import Skeleton from "../../components/skeletons/Skeleton";
+import Spinner from "../../components/Spinner";
 
 const UserIDForm = () => {
   const { productId } = useParams();
@@ -56,7 +57,7 @@ const UserIDForm = () => {
         </div>
         
       </form>
-    </div> : <Skeleton height={`7rem`}/>}
+    </div> : <div className="w-full justify-center items-center flex"><Spinner/></div>}
     
     </>
   );

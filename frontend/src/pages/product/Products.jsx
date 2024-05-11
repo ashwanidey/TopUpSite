@@ -5,6 +5,7 @@ import { useGetItems } from '../../hooks/useGetItems';
 import { useParams } from 'react-router-dom';
 import { VariableContext } from '../../context/VariableContext';
 import Skeleton from '../../components/skeletons/Skeleton';
+import Spinner from '../../components/Spinner';
 
 const Products = () => {
   const { isLoading, getItems, items } = useGetItems();
@@ -31,11 +32,12 @@ const Products = () => {
   return (
     <div className='w-full'>
       {isLoading ? (
-        <div className='grid xl:grid-cols-3 lg:grid-cols-2 grid-cols-1 gap-5 w-full'>
-        <Skeleton height = "7rem"/>
-        <Skeleton height = "7rem"/>
-        <Skeleton height = "7rem"/>
-        </div>
+        // <div className='grid xl:grid-cols-3 lg:grid-cols-2 grid-cols-1 gap-5 w-full'>
+        // <Skeleton height = "7rem"/>
+        // <Skeleton height = "7rem"/>
+        // <Skeleton height = "7rem"/>
+        // </div>
+        <div className="w-full justify-center items-center flex"><Spinner/></div>
       ) : (
         <ul className='grid xl:grid-cols-3 lg:grid-cols-2 grid-cols-1 gap-5 w-full'>
           {items.map((item, index) => (
