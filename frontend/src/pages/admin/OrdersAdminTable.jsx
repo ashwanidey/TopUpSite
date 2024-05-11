@@ -2,6 +2,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import React, { useEffect, useState } from "react";
 import AdminTableRow from "./AdminTableRow";
 import { useGetProcessingOrder } from "../../hooks/useGetProcessingOrder";
+import Spinner from "../../components/Spinner";
 
 
 
@@ -21,7 +22,7 @@ const OrdersAdminTable = () => {
   },[change])
   return (
     <>
-    {!isLoading1 && 
+    {!isLoading1 ?
     <div className="mt-[6rem] lg:mx-[6rem] mx-[1rem] flex flex-col gap-3">
     <div class=" overflow-x-auto shadow-md sm:rounded-lg ">
        
@@ -65,7 +66,7 @@ const OrdersAdminTable = () => {
       </tbody>
     </table>
 
-</div></div>}
+</div></div> : <div className='justify-center items-center mt-[6rem] lg:mx-[6rem] mx-[1rem] flex flex-col gap-3'><Spinner/></div>}
       
     </>
   );

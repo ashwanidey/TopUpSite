@@ -4,6 +4,7 @@ import OrdersBox from './OrdersBox'
 import { useGetOrder } from '../../../hooks/useGetOrder'
 import { useAuth0 } from '@auth0/auth0-react'
 import { extractPart } from '../../../utils/userIdExtractor'
+import Spinner from '../../../components/Spinner'
 
 const Orders = () => {
   const {user} = useAuth0();
@@ -16,9 +17,9 @@ const Orders = () => {
   },[])
   return (
     <>
-    {!isLoading1 && <div>
+    {!isLoading1 ? <div>
       <OrdersTable orders = {orders}/>
-    <OrdersBox orders = {orders}/></div>}
+    <OrdersBox orders = {orders}/></div> : <div className='justify-center items-center w-full flex'><Spinner/></div>}
     
     </>
   )
