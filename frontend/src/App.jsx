@@ -17,11 +17,13 @@ import { VariableContext } from "./context/VariableContext";
 import BootStrapToast from "./components/BootStrapToast";
 import Toast from "./components/Toast";
 import { useAuth0 } from "@auth0/auth0-react";
+import Login from "./pages/loginPage/Login";
+import Register from "./pages/loginPage/Register";
 
 function App() {
   document.documentElement.classList.add("dark");
-  const {show,setShow,admin1,admin2,admin3} = useContext(VariableContext)
-  const {user,isLoading,isAuthenticated} = useAuth0();
+  const {show,setShow,admin1,admin2,admin3,user,isLoggedIn} = useContext(VariableContext)
+  const {isLoading,isAuthenticated} = useAuth0();
 
   return (
     <>
@@ -40,8 +42,33 @@ function App() {
             </>
           }
         ></Route>
+       
+        <Route
+          path="/login"
+          element={
+            <>
+              <Login />
+            </>
+          }
+        ></Route>
+        <Route
+          path="/register"
+          element={
+            <>
+              <Register />
+            </>
+          }
+        ></Route>
         <Route
           path="/"
+          element={
+            <>
+              <HomePage />
+            </>
+          }
+        ></Route>
+        <Route
+          path="/home"
           element={
             <>
               <HomePage />
@@ -77,7 +104,7 @@ function App() {
         <Route
           path="/admin"
           element={
-            <> {isAuthenticated && (user.sub === admin1 || user.sub === admin2 || user.sub === admin3) ?  <AdminPage /> : <Dashboard/>}
+            <> {isLoggedIn && (user?.role === "admin") ?  <AdminPage /> : <Dashboard/>}
              
             </>
           }
@@ -85,7 +112,7 @@ function App() {
         <Route
           path="/admin/orders"
           element={
-            <> {isAuthenticated && (user.sub === admin1 || user.sub === admin2 || user.sub === admin3) ?  <OrdersAdminTable/> : <Dashboard/>}
+            <> {isLoggedIn && (user?.role === "admin") ?  <OrdersAdminTable/> : <Dashboard/>}
              
             </>
           }
@@ -93,7 +120,7 @@ function App() {
         <Route
           path="/admin/price"
           element={
-            <> {isAuthenticated && (user.sub === admin1 || user.sub === admin2 || user.sub === admin3) ?  <ChangePrice /> : <Dashboard/>}
+            <> {isLoggedIn && (user?.role === "admin")?  <ChangePrice /> : <Dashboard/>}
              
             </>
           }

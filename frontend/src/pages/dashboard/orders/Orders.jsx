@@ -1,17 +1,19 @@
-import React, { useEffect } from 'react'
+import React, { useContext, useEffect } from 'react'
 import OrdersTable from './OrdersTable'
 import OrdersBox from './OrdersBox'
 import { useGetOrder } from '../../../hooks/useGetOrder'
 import { useAuth0 } from '@auth0/auth0-react'
 import { extractPart } from '../../../utils/userIdExtractor'
 import Spinner from '../../../components/Spinner'
+import { VariableContext } from '../../../context/VariableContext'
 
 const Orders = () => {
-  const {user} = useAuth0();
+  // const {user} = useAuth0();
   const {getOrders,isLoading1,orders} = useGetOrder();
+  const {user} = useContext(VariableContext);
   useEffect(()=>{
     async function fetch(){
-      await getOrders(extractPart(user.sub))
+      await getOrders(user?._id)
     }
     fetch();
   },[])

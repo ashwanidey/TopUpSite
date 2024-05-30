@@ -1,4 +1,5 @@
 import { createContext, useEffect, useState ,useLayoutEffect} from "react";
+import { json } from "react-router-dom";
 
 export const VariableContext= createContext({});
 export const VariableProvider = ({children}) => {
@@ -20,6 +21,28 @@ export const VariableProvider = ({children}) => {
   const [after,setAfter] = useState(null);
 
   const [show,setShow] = useState(false);
+
+  const [productPageLoading,setProductPageLoading] = useState(false);
+
+  const [isLoggedIn,setIsLoggedIn]  = useState(false);
+  const [user,setUser] = useState(null);
+  const [token,setToken] = useState(null);
+
+  const deleteUser = () => {
+    localStorage.setItem("user", JSON.stringify([]));
+    localStorage.setItem("token", JSON.stringify(""));
+    localStorage.setItem("isLoggedIn", !isLoggedIn);
+  };
+
+  useLayoutEffect(() => {
+    if(window.localStorage.getItem("isLoggedIn")){
+      setIsLoggedIn(JSON.parse(localStorage.getItem("isLoggedIn")));
+      setUser(JSON.parse(localStorage.getItem("user")));
+      setToken(JSON.parse(localStorage.getItem("token")))
+    }
+  },[])
+
+
   
   
  
@@ -29,7 +52,7 @@ export const VariableProvider = ({children}) => {
   return(
     <VariableContext.Provider
     value={{
-      host,imageUrl,selected,setSelected,input1,setInput1,input2,setInput2,payment,setPayment,order,setOrder,product,setProduct,after,setAfter,admin1,admin2,admin3,show,setShow
+      host,imageUrl,selected,setSelected,input1,setInput1,input2,setInput2,payment,setPayment,order,setOrder,product,setProduct,after,setAfter,admin1,admin2,admin3,show,setShow,productPageLoading,setProductPageLoading,isLoggedIn,deleteUser,user,token
     }}
   >
     {children}

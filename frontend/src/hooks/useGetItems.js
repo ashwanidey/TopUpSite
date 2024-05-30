@@ -4,10 +4,11 @@ import { VariableContext } from "../context/VariableContext";
 export const useGetItems = () => {
   const [isLoading, setIsLoading] = useState(null);
   const [items, setItems] = useState([]);
-  const {host} = useContext(VariableContext);
+  const {host,productPageLoading,setProductPageLoading} = useContext(VariableContext);
 
   const getItems = async(productId)=>{
     setIsLoading(true);
+    // setProductPageLoading(true);
     const response = await fetch(`${host}/item/${productId}`,{
       method : "GET",
       headers: {
@@ -17,6 +18,7 @@ export const useGetItems = () => {
     })
 
     setItems(await response.json());
+    // setProductPageLoading(false);
     setIsLoading(false);
 
   }

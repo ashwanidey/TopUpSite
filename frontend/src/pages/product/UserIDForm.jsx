@@ -9,12 +9,15 @@ import Spinner from "../../components/Spinner";
 const UserIDForm = () => {
   const { productId } = useParams();
   const {isLoading,getProduct,product} = useGetProduct();
-  const {setInput1,setInput2} = useContext(VariableContext)
+  const {setInput1,setInput2,setProductPageLoading} = useContext(VariableContext)
   useEffect(()=>{
     async function fetch(){
       await getProduct(productId);
+      
     }
+    
     fetch();
+   
   },[])
   
   return (

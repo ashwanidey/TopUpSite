@@ -1,17 +1,21 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "flowbite";
 import { initFlowbite } from "flowbite";
 import { useAuth0 } from "@auth0/auth0-react";
 import { VariableContext } from "../../context/VariableContext";
+import defaultpp from "../../assets/defaultpp.png"
 
 const NavBar = () => {
-  const { loginWithRedirect,isAuthenticated,logout,user,isLoading } = useAuth0();
-  const {admin1,admin2,admin3} = useContext(VariableContext)
-  console.log(user)
+  const { loginWithRedirect,isAuthenticated,logout,isLoading } = useAuth0();
+  const {admin1,admin2,admin3,isLoggedIn,deleteUser,user,token} = useContext(VariableContext)
+  console.log(isLoggedIn)
+  
+  
+  
 
   useEffect(() => {
     initFlowbite();
-  }, [isAuthenticated]);
+  }, [isLoggedIn]);
 
   return (
     <> {!isLoading && 
@@ -27,11 +31,11 @@ const NavBar = () => {
           </span>
         </a>
         <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-          {!isAuthenticated ? 
+          {!isLoggedIn ? 
           <button
             type="button"
             class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-            onClick={() => loginWithRedirect()}
+            onClick={() => window.location = "/login"}
           >
             Login
           </button> 
@@ -46,19 +50,19 @@ const NavBar = () => {
         <div class="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
     <button type="button" class="flex text-sm bg-[#293133] rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
       <span class="sr-only">Open user menu</span>
-      <img class="w-8 h-8 rounded-full" src={`${user.picture}`} alt="user photo"/>
+      <img class="w-8 h-8 rounded-full" src={defaultpp} alt="user photo"/>
     </button>
 
     <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600" id="user-dropdown">
       <div class="px-4 py-3">
-        <span class="block text-sm text-gray-900 dark:text-white">{user.name}</span>
-        <span class="block text-sm  text-gray-500 truncate dark:text-gray-400">{user.email}</span>
+        <span class="block text-sm text-gray-900 dark:text-white">{user?.name}</span>
+        <span class="block text-sm  text-gray-500 truncate dark:text-gray-400">{user?.email}</span>
       </div>
       <ul class="py-2" aria-labelledby="user-menu-button">
         <li>
           <a href="/dashboard" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Dashboard</a>
         </li>
-        {(user.sub === admin1 || user.sub === admin2 || user.sub === admin3) && <li>
+        {(user?.role === "admin") && <li>
           <a href="/admin" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Admin Dashboard</a>
         </li>}
         
@@ -69,7 +73,10 @@ const NavBar = () => {
           <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Earnings</a>
         </li> */}
         <li>
-          <a  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white" onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>Sign out</a>
+          <a  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white" onClick={() => {
+            deleteUser();
+            window.location = "/home"
+          }}>Sign out</a>
         </li>
       </ul>
     </div>
