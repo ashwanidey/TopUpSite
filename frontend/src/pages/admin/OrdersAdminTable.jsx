@@ -1,8 +1,9 @@
 import { useAuth0 } from "@auth0/auth0-react";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import AdminTableRow from "./AdminTableRow";
 import { useGetProcessingOrder } from "../../hooks/useGetProcessingOrder";
 import Spinner from "../../components/Spinner";
+import { VariableContext } from "../../context/VariableContext";
 
 
 
@@ -11,11 +12,12 @@ const OrdersAdminTable = () => {
   const {getAccessTokenSilently} = useAuth0(); 
   const {orders,getOrders,isLoading1} = useGetProcessingOrder()
   const [change,setChange] = useState(true);
+  const {token} = useContext(VariableContext);
   
 
   useEffect(()=>{
     async function fetch(){
-      const token = await getAccessTokenSilently();
+      // const token = await getAccessTokenSilently();
       await getOrders(token);
     }
     fetch()

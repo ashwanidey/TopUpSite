@@ -15,6 +15,7 @@ import authRoutes from  "./routes/auth.js"
 import verifyRoutes from "./routes/verify.js"
 
 import { products, items } from "./data/index.js";
+import { isAdmin, verifyToken } from "./middleware/auth.js";
 
 const app = express();
 
@@ -36,6 +37,11 @@ app.use("/order",orderRoutes)
 app.use("/admin",adminRoutes)
 app.use("/auth",authRoutes)
 app.use("/verify",verifyRoutes)
+
+// app.get("/test",verifyToken,isAdmin,(req,res)=>{
+//   console.log("in")
+//   res.json({"msg":"success"})
+// });
 
 
 app.get("/keep-alive", (req, res) => {

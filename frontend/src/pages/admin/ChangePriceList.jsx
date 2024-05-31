@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useGetItems } from '../../hooks/useGetItems'
 import { useUpdateItem } from '../../hooks/useUpdateItem';
 import { useAuth0 } from '@auth0/auth0-react';
+import { VariableContext } from '../../context/VariableContext';
 
 
 const ChangePriceList = ({productId}) => {
@@ -9,10 +10,11 @@ const ChangePriceList = ({productId}) => {
   const [price,setPrice] = useState(null);
   const {UpdateItem,item} = useUpdateItem();
   const {getAccessTokenSilently} = useAuth0();
+  const {token} = useContext(VariableContext);
 
   const handleSubmit = async(itemId) => {
     
-    const token = await getAccessTokenSilently();
+    // const token = await getAccessTokenSilently();
     await UpdateItem(itemId,token,price)
   }
   

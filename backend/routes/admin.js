@@ -1,10 +1,10 @@
 import express from "express";
-import { authCheck, checkScopes } from "../middleware/verifyToken.js";
 import { getProcessingOrders, updateOrder, updatePrice } from "../controller/admin.js";
+import { isAdmin, verifyToken } from "../middleware/auth.js";
 
 const router = express.Router();
 
-router.get("/processing",authCheck,checkScopes,getProcessingOrders);
-router.get("/updateorder/:orderId/:status1/:reason1",authCheck,checkScopes,updateOrder);
-router.get("/updateitem/:itemId/:price",authCheck,checkScopes,updatePrice);
+router.get("/processing",verifyToken,isAdmin,getProcessingOrders);
+router.get("/updateorder/:orderId/:status1/:reason1",verifyToken,isAdmin,updateOrder);
+router.get("/updateitem/:itemId/:price",verifyToken,isAdmin,updatePrice);
 export default router;
