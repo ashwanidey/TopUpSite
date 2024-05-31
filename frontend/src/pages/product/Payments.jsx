@@ -35,13 +35,10 @@ const Payments = () => {
     
    
     await postOrder(values,token);
-    setSelected(null);
-    setInput1(null);
-    setInput2(null);
-    setPayment(null);
+    
    
     // setOrder(response)
-    navigate("/confirmation")
+    
 
   }
 

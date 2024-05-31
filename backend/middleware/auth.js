@@ -1,5 +1,7 @@
 import jwt from "jsonwebtoken";
 import User from "../models/User.js";
+import bcrypt from "bcrypt";
+
 
 
 export const verifyToken = async (req, res, next) => {
@@ -39,3 +41,17 @@ export const isAdmin = async(req,res,next) => {
     res.status(500).json({ error: err.message });
   }
 }
+
+export const checkApiKey = async(req, res, next)=> {
+
+  
+  const {apiKey} = req.body
+  const isMatch = await bcrypt.compare(process.env.API_KEY,apiKey);
+  console.log(isMatch)
+  if (!isMatch) {
+    return res.status(401).json({status: 'error'});
+    
+  }
+  
+  next();
+};
