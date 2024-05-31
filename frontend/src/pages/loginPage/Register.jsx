@@ -8,7 +8,7 @@ const Register = () => {
   const [name,setName] = useState("");
   const [mobileNumber,setMobileNumber] = useState("");
 
-  const {register,isEmailUnique} = useRegister();
+  const {register,isEmailUnique,isMobileNumberUnique} = useRegister();
 
   const handleSubmit = async()=>{
     await register(name,mobileNumber,email,password);
@@ -68,6 +68,7 @@ const Register = () => {
                     onChange = {(e) => setMobileNumber(e.target.value)}
                   />
                 </div>
+                {!isMobileNumberUnique ? <p className='text-[#E72929]  text-[0.9rem] mt-1'>Not Unique Mobile Number</p> : <></>}
               </div>
               <div>
                 <label

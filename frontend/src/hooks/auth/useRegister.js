@@ -4,10 +4,27 @@ import { VariableContext } from "../../context/VariableContext";
 export const useRegister = () => {
   const { host } = useContext(VariableContext);
   const [isEmailUnique,setIsEmailUnique] = useState("true");
+  const [isMobileNumberUnique,setIsMobileNumberUnique] = useState("true");
 
   const register = async (name, mobilenumber, email, password) => {
     try {
       if(name === "" || mobilenumber === "" || email === "" || password === "") return 
+
+      const existingMobileNumber = await fetch(`${host}/verify/mobilenumber`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ mobileNumber: mobilenumber }),
+      });
+      const existingMobileNumberData = await existingMobileNumber.json();
+
+      if (!existingMobileNumberData.isUnique) {
+        // Formik.setFieldError('username', 'Username must be unique');
+        setIsMobileNumberUnique(existingMobileNumberData.isUnique);
+        return;
+      }
+      setIsMobileNumberUnique(existingMobileNumberData.isUnique);
+
+
       const existingEmail = await fetch(`${host}/verify/email`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -42,5 +59,5 @@ export const useRegister = () => {
       console.log(error);
     }
   };
-  return { register,isEmailUnique };
+  return { register,isEmailUnique,isMobileNumberUnique };
 };
