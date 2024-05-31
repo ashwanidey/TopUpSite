@@ -8,7 +8,7 @@ export const useRegister = () => {
 
   const register = async (name, mobilenumber, email, password) => {
     try {
-      if(name === "" || mobilenumber === "" || email === "" || password === "") return 
+      if(name === "" || mobilenumber === "" || email === "" || password === "" || mobilenumber.length > 10 || mobilenumber.length < 10) return 
 
       const existingMobileNumber = await fetch(`${host}/verify/mobilenumber`, {
         method: "POST",
