@@ -7,7 +7,7 @@ const router = express.Router();
 
 router.post("/neworder",checkApiKey,verifyToken,createOrder)
 router.post("/createOrder",checkApiKey,verifyToken,upiGateway)
-router.post("/orderstatus",checkApiKey,verifyToken,orderStatus)
+router.post("/orderstatus",checkApiKey,orderStatus)
 
 router.get("/:userId",getOrders)
 

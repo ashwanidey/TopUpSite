@@ -26,7 +26,7 @@ export const usePostOrder = () => {
     const data = await response.json();
     console.log(data);
    
-      // window.location  = "/confirmation"
+    window.location  = data.data.payment_url
     
 
     
