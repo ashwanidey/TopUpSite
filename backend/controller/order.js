@@ -1,3 +1,4 @@
+import { sendEmail } from "../mailer.js";
 import Order from "../models/Orders.js";
 import User from "../models/User.js";
 
@@ -96,9 +97,11 @@ export const orderStatus = async (req, res) => {
     
     if(data.status && data.data.status === "success"){
       await Order.findOneAndUpdate({transactionid:client_txn_id},{status:"Processing"})
+      sendEmail(data.data.customer_email,`Order Successful`,"Order Details")
     }
     else if(data.status && data.data.status === "failure"){
       await Order.findOneAndUpdate({transactionid:client_txn_id},{status:"Failed"})
+      sendEmail(data.data.customer_email,`Order Failed`,"Order Details")
     }
 
     const updatedOrder = await Order.findOne({transactionid : client_txn_id})
