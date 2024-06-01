@@ -24,17 +24,16 @@ export const usePostOrder = () => {
     })
 
     const data = await response.json();
-    setOrder(data)
+    console.log(data);
    
-      window.location  = data.data.
-      payment_url
+      // window.location  = "/confirmation"
     
 
     
-    setSelected(null);
-    setInput1(null);
-    setInput2(null);
-    setPayment(null);
+    // setSelected(null);
+    // setInput1(null);
+    // setInput2(null);
+    // setPayment(null);
     setIsLoading(false); 
 
   }

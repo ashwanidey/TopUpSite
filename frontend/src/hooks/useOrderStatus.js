@@ -18,7 +18,8 @@ export const useOrderStatus = () => {
   const { host, setSelected, setInput1, setInput2, setPayment } =
     useContext(VariableContext);
 
-  const { order, setOrder } = useContext(VariableContext);
+  const [order,setOrder] = useState(null);
+  const [status,setStatus] = useState(null);
 
   const orderStatus = async (token) => {
     setIsLoading(true);
@@ -45,9 +46,13 @@ export const useOrderStatus = () => {
     });
 
     const data = await response.json();
-    setResponse(data.data);
+
+    
+    setOrder(data.order);
+    setStatus(data.data);
+    console.log(data.data);
     setIsLoading(false);
   };
 
-  return { isLoading, orderStatus, response };
+  return { isLoading, orderStatus, order,status };
 };

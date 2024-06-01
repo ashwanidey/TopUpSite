@@ -9,6 +9,11 @@ const orderSchema = mongoose.Schema({
     type : String,
     required: true,
   },
+  transactionid : {
+    type : String,
+    required : true,
+    unique: true,
+  },
   userid : {
     type : String,
     required : true,

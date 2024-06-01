@@ -28,12 +28,13 @@ export const createOrder = async (req,res) => {
 
 export const upiGateway = async(req,res) => {
   try{
-    const {itemname,userid,value} = req.body;
+    const {itemname,status,userid,input1,input2,paymentmode,value} = req.body;
     const number = parseFloat(value)
     const uniqueId = generateUniqueId();
     const userInfo = await User.find({_id:userid})
     const user = userInfo[0]
     console.log(user.name);
+
     const response = await fetch(`https://api.ekqr.in/api/create_order`,{
       method : "POST",
       headers : {
@@ -53,7 +54,20 @@ export const upiGateway = async(req,res) => {
     })
 
     const data = await response.json();
-    res.status(200).json(data);
+
+    const newOrder = new Order({
+      itemname,status,userid,input1,input2,paymentmode,value,transactionid: uniqueId
+    })
+
+    const savedOrder = await newOrder.save();
+
+    const newData = {
+      ...data,
+      order : savedOrder
+    }
+
+    
+    res.status(200).json(newData);
   }
   catch(err){
     res.status(500).json({error : err.message});
@@ -62,6 +76,8 @@ export const upiGateway = async(req,res) => {
 
 export const orderStatus = async (req, res) => {
   try {
+    const {client_txn_id,date} = req.body;
+    
     
 
     const response = await fetch(`https://api.ekqr.in/api/check_order_status`, {
@@ -71,15 +87,28 @@ export const orderStatus = async (req, res) => {
       },
       body: JSON.stringify({
         "key": process.env.API_KEY,
-        "client_txn_id": req.body.client_txn_id,
-        "txn_date": req.body.date
+        "client_txn_id": client_txn_id,
+        "txn_date": date
       })
     });
 
- 
-
     const data = await response.json();
-    res.status(200).json(data);
+    
+    if(data.status && data.data.status === "success"){
+      await Order.findOneAndUpdate({transactionid:client_txn_id},{status:"Processing"})
+    }
+    else if(data.status && data.data.status === "failure"){
+      await Order.findOneAndUpdate({transactionid:client_txn_id},{status:"Failed"})
+    }
+
+    const updatedOrder = await Order.findOne({transactionid : client_txn_id})
+
+    const newData = {
+      ...data,
+      order : updatedOrder
+    }
+
+    res.status(200).json(newData);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
