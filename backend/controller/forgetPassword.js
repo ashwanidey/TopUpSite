@@ -11,7 +11,7 @@ export const forgetPassword = async(req,res) => {
     
     //send email to user with link to reset password
     const token = jwt.sign({id: user._id}, process.env.JWT_SECRET, {expiresIn: "1d"})
-    sendEmail(user.email,"Reset Password",`<a href="http://localhost:5173/reset_password/${user._id}/${token}">Reset Link</a>`);
+    sendEmail(user.email,"Reset Password",`https://topupsite.netlify.app/reset_password/${user._id}/${token}`);
     res.status(200).json({msg:"Email sent."});
   } catch (err) {
     res.status(500).json({ error: err.message });
