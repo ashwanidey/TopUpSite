@@ -1,4 +1,4 @@
-import nodemailer from "nodemailer";
+import nodemailer from "nodemailer"
 
 export const sendEmail = async (email,subject,text) => {
   
@@ -25,3 +25,4 @@ export const sendEmail = async (email,subject,text) => {
     }
   });
 };
+

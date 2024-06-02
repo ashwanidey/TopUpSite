@@ -1,18 +1,17 @@
 import React, { useContext, useState } from "react";
-import { useUpdateOrder } from "../../hooks/useUpdateOrder";
+import { useUpdateOrder } from "../../../hooks/admin/useUpdateOrder";
 
 import { useAuth0 } from "@auth0/auth0-react";
-import { VariableContext } from "../../context/VariableContext";
+import { VariableContext } from "../../../context/VariableContext";
 
 const AdminTableRow = ({ data, setChange }) => {
   const { UpdateOrder, isLoading } = useUpdateOrder();
   const [reason, setReason] = useState("");
-  const {token} = useContext(VariableContext)
+  const { token } = useContext(VariableContext);
 
   const { getAccessTokenSilently } = useAuth0();
 
   const handleUpdateOrder = async (orderId, status) => {
-    
     await UpdateOrder(orderId, token, status, reason);
     setChange((prev) => !prev);
   };

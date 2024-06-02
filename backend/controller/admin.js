@@ -1,5 +1,6 @@
 import Items from "../models/Items.js";
 import Order from "../models/Orders.js"
+import User from "../models/User.js";
 
 export const getProcessingOrders = async(req,res) =>{
   try{
@@ -8,6 +9,16 @@ export const getProcessingOrders = async(req,res) =>{
   }catch(err){
     res.status(500).send({error: err.message})
   }
+}
+
+export const getUsersData = async(req,res) => {
+  try{
+    const usersData = await User.find();
+    res.status(200).send(usersData)
+  }catch(err){
+    res.status(500).send({error: err.message})
+  }
+
 }
 
 export const updateOrder = async(req,res) => {
