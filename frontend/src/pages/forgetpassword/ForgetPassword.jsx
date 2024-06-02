@@ -1,15 +1,17 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { NavLink, Navigate, useNavigate } from 'react-router-dom';
+import { VariableContext } from '../../context/VariableContext';
 
 export const ForgetPassword = () => {
 
   const [email,setEmail] = useState("");
   const [error,setError] = useState(null);
+  const {host} = useContext(VariableContext);
 
   const navigate = useNavigate();
  
   const handleSubmit = async()=>{
-    const response = await fetch("http://localhost:3001/password/forgetpassword",{
+    const response = await fetch(`${host}/password/forgetpassword`,{
       method : "POST",
       headers: {
         "Content-Type": "application/json",
@@ -44,7 +46,7 @@ export const ForgetPassword = () => {
                 <form class="space-y-4 md:space-y-6" onSubmit={(e) => e.preventDefault()}>
                     <div>
                         <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
-                        <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@company.com" required="" onChange={(e) => setEmail(e.target.value)}/>
+                        <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@company.com" required onChange={(e) => setEmail(e.target.value)}/>
                     </div>
                     {error ? <p className='text-[#E72929] mt-[-13px] text-[0.9rem] '>{error}</p> : <></>}
                     

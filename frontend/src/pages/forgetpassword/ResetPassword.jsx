@@ -1,14 +1,16 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
+import { VariableContext } from '../../context/VariableContext';
 
 export const ResetPassword = () => {
   const [password,setPassword] = useState(""); 
   const {id,token}= useParams();
   const [error,setError] = useState(null);
   const navigate = useNavigate();
+  const {host} = useContext(VariableContext);
 
   const handleSubmit = async() => {
-    const response = await fetch(`http://localhost:3001/password/reset-password/${id}/${token}`,{
+    const response = await fetch(`${host}/password/reset-password/${id}/${token}`,{
       method : "POST",
       headers: {
         "Content-Type": "application/json",
@@ -43,7 +45,7 @@ export const ResetPassword = () => {
                 <form class="space-y-4 md:space-y-6" onSubmit={(e) => e.preventDefault()}>
                     <div>
                         <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your password</label>
-                        <input type="password" name="password" id="password" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@company.com" required="" onChange={(e) => setPassword(e.target.value)}/>
+                        <input type="password" name="password" id="password" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@company.com" required onChange={(e) => setPassword(e.target.value)}/>
                     </div>
                     {error ? <span className='text-[#E72929] mt-[-13px] text-[0.9rem] '>{error}
                     {error === "The link is corrupted." && <a href="/forgetpassword" class="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500"> Regenerate Link</a>}
