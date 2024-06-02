@@ -19,6 +19,8 @@ import Toast from "./components/Toast";
 import { useAuth0 } from "@auth0/auth0-react";
 import Login from "./pages/loginPage/Login";
 import Register from "./pages/loginPage/Register";
+import ForgetPassword from "./pages/forgetpassword/ForgetPassword";
+import ResetPassword from "./pages/forgetpassword/ResetPassword";
 
 function App() {
   document.documentElement.classList.add("dark");
@@ -42,12 +44,30 @@ function App() {
             </>
           }
         ></Route>
+        
+        <Route
+          path="/forgetpassword"
+          element={
+            <>
+               {!isLoggedIn ? <ForgetPassword /> : <HomePage />}
+            </>
+          }
+        ></Route>
+
+        <Route
+          path="/reset_password/:id/:token"
+          element={
+            <>
+               {!isLoggedIn ? <ResetPassword /> : <HomePage />}
+            </>
+          }
+        ></Route>
        
         <Route
           path="/login"
           element={
             <>
-              <Login />
+              {!isLoggedIn ? <Login /> : <HomePage />}
             </>
           }
         ></Route>

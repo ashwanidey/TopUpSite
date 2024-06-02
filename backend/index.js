@@ -13,6 +13,7 @@ import orderRoutes from "./routes/orders.js"
 import adminRoutes from "./routes/admin.js"
 import authRoutes from  "./routes/auth.js"
 import verifyRoutes from "./routes/verify.js"
+import passwordRoutes from "./routes/forgetPassword.js"
 
 import { products, items } from "./data/index.js";
 import { isAdmin, verifyToken } from "./middleware/auth.js";
@@ -37,6 +38,7 @@ app.use("/order",orderRoutes)
 app.use("/admin",adminRoutes)
 app.use("/auth",authRoutes)
 app.use("/verify",verifyRoutes)
+app.use("/password",passwordRoutes)
 
 // app.get("/test",verifyToken,isAdmin,(req,res)=>{
 //   console.log("in")
