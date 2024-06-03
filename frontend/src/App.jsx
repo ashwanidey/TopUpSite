@@ -22,6 +22,7 @@ import Register from "./pages/loginPage/Register";
 import ForgetPassword from "./pages/forgetpassword/ForgetPassword";
 import ResetPassword from "./pages/forgetpassword/ResetPassword";
 import UsersData from "./pages/admin/users/UsersData";
+import DeleteUser from "./pages/admin/deleteUser/DeleteUser";
 
 function App() {
   document.documentElement.classList.add("dark");
@@ -158,6 +159,20 @@ function App() {
                   {" "}
                   {isLoggedIn && user?.role === "admin" ? (
                     <UsersData />
+                  ) : (
+                    <Dashboard />
+                  )}
+                </>
+              }
+            ></Route>
+
+            <Route
+              path="/admin/deleteuser"
+              element={
+                <>
+                  {" "}
+                  {isLoggedIn && user?.role === "admin" ? (
+                    <DeleteUser />
                   ) : (
                     <Dashboard />
                   )}

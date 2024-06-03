@@ -21,6 +21,19 @@ export const getUsersData = async(req,res) => {
 
 }
 
+export const deleteUser = async(req,res) => {
+  try{
+    const {email} = req.params;
+    const user = await User.findOne({email:email});
+    if(!user) return res.status(404).send({msg:"User not found"})
+    await User.findByIdAndDelete(user._id)
+    res.status(200).send({msg:"User deleted successfully"})
+  }catch(err){
+    res.status(500).send({error: err.message})
+  }
+
+}
+
 export const updateOrder = async(req,res) => {
   try{
     const {orderId,status1,reason1} = req.params;
