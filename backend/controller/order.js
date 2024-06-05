@@ -33,8 +33,17 @@ export const createOrder = async (req, res) => {
 
 export const upiGateway = async (req, res) => {
   try {
-    const { itemname, status, userid, input1, input2, paymentmode, value } =
-      req.body;
+    const {
+      itemname,
+      status,
+      userid,
+      input1,
+      input2,
+      paymentmode,
+      value,
+      productid,
+      itemid
+    } = req.body;
     const number = parseFloat(value);
     const uniqueId = generateUniqueId();
     const userInfo = await User.find({ _id: userid });
@@ -62,6 +71,8 @@ export const upiGateway = async (req, res) => {
 
     const newOrder = new Order({
       itemname,
+      productid,
+      itemid,
       status,
       userid,
       input1,
@@ -100,13 +111,108 @@ export const orderStatus = async (req, res) => {
       }),
     });
 
+    
+
     const data = await response.json();
+    const order = await Order.findOne({ transactionid: client_txn_id });
 
     if (data.status && data.data.status === "success") {
-      await Order.findOneAndUpdate(
-        { transactionid: client_txn_id },
-        { status: "Processing" }
-      );
+
+
+      if (order.productid === "662bc6b94d4d7c73c57ba046") {
+       
+        let email = process.env.API_EMAIL;
+        let uid = process.env.API_UID;
+        let userid = order.input1;
+        let zoneid = order.input2;
+        let product = "mobilelegends";
+        let productid = order.itemid;
+        let time = Math.floor(Date.now() / 1000); // Unix timestamp in seconds
+        
+
+        let m_key = process.env.API_MKEY; // Assuming m_key is an empty string as provided
+
+        
+        let sign_obj = {
+          email: email,
+          uid: uid,
+          userid: userid,
+          zoneid: zoneid,
+          product: product,
+          productid: productid,
+          time: time,
+        };
+
+        // Sort the object by key
+        let sorted_keys = Object.keys(sign_obj).sort();
+        let sorted_sign_obj = {};
+        sorted_keys.forEach((key) => {
+          sorted_sign_obj[key] = sign_obj[key];
+        });
+
+        // Construct the string to be hashed
+        let str = "";
+        for (let key in sorted_sign_obj) {
+          str += key + "=" + sorted_sign_obj[key] + "&";
+        }
+
+        // Generate the sign using double MD5 hashing
+        function md5(string) {
+          return CryptoJS.MD5(string).toString();
+        }
+
+        let sign = md5(md5(str + m_key));
+
+        // console.log(sign); // Output the generated sign
+        try{
+          const response = await fetch(
+            "https://www.smile.one/smilecoin/api/createorder",
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                email: email,
+                uid: uid,
+                userid: userid,
+                zoneid: zoneid,
+                product: product,
+                productid: productid,
+                time: time,
+                sign: sign,
+              }),
+            }
+          );
+      
+          const data = await response.json();
+          
+          if(data.message === "success"){
+            await Order.findOneAndUpdate(
+              { transactionid: client_txn_id },
+              { status: "Completed" }
+            );
+          }
+          else{
+            await Order.findOneAndUpdate(
+              { transactionid: client_txn_id },
+              { status: "Processing" }
+            );
+            sendEmail("ashwanidey2904@gmail.com","Order Not Completed",`Reason : ${data.message}`);
+          }
+         console.log(data)
+        }
+        catch(err){
+          console.log({ error: err.message });
+        }
+        
+      } else {
+        
+        await Order.findOneAndUpdate(
+          { transactionid: client_txn_id },
+          { status: "Processing" }
+        );
+      }
       sendEmail(data.data.customer_email, `Order Successful`, "Order Details");
     } else if (data.status && data.data.status === "failure") {
       await Order.findOneAndUpdate(

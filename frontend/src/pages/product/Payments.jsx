@@ -2,11 +2,12 @@ import React, { useContext } from 'react'
 import { VariableContext } from '../../context/VariableContext'
 import { useAuth0 } from '@auth0/auth0-react'
 import { usePostOrder } from '../../hooks/usePostOrder'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { extractPart } from '../../utils/userIdExtractor'
 
 const Payments = () => {
   const {selected,setSelected,payment,setPayment,input1,input2,order,setOrder,after,setAfter,setInput1,setInput2,setShow,isLoggedIn,user,token,verified} = useContext(VariableContext)
+  const { productId } = useParams();
 
   
 
@@ -20,9 +21,11 @@ const Payments = () => {
   
 
   const handleSubmit = async() =>{
-    console.log("in")
+    // console.log(selected)
     const values = {
       itemname : selected.name,
+      itemid : selected.itemid,
+      productid : productId,
       status : "Created",
       userid : user._id,
       input1,

@@ -5,6 +5,14 @@ const orderSchema = mongoose.Schema({
     type : String,
     required: true,
   },
+  productid :{
+    type : String,
+    required: true,
+  },
+  itemid :{
+    type : String,
+    required: true,
+  },
   status :{
     type : String,
     required: true,
