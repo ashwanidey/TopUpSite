@@ -4,7 +4,8 @@ import { VariableContext } from "../context/VariableContext";
 export const useCheckId = () => {
   const [isLoading1, setIsLoading] = useState(null);
   const [items, setItems] = useState([]);
-  const {host,productPageLoading,setProductPageLoading} = useContext(VariableContext);
+  const {host,productPageLoading,setProductPageLoading,setVerified} = useContext(VariableContext);
+  const [message,setMessage] = useState(null);
 
   const checkId = async(userid,zoneid)=>{
     setIsLoading(true);
@@ -20,12 +21,20 @@ export const useCheckId = () => {
         zoneid : zoneid
       })
     })
-
-    setItems(await response.json());
+    const data = await response.json();
+    // setItems(await response.json());
+    if(data.message === "success"){
+      setVerified(true);
+      setMessage(`Username : ${data.username}`);
+    }
+    else{
+      setVerified(false);
+      setMessage("User does not exist");
+    }
    
     setIsLoading(false);
 
   }
 
-  return {isLoading1,checkId,items};
+  return {isLoading1,checkId,items,message};
  }

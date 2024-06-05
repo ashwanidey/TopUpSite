@@ -12,20 +12,20 @@ const UserIDForm = () => {
   const {isLoading,getProduct,product} = useGetProduct();
   const {setInput1,setInput2,setProductPageLoading,input1,input2,verified,setVerified} = useContext(VariableContext)
 
-  const {checkId,items,isLoading1} = useCheckId();
-  const [message,setMessage] = useState(null);
+  const {checkId,items,isLoading1,message} = useCheckId();
+  // const [message,setMessage] = useState(null);
 
 
   const handleSubmit = async() => {
     await checkId(input1,input2);
 
-    if(items.message === "success"){
-      setVerified(true);
-      setMessage(`Username : ${items.username}`);
-    }
-    else{
-      setMessage("User does not exist");
-    }
+    // if(items.message === "success"){
+    //   setVerified(true);
+    //   setMessage(`Username : ${items.username}`);
+    // }
+    // else{
+    //   setMessage("User does not exist");
+    // }
   }
 
   useEffect(()=>{
