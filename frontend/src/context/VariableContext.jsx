@@ -3,8 +3,8 @@ import { json } from "react-router-dom";
 
 export const VariableContext= createContext({});
 export const VariableProvider = ({children}) => {
-  // const host = "https://topupsite.onrender.com";
-  const host = "http://localhost:3001";
+  const host = "https://topupsite.onrender.com";
+  // const host = "http://localhost:3001";
   const imageUrl = "https://github.com/ashwanidey/TopUpSite/blob/main/frontend/src/assets/"
   
 
@@ -27,6 +27,8 @@ export const VariableProvider = ({children}) => {
   const [isLoggedIn,setIsLoggedIn]  = useState(false);
   const [user,setUser] = useState(null);
   const [token,setToken] = useState(null);
+
+  const [verified,setVerified] = useState(null);
 
   const deleteUser = () => {
     localStorage.setItem("user", JSON.stringify([]));
@@ -52,7 +54,7 @@ export const VariableProvider = ({children}) => {
   return(
     <VariableContext.Provider
     value={{
-      host,imageUrl,selected,setSelected,input1,setInput1,input2,setInput2,payment,setPayment,order,setOrder,product,setProduct,after,setAfter,admin1,admin2,admin3,show,setShow,productPageLoading,setProductPageLoading,isLoggedIn,deleteUser,user,token
+      host,imageUrl,selected,setSelected,input1,setInput1,input2,setInput2,payment,setPayment,order,setOrder,product,setProduct,after,setAfter,admin1,admin2,admin3,show,setShow,productPageLoading,setProductPageLoading,isLoggedIn,deleteUser,user,token,verified,setVerified
     }}
   >
     {children}

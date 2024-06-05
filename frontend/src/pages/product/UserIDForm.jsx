@@ -1,15 +1,33 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useGetProduct } from "../../hooks/useGetProduct";
 import Input from "./Input";
 import { VariableContext } from "../../context/VariableContext";
 import Skeleton from "../../components/skeletons/Skeleton";
 import Spinner from "../../components/Spinner";
+import { useCheckId} from "../../hooks/useCheckId";
 
 const UserIDForm = () => {
   const { productId } = useParams();
   const {isLoading,getProduct,product} = useGetProduct();
-  const {setInput1,setInput2,setProductPageLoading} = useContext(VariableContext)
+  const {setInput1,setInput2,setProductPageLoading,input1,input2,verified,setVerified} = useContext(VariableContext)
+
+  const {checkId,items,isLoading1} = useCheckId();
+  const [message,setMessage] = useState(null);
+
+
+  const handleSubmit = async() => {
+    await checkId(input1,input2);
+
+    if(items.message === "success"){
+      setVerified(true);
+      setMessage(`Username : ${items.username}`);
+    }
+    else{
+      setMessage("User does not exist");
+    }
+  }
+
   useEffect(()=>{
     async function fetch(){
       await getProduct(productId);
@@ -19,13 +37,14 @@ const UserIDForm = () => {
     fetch();
    
   },[])
+
   
   return (
     <>
     {!isLoading ?
      <div className="py-[1.5em] px-[2em]  bg-[#293133] flex flex-col items-center rounded-[1em] w-full">
       <div className="text-white font-[500]">Order Information</div>
-      <form className="flex flex-col gap-3 mt-5 w-full">
+      <form className="flex flex-col gap-3 mt-5 w-full" onSubmit={(e) => e.preventDefault()}>
         
         {/* {product?.inputs.map(input => {
           return (
@@ -58,6 +77,13 @@ const UserIDForm = () => {
             onChange={(e)=>{setInput2(e.target.value)}}
           />
         </div>
+
+        {message && <p className="text-white">{message}</p>}
+
+        {!isLoading1 ? (productId === "662bc6b94d4d7c73c57ba046" && <button onClick={handleSubmit} className='bg-[#00C5FF] hover:bg-blue-600 rounded-full p-2.5 text-white font-[600] text-[1.1rem] w-full' >Check</button>) :
+        <div className="w-full justify-center items-center flex"><Spinner/></div>}
+
+        
         
       </form>
     </div> : <div className="w-full justify-center items-center flex"><Spinner/></div>}
