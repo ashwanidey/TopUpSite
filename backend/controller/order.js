@@ -70,6 +70,7 @@ export const upiGateway = async (req, res) => {
     const data = await response.json();
 
     const newOrder = new Order({
+      orderid : uniqueId,
       itemname,
       productid,
       itemid,

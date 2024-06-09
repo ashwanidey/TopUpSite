@@ -13,7 +13,7 @@ const OrdersBox = ({orders}) => {
                     
                     <div class="flex-1 min-w-0 ">
                         <div class="text-sm font-medium text-gray-900 dark:text-white">
-                            OrderId : {order?._id}
+                            OrderId : {order?.orderid}
                         </div>
                         <div class="text-sm text-gray-500 truncate dark:text-gray-400">
                         ItemName : {order?.itemname}

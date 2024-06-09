@@ -22,7 +22,7 @@ const Dashboard = () => {
             className="flex md:flex-row flex-col gap-10 w-full rounded-lg justify-between"
           >
             <UserProfile />
-            <Wallet />
+          
           </div>
           <Orders/>
         </div>
