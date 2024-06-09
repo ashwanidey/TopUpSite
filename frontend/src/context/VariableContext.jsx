@@ -6,6 +6,7 @@ export const VariableProvider = ({children}) => {
   const host = "https://topupsite.onrender.com";
   // const host = "http://localhost:3001";
   const imageUrl = "https://github.com/ashwanidey/TopUpSite/blob/main/frontend/src/assets/"
+  const mlbb = "66654f6a12a2c6c4028ae5d0";
   
 
   const admin1 = "google-oauth2|117233432545840735238"
@@ -54,7 +55,7 @@ export const VariableProvider = ({children}) => {
   return(
     <VariableContext.Provider
     value={{
-      host,imageUrl,selected,setSelected,input1,setInput1,input2,setInput2,payment,setPayment,order,setOrder,product,setProduct,after,setAfter,admin1,admin2,admin3,show,setShow,productPageLoading,setProductPageLoading,isLoggedIn,deleteUser,user,token,verified,setVerified
+      host,imageUrl,selected,setSelected,input1,setInput1,input2,setInput2,payment,setPayment,order,setOrder,product,setProduct,after,setAfter,admin1,admin2,admin3,show,setShow,productPageLoading,setProductPageLoading,isLoggedIn,deleteUser,user,token,verified,setVerified,mlbb
     }}
   >
     {children}

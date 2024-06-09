@@ -64,3 +64,14 @@ export const updatePrice = async(req,res) => {
     res.status(500).send({error: err.message})
   }
 }
+
+
+export const allTxn = async(req,res) => {
+  try{
+    const allTxn = await Order.find();
+    res.status(200).send(allTxn)
+  }
+  catch(err){
+    res.status(500).send({error: err.message})
+  }
+}

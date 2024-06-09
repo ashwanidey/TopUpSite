@@ -23,6 +23,7 @@ import ForgetPassword from "./pages/forgetpassword/ForgetPassword";
 import ResetPassword from "./pages/forgetpassword/ResetPassword";
 import UsersData from "./pages/admin/users/UsersData";
 import DeleteUser from "./pages/admin/deleteUser/DeleteUser";
+import AllTxn from "./pages/admin/allTransactions/AllTxn";
 
 function App() {
   document.documentElement.classList.add("dark");
@@ -179,6 +180,23 @@ function App() {
                 </>
               }
             ></Route>
+
+
+
+            <Route
+              path="/admin/txn"
+              element={
+                <>
+                  {" "}
+                  {isLoggedIn && user?.role === "admin" ? (
+                    <AllTxn />
+                  ) : (
+                    <Dashboard />
+                  )}
+                </>
+              }
+            ></Route>
+
           </Routes>
 
           <Footer />
