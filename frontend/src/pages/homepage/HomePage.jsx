@@ -6,6 +6,7 @@ import axios from "axios";
 import CardsGrid from "../../components/card/CardsGrid";
 import { useGetProducts } from "../../hooks/useGetProducts";
 import ProductSkeletons from "../../components/skeletons/ProductSkeletons";
+import whatsappIcon from "../../assets/icons8-whatsapp-48.png"
 
 const HomePage = () => {
   const { getAccessTokenSilently} = useAuth0();
@@ -52,7 +53,9 @@ const HomePage = () => {
   }
   return (
     <>
-    
+    <a href="https://wa.me/919883084820">
+    <img src={whatsappIcon} alt="" className="fixed bottom-[20px] right-[20px] z-50"/>
+    </a>
     <div className="mt-[6rem] lg:mx-[6rem] mx-[1rem] flex flex-col gap-3">
         <Carousel />
         {/* <button onClick={callUnProtected}>Protected</button> */}
