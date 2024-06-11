@@ -10,7 +10,7 @@ import { useCheckId} from "../../hooks/useCheckId";
 const UserIDForm = () => {
   const { productId } = useParams();
   const {isLoading,getProduct,product} = useGetProduct();
-  const {setInput1,setInput2,setProductPageLoading,input1,input2,verified,setVerified,mlbb} = useContext(VariableContext)
+  const {setInput1,setInput2,setProductPageLoading,input1,input2,verified,setVerified,mlbb,mlbbph} = useContext(VariableContext)
 
   const {checkId,items,isLoading1,message} = useCheckId();
   // const [message,setMessage] = useState(null);
@@ -80,7 +80,7 @@ const UserIDForm = () => {
 
         {message && <p className="text-white">{message}</p>}
 
-        {!isLoading1 ? (productId === mlbb && <button onClick={handleSubmit} className='bg-[#00C5FF] hover:bg-blue-600 rounded-full p-2.5 text-white font-[600] text-[1.1rem] w-full' >Check</button>) :
+        {!isLoading1 ? ((productId === mlbb || productId === mlbbph) && <button onClick={handleSubmit} className='bg-[#00C5FF] hover:bg-blue-600 rounded-full p-2.5 text-white font-[600] text-[1.1rem] w-full' >Check</button>) :
         <div className="w-full justify-center items-center flex"><Spinner/></div>}
 
         

@@ -120,7 +120,7 @@ export const orderStatus = async (req, res) => {
     if (data.status && data.data.status === "success") {
 
 
-      if (order.productid === "662bc6b94d4d7c73c57ba046") {
+      if (order.productid === "6667f8e25cfb5d9473316ab0" || order.productid === "6667f8e25cfb5d9473316abc") {
        
         let email = process.env.API_EMAIL;
         let uid = process.env.API_UID;
@@ -165,9 +165,16 @@ export const orderStatus = async (req, res) => {
         let sign = md5(md5(str + m_key));
 
         // console.log(sign); // Output the generated sign
+        let url;
+        if(order.productid === "6667f8e25cfb5d9473316ab0"){
+          url = "https://www.smile.one/smilecoin/api/createorder";
+        }
+        else{
+          url = "https://www.smile.one/ph/smilecoin/api/createorder";
+        }
         try{
           const response = await fetch(
-            "https://www.smile.one/smilecoin/api/createorder",
+            url,
             {
               method: "POST",
               headers: {
