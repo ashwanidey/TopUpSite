@@ -117,7 +117,7 @@ export const orderStatus = async (req, res) => {
     const data = await response.json();
     const order = await Order.findOne({ transactionid: client_txn_id });
 
-    if (data.status && data.data.status === "success") {
+    if (data.status && data.data.status === "success" && order.status === "Created") {
 
 
       if (order.productid === "6667f8e25cfb5d9473316ab0" || order.productid === "6667f8e25cfb5d9473316abc") {
@@ -222,7 +222,10 @@ export const orderStatus = async (req, res) => {
         );
       }
       sendEmail(data.data.customer_email, `Order Successful`, "Order Details");
-    } else if (data.status && data.data.status === "failure") {
+    }
+    
+    
+    else if (data.status && data.data.status === "failure") {
       await Order.findOneAndUpdate(
         { transactionid: client_txn_id },
         { status: "Failed" }

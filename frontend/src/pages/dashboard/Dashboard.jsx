@@ -5,6 +5,7 @@ import OrdersTable from "./orders/OrdersTable";
 import { useAuth0 } from "@auth0/auth0-react";
 import OrdersBox from "./orders/OrdersBox";
 import Orders from "./orders/Orders";
+import Counter from "./Counter";
 
 const Dashboard = () => {
   const { isLoading } = useAuth0();
@@ -15,13 +16,14 @@ const Dashboard = () => {
           <div
             style={{
               backgroundColor: "#252f3b",
-              padding: "24px 48px",
+              padding: "",
 
               marginBottom: "16px",
             }}
-            className="flex md:flex-row flex-col gap-10 w-full rounded-lg justify-between"
+            className="flex md:flex-row flex-col gap-10 w-full rounded-lg justify-between md:px-[48px] px-[20px] py-[24px]"
           >
             <UserProfile />
+            <Counter/>
           
           </div>
           <Orders/>

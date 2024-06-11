@@ -14,6 +14,7 @@ import adminRoutes from "./routes/admin.js"
 import authRoutes from  "./routes/auth.js"
 import verifyRoutes from "./routes/verify.js"
 import passwordRoutes from "./routes/forgetPassword.js"
+import userRoutes from "./routes/user.js"
 
 import { products, items } from "./data/index.js";
 import { isAdmin, verifyToken } from "./middleware/auth.js";
@@ -39,6 +40,7 @@ app.use("/admin",adminRoutes)
 app.use("/auth",authRoutes)
 app.use("/verify",verifyRoutes)
 app.use("/password",passwordRoutes)
+app.use("/user",userRoutes)
 
 // app.get("/test",verifyToken,isAdmin,(req,res)=>{
 //   console.log("in")
