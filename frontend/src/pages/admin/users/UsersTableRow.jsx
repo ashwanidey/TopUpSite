@@ -7,7 +7,7 @@ const UsersTableRow = ({user}) => {
         scope="row"
         class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
       >
-        {user?._id}
+        {user?.userid}
       </th>
       <td class="px-6 py-4">{user?.name}</td>
       <td class="px-6 py-4">{user?.mobilenumber}</td>

@@ -16,6 +16,7 @@ const UserProfile = () => {
         
       </div>
       <div>
+      <div className="text-white font-[600]">User Id : {user?.userid}</div>
           <div className="text-white font-[600]">Name : {user?.name}</div>
           <div className="text-white font-[600] whitespace-nowrap">Email : {user?.email}</div>
         </div>
