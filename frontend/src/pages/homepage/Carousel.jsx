@@ -1,7 +1,10 @@
 import React, { useEffect } from "react";
 import "flowbite";
-import picture from "../../assets/poster.jpg";
+// import picture from "../../assets/poster.jpg";
 import { initFlowbite } from "flowbite";
+import banner1 from "../../assets/banner1.jpg"
+import banner2 from "../../assets/banner2.jpg"
+import banner3 from "../../assets/banner3.jpg"
 
 const Carousel = () => {
   useEffect(() => {
@@ -9,47 +12,32 @@ const Carousel = () => {
   }, []);
   return (
     <>
-      <div id="default-carousel" class="relative z-10" data-carousel="slide">
-        <div class="relative h-40 overflow-hidden rounded-[1em] md:h-80 w-full">
+      <div id="default-carousel" class="relative z-10 " data-carousel="slide">
+        <div class="relative h-40 overflow-hidden rounded-[1em] md:h-80 ">
           <div
-            class="hidden duration-700 ease-in-out rounded-[1em] h-full w-full"
+            class="hidden duration-700 ease-in-out rounded-[1em] h-full "
             data-carousel-item
           >
             <img
-              src={picture}
+              src={banner2}
               class="absolute -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 w-full h-full object-cover"
               alt="..."
             />
           </div>
 
           <div class="hidden duration-700 ease-in-out w-full h-full" data-carousel-item>
-    <img src="https://cdn.unipin.com/images/banners/1712734861-700x280px%20_Website%20(80).jpg" class="absolute -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 w-full h-full object-cover" alt="..." />
+    <img src={banner1} class="absolute -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 w-full h-full object-cover" alt="..." />
 </div>
 
 
           <div class="hidden duration-700 ease-in-out" data-carousel-item>
             <img
-              src="https://cdn.unipin.com/images/banners/1713725036-700x280px%20_Website.jpg"
+              src={banner3}
               class="absolute -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 w-full h-full object-cover"
               alt="..."
             />
           </div>
 
-          <div class="hidden duration-700 ease-in-out" data-carousel-item>
-            <img
-              src="https://cdn.unipin.com/images/banners/1713845455-700X280%20(1).jpg"
-              class="absolute -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 w-full h-full object-cover"
-              alt="..."
-            />
-          </div>
-
-          <div class="hidden duration-700 ease-in-out" data-carousel-item>
-            <img
-              src="https://cdn.unipin.com/images/banners/1713754792-700x280px%20_Website%20(1).jpg"
-              class="absolute -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 w-full h-full object-cover"
-              alt="..."
-            />
-          </div>
         </div>
 
         <div class="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse">
@@ -74,20 +62,7 @@ const Carousel = () => {
             aria-label="Slide 3"
             data-carousel-slide-to="2"
           ></button>
-          <button
-            type="button"
-            class="w-5 h-3 rounded-full"
-            aria-current="false"
-            aria-label="Slide 4"
-            data-carousel-slide-to="3"
-          ></button>
-          <button
-            type="button"
-            class="w-5 h-3 rounded-full"
-            aria-current="false"
-            aria-label="Slide 5"
-            data-carousel-slide-to="4"
-          ></button>
+        
         </div>
 
         {/* <button type="button" class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
