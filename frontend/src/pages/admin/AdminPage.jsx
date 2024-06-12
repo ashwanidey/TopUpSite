@@ -2,13 +2,16 @@ import React from "react";
 import OrdersAdminTable from "./orders/OrdersAdminTable";
 import ChangePrice from "./ChangePriceDropdown";
 import { useAuth0 } from "@auth0/auth0-react";
+import AdminCounter from "./AdminCounter";
 
 const AdminPage = () => {
   const { isLoading } = useAuth0();
   return (
     <>
+      
       {!isLoading && (
         <div className="mt-[6rem] lg:mx-[6rem] mx-[1rem] flex flex-col gap-3">
+          <AdminCounter/>
           <a
             href="/admin/orders"
             class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"

@@ -75,3 +75,37 @@ export const allTxn = async(req,res) => {
     res.status(500).send({error: err.message})
   }
 }
+
+export const stats = async(req,res) => {
+  try{
+    const allTxn = await Order.find();
+    let processing=0;
+    let completed=0;
+    let refunded=0;
+    let totalSale=0;
+    for(let i =0;i<allTxn.length;i++){
+      if(allTxn[i].status === "Processing"){
+        processing++;
+      }
+      else if(allTxn[i].status === "Completed"){
+        completed++;
+        totalSale += Number(allTxn[i].value);
+      }
+      else if(allTxn[i].status === "Refunded"){
+        refunded++;
+      }
+      
+    }
+    const result = {"processing" : processing,
+      "completed" : completed,
+      "refunded" : refunded,
+      "total_sale" : totalSale,
+      "total_order" : allTxn.length
+    }
+
+    res.status(200).json(result);
+  }
+  catch(err){
+    res.status(500).send({error: err.message})
+  }
+}
