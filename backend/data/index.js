@@ -36,7 +36,7 @@ export const products = [
     istrending : true,
     importantnote : " ",
     inputs: [{label : "User Id"},{label : "Server Id"}],
-    items : ['20340','1642','13','23','25','26','27','28','29','30','33'],
+    items : ['20340','16642','13','23','25','26','27','28','29','30','33'],
     __v: 0,
   },
 
@@ -205,7 +205,7 @@ export const items = [  //10-50: BR, 210-250: PH
     _id: new mongoose.Types.ObjectId(),
     name : "Weekly Pass",
     sku: "mobilelegends BR Weekly Pass",
-    itemid : 1642,
+    itemid : 16642,
     productid: ProductIds[0],
     originalprice: 180,
     discountedprice : 150,
