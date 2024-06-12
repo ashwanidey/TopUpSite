@@ -13,29 +13,29 @@ const OrdersBox = ({orders}) => {
                     
                     <div class="flex-1 min-w-0 ">
                         <div class="text-sm font-medium text-gray-900 dark:text-white">
-                            OrderId : {order?.orderid}
+                          OrderId - {order?.orderid}
                         </div>
                         <div class="text-sm text-gray-500 truncate dark:text-gray-400">
-                        ItemName : {order?.itemname}
+                          ItemName - {order?.itemname}
                         </div>
                         <div class="text-sm text-gray-500  dark:text-gray-400" style={order?.status === "Processing" ? {color : "#FF962D"} : 
               (order?.status === "Completed" ? {color : "#9ACD32"} : {color : "#FF4646"})}>
-                        Status : {order?.status} <div>{order?.status === "Refunded" && `Reason : ${order?.reason}`}</div>
+                          Status - {order?.status} <div>{order?.status === "Refunded" && `Reason : ${order?.reason}`}</div>
                         </div>
                         <div class="text-sm text-gray-500 truncate dark:text-gray-400">
-                        Userid/Email : {order?.input1}
+                          Uid/Email - {order?.input1}
                         </div>
                         <div class="text-sm text-gray-500 truncate dark:text-gray-400">
-                        Username/Number : {order?.input2}
+                          Username/Number - {order?.input2}
                         </div>
                         <div class="text-sm text-gray-500 truncate dark:text-gray-400">
-                        Price : ₹ {order?.value}
+                          Price - ₹{order?.value}
                         </div>
                         <div class="text-sm text-gray-500 truncate dark:text-gray-400">
-                        Payment Mode: {order?.paymentmode}
+                          Payment Mode - {order?.paymentmode}
                         </div>
                         <div class="text-sm text-gray-500 truncate dark:text-gray-400">
-                        Order Date: {timeFormatter(order?.createdAt)}
+                          Date - {timeFormatter(order?.createdAt)}
                         </div>
                     </div>
                     {/* <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">

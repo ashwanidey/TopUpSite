@@ -12,11 +12,6 @@ import Spinner from '../../components/Spinner'
 const ProductPage = () => {
   const {input1,input2,selected,payment,show,setShow,productPageLoading,setProductPageLoading} = useContext(VariableContext);
   
-
-  
- 
-  
-  
   return (
    
    <div className='mt-[6rem] md:mx-9 mx-5 flex md:flex-row flex-col gap-3'>

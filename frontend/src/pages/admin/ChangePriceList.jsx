@@ -32,7 +32,13 @@ const ChangePriceList = ({ productId }) => {
               <div className="flex gap-4">
                 <div>{item.name}</div>
                 <input type="text" onChange={(e) => setPrice(e.target.value)} />
-                <button onClick={() => handleSubmit(item._id)}>Submit</button>
+                <button
+                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                    onClick={() => handleSubmit(item._id)}
+                >
+                    Submit
+                </button>
+
               </div>
             );
           })}
