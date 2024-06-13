@@ -13,7 +13,7 @@ const GridCards = ({data}) => {
       >
         <div className="w-[56px] h-[56px] lg:w-[80px] lg:h-[80px]  absolute top-[-30px] rounded-[1em]" style={{boxShadow: "0 3px 14px 0 rgba(4, 0, 0, .51)"}}>
           <div className='w-full h-full overflow-hidden rounded-[1em]'>
-        <img src={`${imageUrl}${data.imgpath}?raw=true`} onError={(e) => {
+        <img src={`/${data.imgpath}`} onError={(e) => {
               e.target.src = defaultImg;
             }} className="object-cover w-full h-full " alt="" />  
             </div>

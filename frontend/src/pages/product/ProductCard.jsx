@@ -16,7 +16,7 @@ const ProductCard = ({data,handleSelected}) => {
       <div className='p-[1em] bg-[#23292A] rounded-[1em] flex gap-5' style={selected?._id === data._id ? selectedStyle : {}} onClick={()=>handleSelected(data)}>
         <div className="min-w-[50px] max-w-[50px] md:min-w-[60px] md:max-w-[60px]">
       <img 
-      src={`${imageUrl}${data.imgpath}?raw=true`} 
+      src={`/${data.imgpath}`} 
       // src={`/src/assets/itemimage/cocgems.png`} 
       onError={(e) => {
         e.target.src = "https://i0.wp.com/zerostoreofficial.com/wp-content/uploads/2024/03/1640269077-some.png?resize=74%2C60&ssl=1";

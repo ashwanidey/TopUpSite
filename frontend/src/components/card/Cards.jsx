@@ -1,10 +1,13 @@
 import React, { useCallback, useContext, useEffect, useState } from "react";
 import defaultImg  from "../../assets/productimage/bgmi.jpeg";
 import { VariableContext } from "../../context/VariableContext";
+// import image from "../../assets/productimage/mobilelegends.jpeg"
 
 
 const Cards = ({data}) => {
   const {imageUrl} = useContext(VariableContext);
+
+  // frontend\dist\itemimage\bgmiuc.png
   
   return (
     <div className="md:w-[16%] lg:w-[18%] w-[115px] max-w-[250px] flex-shrink-0 h-[180px] md:h-[240px]">
@@ -14,7 +17,7 @@ const Cards = ({data}) => {
         style={{boxShadow: "0 3px 14px 0 rgba(4, 0, 0, .51)"}}
       >
         <div className="w-[56px] h-[56px] lg:w-[80px] lg:h-[80px] absolute top-[-30px] rounded-[1em] overflow-hidden" style={{boxShadow: "0 3px 14px 0 rgba(4, 0, 0, .51)"}}>
-          <img src={`${imageUrl}${data.imgpath}?raw=true`} onError={(e) => {
+          <img src={`/${data.imgpath}`} onError={(e) => {
               e.target.src = defaultImg;
             }} className="object-cover w-full h-full rounded-[1em]" alt="" />       
            </div>

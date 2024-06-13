@@ -5,7 +5,7 @@ export const VariableContext= createContext({});
 export const VariableProvider = ({children}) => {
   const host = "https://topupsite.onrender.com";
   // const host = "http://localhost:3001";
-  const imageUrl = "https://github.com/ashwanidey/TopUpSite/blob/main/frontend/src/assets/"
+  const imageUrl = "../../assets/"
   const mlbb = "666a62769f96a788ccdc9820";
   const mlbbph = "666a62769f96a788ccdc982c";
   
