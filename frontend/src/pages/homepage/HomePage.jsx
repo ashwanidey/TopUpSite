@@ -53,7 +53,7 @@ const HomePage = () => {
   }
   return (
     <>
-    <a href="https://wa.me/919883084820">
+    <a href="https://wa.me/917085742871">
     <img src={whatsappIcon} alt="" className="fixed bottom-[20px] right-[20px] z-50"/>
     </a>
     <div className="mt-[6rem] lg:mx-[6rem] mx-[1rem] flex flex-col gap-3">

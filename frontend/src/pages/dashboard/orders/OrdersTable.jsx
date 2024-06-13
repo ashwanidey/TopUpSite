@@ -15,26 +15,26 @@ const OrdersTable = ({orders}) => {
                   Order ID
                 </th>
                 <th scope="col" class="px-6 py-3">
-                  Item name
+                  Item
                 </th>
                 <th scope="col" class="px-6 py-3">
                   Status
                 </th>
                 <th scope="col" class="px-6 py-3">
-                Userid/ Email
+                Uid/Email
 
                 </th>
                 <th scope="col" class="px-6 py-3">
-                Username/ Number 
+                Username/Number 
                 </th>
                 <th scope="col" class="px-6 py-3">
                   Price
                 </th>
                 <th scope="col" class="px-6 py-3">
-                  Payment Method
+                  Payment Mmethod
                 </th>
                 <th scope="col" class="px-6 py-3">
-                  Order Date
+                  Date
                 </th>
                 
               </tr>
