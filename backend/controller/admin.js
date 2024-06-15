@@ -1,3 +1,4 @@
+import { sendEmail } from "../mailer.js";
 import Items from "../models/Items.js";
 import Order from "../models/Orders.js"
 import User from "../models/User.js";
@@ -37,6 +38,7 @@ export const deleteUser = async(req,res) => {
 export const updateOrder = async(req,res) => {
   try{
     const {orderId,status1,reason1} = req.params;
+    const order = await Order.findOne({_id : orderId})
    
 
     const updatedOrder = await Order.findByIdAndUpdate(
@@ -44,6 +46,22 @@ export const updateOrder = async(req,res) => {
       {status : status1,reason : reason1},
       
     )
+    if(status1 === "Completed"){
+      sendEmail(process.env.EMAIL,`Miraki - New Order Received!`,`Order Number : ${order.orderid}\n\nOrder Date : ${order.date}\n\nProduct Name : ${order.product_name}\n\nItem : ${order.itemname}\n\nUserId : ${order.input1}\n\nServerId : ${order.input2}\n\nPrice : ₹${order.value}\n\nUPI transaction id : ${order.upi_txn_id}\n\nCustomer VPA : ${order.customer_vpa}`)
+    }
+    else if(status1 === "Refunded"){
+      
+      try{
+      sendEmail(order.customer_email,`Your order cannot be completed!`,`We regret to inform you that your order could not be completed.\n\nReson : ${reason1}\n\nWe will initiate a refund amount to your source account. The amount will reflect in your account within 24 hours.\n\nOrder Number : ${order.orderid}\n\nOrder Date : ${order.date}\n\nProduct Name : ${order.product_name}\n\nItem : ${order.itemname}\n\nUserId : ${order.input1}\n\nServerId : ${order.input2}\n\nPrice : ₹${order.value}\n\nUPI transaction id : ${order.upi_txn_id}\n\nCustomer VPA : ${order.customer_vpa}\n\nThank you for purchasing from Miraki Store.\n\nIf you have any issues related to the order, kindly contact customer service via Live Chat. Our Live Chat is located at the bottom right of our website.\n\nBest Regards,\n\nMiraki Store`)
+      }
+      catch(err){
+        console.log(err.message)
+      }
+        
+      
+    }
+    
+    
     res.status(200).send(updatedOrder)
   }
   catch(err){

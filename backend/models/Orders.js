@@ -51,6 +51,27 @@ const orderSchema = mongoose.Schema({
     type : String,
     default : "",
   },
+  upi_txn_id:{
+    type:String,
+    default:"",
+  },
+  customer_vpa:{
+    type:String,
+    default:"",
+  },
+  date : {
+    type:String,
+    default:"",
+  },
+  product_name : {
+    type:String,
+    default:"",
+  },
+  customer_email : {
+    type:String,
+    default:"",
+  }
+  
 },
 { timestamps: true })
 

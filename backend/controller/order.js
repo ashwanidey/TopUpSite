@@ -1,5 +1,6 @@
 import { sendEmail } from "../mailer.js";
 import Order from "../models/Orders.js";
+import Products from "../models/Products.js";
 import User from "../models/User.js";
 import CryptoJS from "crypto-js";
 
@@ -116,11 +117,13 @@ export const orderStatus = async (req, res) => {
 
     const data = await response.json();
     const order = await Order.findOne({ transactionid: client_txn_id });
+    const product = await Products.findOne({_id : order.productid})
+    console.log(product)
 
-    if (data.status && data.data.status === "success" && order.status === "Created") {
+    if (data.status && data.data.status === "success") {
 
 
-      if (order.productid === "666a62769f96a788ccdc9820" || order.productid === "666a62769f96a788ccdc982c") {
+      if (order.productid === "666a62769f96a788ccdc9820" || order.productid === "666a62769f96a788ccdc982c" && order.status === "Created") {
        
         let email = process.env.API_EMAIL;
         let uid = process.env.API_UID;
@@ -198,15 +201,19 @@ export const orderStatus = async (req, res) => {
           if(data.message === "success"){
             await Order.findOneAndUpdate(
               { transactionid: client_txn_id },
-              { status: "Completed" }
+              { status: "Completed",customer_vpa : data.data.customer_vpa,upi_txn_id : data.data.upi_txn_id,date : date ,product_name : product.name,customer_email : data.data.customer_email  },
+              
             );
+            sendEmail(data.data.customer_email, `Your order ${data.data.client_txn_id}  has been completed successfully`, `Order Number : ${data.data.client_txn_id}\n\nOrder Date : ${date}\n\nProduct Name : ${product.name}\n\nItem : ${order.itemname}\n\nUserId : ${order.input1}\n\nServerId : ${order.input2}\n\nPrice : ₹${order.value}\n\nUPI transaction id : ${data.data.upi_txn_id}\n\nCustomer VPA : ${data.data.customer_vpa}`);
           }
           else{
             await Order.findOneAndUpdate(
               { transactionid: client_txn_id },
-              { status: "Processing" }
+              { status: "Processing",customer_vpa : data.data.customer_vpa,upi_txn_id : data.data.upi_txn_id,date : date ,product_name : product.name,customer_email : data.data.customer_email  },
+              
             );
-            sendEmail("ashwanidey2904@gmail.com","Order Not Completed",`Reason : ${data.message}`);
+            // sendEmail(data.data.customer_email,``)
+            sendEmail(process.env.EMAIL,`Miraki - New Order Received!`,`Order Number : ${data.data.client_txn_id}\n\nOrder Date : ${date}\n\nProduct Name : ${product.name}\n\nItem : ${order.itemname}\n\nUserId : ${order.input1}\n\nServerId : ${order.input2}\n\nPrice : ₹${order.value}\n\nUPI transaction id : ${data.data.upi_txn_id}\n\nCustomer VPA : ${data.data.customer_vpa}`)
           }
          console.log(data)
         }
@@ -214,14 +221,17 @@ export const orderStatus = async (req, res) => {
           console.log({ error: err.message });
         }
         
-      } else {
+        
+      } 
+      else {
         
         await Order.findOneAndUpdate(
           { transactionid: client_txn_id },
-          { status: "Processing" }
+          { status: "Processing",customer_vpa : data.data.customer_vpa,upi_txn_id : data.data.upi_txn_id,date : date,product_name : product.name ,customer_email : data.data.customer_email  }
         );
       }
-      sendEmail(data.data.customer_email, `Order Successful`, "Order Details");
+      // sendEmail(data.data.customer_email, `Order ${client_txn_id} Created`, `Order #${client_txn_id} is currently being processed and will be completed within 30 minutes.`);
+      sendEmail(process.env.EMAIL,`Miraki - New Order Received!`,`Order Number : ${data.data.client_txn_id}\n\nOrder Date : ${date}\n\nProduct Name : ${product.name}\n\nItem : ${order.itemname}\n\nUserId : ${order.input1}\n\nServerId : ${order.input2}\n\nPrice : ₹${order.value}\n\nUPI transaction id : ${data.data.upi_txn_id}\n\nCustomer VPA : ${data.data.customer_vpa}`)
     }
     
     
@@ -230,7 +240,7 @@ export const orderStatus = async (req, res) => {
         { transactionid: client_txn_id },
         { status: "Failed" }
       );
-      sendEmail(data.data.customer_email, `Order Failed`, "Order Details");
+      // sendEmail(data.data.customer_email, `Order Failed`, "Order Details");
     }
 
     const updatedOrder = await Order.findOne({ transactionid: client_txn_id });
