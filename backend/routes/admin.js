@@ -5,7 +5,7 @@ import { isAdmin, verifyToken } from "../middleware/auth.js";
 const router = express.Router();
 
 router.get("/processing",verifyToken,isAdmin,getProcessingOrders);
-router.get("/usersdata",verifyToken,isAdmin,getUsersData);
+router.get("/users_data",verifyToken,isAdmin,getUsersData);
 router.get("/alltxn",verifyToken,isAdmin,allTxn);
 router.get("/stats",stats);
 router.get("/deleteuser/:email",verifyToken,isAdmin,deleteUser);

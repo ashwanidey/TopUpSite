@@ -8,7 +8,7 @@ export const useGetUsers = () => {
 
   const getUsers = async (token) => {
     setIsLoading(true);
-    const response = await fetch(`${host}/admin/usersdata`, {
+    const response = await fetch(`${host}/admin/users_data`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
