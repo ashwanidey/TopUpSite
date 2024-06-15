@@ -38,6 +38,10 @@ const UserIDForm = () => {
    
   },[])
 
+  useEffect(()=>{
+    setVerified(false)
+  },[input1,input2])
+
   
   return (
     <>
