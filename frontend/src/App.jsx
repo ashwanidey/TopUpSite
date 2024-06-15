@@ -27,6 +27,8 @@ import AllTxn from "./pages/admin/allTransactions/AllTxn";
 import PrivacyPage from "./pages/footer/pages/PrivacyPage";
 import RefundPolicy from "./pages/footer/pages/RefundPolicy";
 import TnC from "./pages/footer/pages/TnC";
+import Verification from "./pages/verification/Verification";
+import CheckVerification from "./pages/verification/CheckVerification";
 
 function App() {
   document.documentElement.classList.add("dark");
@@ -56,10 +58,19 @@ function App() {
               path="/forgetpassword"
               element={<>{!isLoggedIn ? <ForgetPassword /> : <HomePage />}</>}
             ></Route>
+            <Route
+              path="/checkverification"
+              element={<>{!isLoggedIn ? <CheckVerification /> : <HomePage />}</>}
+            ></Route>
 
             <Route
               path="/reset_password/:id/:token"
               element={<>{!isLoggedIn ? <ResetPassword /> : <HomePage />}</>}
+            ></Route>
+            
+            <Route
+              path="/verification/:id/:token"
+              element={<>{!isLoggedIn ? <Verification /> : <HomePage />}</>}
             ></Route>
 
             <Route

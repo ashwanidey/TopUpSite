@@ -12,6 +12,7 @@ const Register = () => {
 
   const handleSubmit = async()=>{
     await register(name,mobileNumber,email,password);
+    
   }
 
  

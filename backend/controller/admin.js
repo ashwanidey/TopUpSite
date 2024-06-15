@@ -49,7 +49,7 @@ export const updateOrder = async(req,res) => {
       
     )
     if(status1 === "Completed"){
-      sendEmail(process.env.EMAIL,`Miraki - New Order Received!`,`Order Number : ${order.orderid}\n\nOrder Date : ${order.date}\n\nProduct Name : ${order.product_name}\n\nItem : ${order.itemname}\n\nUserId : ${order.input1}\n\nServerId : ${order.input2}\n\nPrice : ₹${order.value}\n\nUPI transaction id : ${order.upi_txn_id}\n\nCustomer VPA : ${order.customer_vpa}`)
+      sendEmail(order.customer_email,`Order ${order.orderid} completed succesfully`,`Order Number : ${order.orderid}\n\nOrder Date : ${order.date}\n\nProduct Name : ${order.product_name}\n\nItem : ${order.itemname}\n\nUserId : ${order.input1}\n\nServerId : ${order.input2}\n\nPrice : ₹${order.value}\n\nUPI transaction id : ${order.upi_txn_id}\n\nCustomer VPA : ${order.customer_vpa}`)
     }
     else if(status1 === "Refunded"){
       

@@ -54,7 +54,7 @@ export const useRegister = () => {
         return;
       }
 
-      window.location = "/login";
+      window.location = "/checkverification";
     } catch (error) {
       console.log(error);
     }
