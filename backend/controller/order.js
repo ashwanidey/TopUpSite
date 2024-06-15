@@ -118,9 +118,9 @@ export const orderStatus = async (req, res) => {
     const data = await response.json();
     const order = await Order.findOne({ transactionid: client_txn_id });
     const product = await Products.findOne({_id : order.productid})
-    console.log(product)
+    // console.log(product)
 
-    if (data.status && data.data.status === "success") {
+    if (data.status && data.data.status === "success" && order.status === "Created") {
 
 
       if (order.productid === "666a62769f96a788ccdc9820" || order.productid === "666a62769f96a788ccdc982c" && order.status === "Created") {
@@ -196,15 +196,16 @@ export const orderStatus = async (req, res) => {
             }
           );
       
-          const data = await response.json();
+          const data1 = await response.json();
+          // console.log(data)
           
-          if(data.message === "success"){
+          if(data1.message === "success"){
             await Order.findOneAndUpdate(
               { transactionid: client_txn_id },
               { status: "Completed",customer_vpa : data.data.customer_vpa,upi_txn_id : data.data.upi_txn_id,date : date ,product_name : product.name,customer_email : data.data.customer_email  },
               
             );
-            sendEmail(data.data.customer_email, `Your order ${data.data.client_txn_id}  has been completed successfully`, `Order Number : ${data.data.client_txn_id}\n\nOrder Date : ${date}\n\nProduct Name : ${product.name}\n\nItem : ${order.itemname}\n\nUserId : ${order.input1}\n\nServerId : ${order.input2}\n\nPrice : ₹${order.value}\n\nUPI transaction id : ${data.data.upi_txn_id}\n\nCustomer VPA : ${data.data.customer_vpa}`);
+            sendEmail(process.env.EMAIL, `Your order ${data.data.client_txn_id}  has been completed successfully`, `Order Number : ${data.data.client_txn_id}\n\nOrder Date : ${date}\n\nProduct Name : ${product.name}\n\nItem : ${order.itemname}\n\nUserId : ${order.input1}\n\nServerId : ${order.input2}\n\nPrice : ₹${order.value}\n\nUPI transaction id : ${data.data.upi_txn_id}\n\nCustomer VPA : ${data.data.customer_vpa}`);
           }
           else{
             await Order.findOneAndUpdate(
