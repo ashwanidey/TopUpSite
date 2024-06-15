@@ -12,10 +12,12 @@ const Footer = () => {
 
       <div className='grid md:grid-cols-3 sm:grid-cols-2 gap-4 mt-6 text-white'>
         <div className=''>
-          <div className='text-yellow-200 text-[1.2rem] font-[600]'>Important Links</div>
-          <div>Privacy Policy</div>
-          <div>Terms & Conditions</div>
-          <div>Refund Policy</div>
+          <div className='text-yellow-200 text-[1.2rem]  font-[600]'>Important Links</div>
+          <div className='flex flex-col'>
+          <a href='/privacypage'>Privacy Policy</a>
+          <a href='/terms-and-condition'>Terms & Conditions</a>
+          <a href='/refund-policy'>Refund Policy</a>
+          </div>
         </div>
         <div>
           <div className='text-yellow-200 text-[1.2rem] font-[600]'>Quick Links</div>

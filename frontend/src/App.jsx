@@ -24,6 +24,9 @@ import ResetPassword from "./pages/forgetpassword/ResetPassword";
 import UsersData from "./pages/admin/users/UsersData";
 import DeleteUser from "./pages/admin/deleteUser/DeleteUser";
 import AllTxn from "./pages/admin/allTransactions/AllTxn";
+import PrivacyPage from "./pages/footer/pages/PrivacyPage";
+import RefundPolicy from "./pages/footer/pages/RefundPolicy";
+import TnC from "./pages/footer/pages/TnC";
 
 function App() {
   document.documentElement.classList.add("dark");
@@ -84,6 +87,30 @@ function App() {
               element={
                 <>
                   <HomePage />
+                </>
+              }
+            ></Route>
+            <Route
+              path="/privacypage"
+              element={
+                <>
+                  <PrivacyPage />
+                </>
+              }
+            ></Route>
+            <Route
+              path="/refund-policy"
+              element={
+                <>
+                  <RefundPolicy />
+                </>
+              }
+            ></Route>
+            <Route
+              path="/terms-and-condition"
+              element={
+                <>
+                  <TnC />
                 </>
               }
             ></Route>

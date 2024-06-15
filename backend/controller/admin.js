@@ -6,6 +6,7 @@ import User from "../models/User.js";
 export const getProcessingOrders = async(req,res) =>{
   try{
     const processingOrders = await Order.find({status : "Processing"});
+    processingOrders.reverse()
     res.status(200).send(processingOrders)
   }catch(err){
     res.status(500).send({error: err.message})
@@ -15,6 +16,7 @@ export const getProcessingOrders = async(req,res) =>{
 export const getUsersData = async(req,res) => {
   try{
     const usersData = await User.find();
+    usersData.reverse()
     res.status(200).send(usersData)
   }catch(err){
     res.status(500).send({error: err.message})
@@ -87,6 +89,7 @@ export const updatePrice = async(req,res) => {
 export const allTxn = async(req,res) => {
   try{
     const allTxn = await Order.find();
+    allTxn.reverse()
     res.status(200).send(allTxn)
   }
   catch(err){

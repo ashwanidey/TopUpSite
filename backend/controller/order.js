@@ -260,6 +260,7 @@ export const getOrders = async (req, res) => {
   try {
     const { userId } = req.params;
     const orders = await Order.find({ userid: userId });
+    orders.reverse()
     res.status(200).json(orders);
   } catch (e) {
     res.status(500).json({ error: err.message });
