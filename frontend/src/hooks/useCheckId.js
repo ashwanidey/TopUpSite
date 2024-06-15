@@ -23,14 +23,18 @@ export const useCheckId = () => {
     })
     const data = await response.json();
     // setItems(await response.json());
-    if(data.message === "success"){
-      setVerified(true);
-      setMessage(`Username : ${data.username}`);
-    }
-    else{
+    if (data.message === "success") {
+      if (data.use === "b") {
+          setVerified(false);
+          setMessage("Recharge for Indo IDs is not permitted");
+      } else {
+          setVerified(true);
+          setMessage(`Username: ${data.username}`);
+      }
+  } else {
       setVerified(false);
       setMessage("User does not exist");
-    }
+  }  
    
     setIsLoading(false);
 
