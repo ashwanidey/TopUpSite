@@ -8,7 +8,7 @@ import Spinner from "../../components/Spinner";
 import { useCheckId} from "../../hooks/useCheckId";
 
 const UserIDForm = () => {
-  const { productId } = useParams();
+  const { productId,id } = useParams();
   const {isLoading,getProduct,product} = useGetProduct();
   const {setInput1,setInput2,setProductPageLoading,input1,input2,verified,setVerified,mlbb,mlbbph} = useContext(VariableContext)
 
@@ -84,7 +84,7 @@ const UserIDForm = () => {
 
         {message && <p className="text-white">{message}</p>}
 
-        {!isLoading1 ? ((productId === mlbb || productId === mlbbph) && <button onClick={handleSubmit} className='bg-[#00C5FF] hover:bg-blue-600 rounded-full p-2.5 text-white font-[600] text-[1.1rem] w-full' >Check</button>) :
+        {!isLoading1 ? ((id === mlbb || id === mlbbph) && <button onClick={handleSubmit} className='bg-[#00C5FF] hover:bg-blue-600 rounded-full p-2.5 text-white font-[600] text-[1.1rem] w-full' >Check</button>) :
         <div className="w-full justify-center items-center flex"><Spinner/></div>}
 
         

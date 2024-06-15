@@ -126,7 +126,7 @@ function App() {
               }
             ></Route>
             <Route
-              path="/product/:productId"
+              path="/product/:productId/:id"
               element={
                 <>
                   <ProductPage />

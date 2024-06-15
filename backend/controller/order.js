@@ -121,10 +121,10 @@ export const orderStatus = async (req, res) => {
     // console.log(product)
 
     if (data.status && data.data.status === "success" && order.status === "Created") {
+      console.log(product.productid)
 
-
-      if (order.productid === "666a62769f96a788ccdc9820" || order.productid === "666a62769f96a788ccdc982c" && order.status === "Created") {
-       
+      if (product.productid === 100 || product.productid === 112 && order.status === "Created") {
+        console.log("in")
         let email = process.env.API_EMAIL;
         let uid = process.env.API_UID;
         let userid = order.input1;
@@ -169,7 +169,8 @@ export const orderStatus = async (req, res) => {
 
         // console.log(sign); // Output the generated sign
         let url;
-        if(order.productid === "666a62769f96a788ccdc9820"){
+        if(product.productid === 100){
+          
           url = "https://www.smile.one/smilecoin/api/createorder";
         }
         else{

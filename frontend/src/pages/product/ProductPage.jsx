@@ -8,19 +8,23 @@ import BootStrapToast from '../../components/BootStrapToast'
 import { useGetProduct } from '../../hooks/useGetProduct'
 import { useGetItems } from '../../hooks/useGetItems'
 import Spinner from '../../components/Spinner'
+import Banner from './Banner'
 
 const ProductPage = () => {
   const {input1,input2,selected,payment,show,setShow,productPageLoading,setProductPageLoading} = useContext(VariableContext);
   
   return (
    
-   <div className='mt-[6rem] md:mx-9 mx-5 flex md:flex-row flex-col gap-3'>
+   <div className='mt-[6rem] md:mx-9 mx-5 '>
    {!productPageLoading ? 
    <>
+   <Banner/>
+   <div className='flex md:flex-row flex-col gap-3'>
     <Products/>
     <div className='flex flex-col  md:w-[50%] gap-5'>
     <UserIDForm/>
     <Payments/>
+    </div>
     </div>
     </>
     : <div className='flex w-full justify-center items-center'><Spinner/></div>}
