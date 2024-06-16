@@ -1,11 +1,13 @@
-import React, { useEffect } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { useGetProduct } from '../../hooks/useGetProduct';
 import defaultImg  from "../../assets/productimage/bgmi.jpeg";
+import { VariableContext } from '../../context/VariableContext';
 
 const Banner = () => {
 
-  const {productId}  = useParams();
+  const {productId,id}  = useParams();
+  const {mlbb,mlbbph} = useContext(VariableContext)
   const {getProduct,product,isLoading} = useGetProduct();
   
   useEffect(()=>{
@@ -22,7 +24,7 @@ const Banner = () => {
     {!isLoading ? 
     <div className='w-full mb-10'>
       <div className='flex md:gap-10 gap-5'>
-       <div className="max-w-[56px] min-w-[56px] h-[56px] lg:max-w-[80px] lg:h-[80px] lg:min-w-[80px] rounded-[1em] overflow-hidden" style={{boxShadow: "0 3px 14px 0 rgba(4, 0, 0, .51)"}}>
+       <div className="max-w-[90px] min-w-[80px] h-[90px] lg:max-w-[130px] lg:h-[130pxpx] lg:min-w-[130px] rounded-[1em] overflow-hidden" style={{boxShadow: "0 3px 14px 0 rgba(4, 0, 0, .51)"}}>
       <img src={`/${product?.imgpath}`} alt=""  className="object-cover w-full h-full rounded-[1em]" onError={(e) => {
               e.target.src = defaultImg;
             }} />
@@ -31,7 +33,11 @@ const Banner = () => {
       <div className='text-white font-[700] md:text-[2rem]  text-[1.5rem]'>
             {product && (product?.name).toUpperCase()}
       </div>
-      <div className='text-white font-[700] text-[1.1rem] '>
+      <div className='text-blue-500 font-[700] lg:text-[1.3rem] text-[1.1rem] '>
+            {/* {product?.note} */}
+            {(id === mlbb || id === mlbbph) ? "Instant Delivery" : "Delivery within 30 mins"}
+      </div>
+      <div className='text-white font-[700] text-[1.1rem] lg:mt-5'>
             {/* {product?.note} */}
             Note
       </div>

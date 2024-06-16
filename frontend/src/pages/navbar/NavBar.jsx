@@ -8,7 +8,7 @@ import defaultpp from "../../assets/defaultpp.png"
 const NavBar = () => {
   const { loginWithRedirect,isAuthenticated,logout,isLoading } = useAuth0();
   const {admin1,admin2,admin3,isLoggedIn,deleteUser,user,token} = useContext(VariableContext)
-  console.log(isLoggedIn)
+  
 
   useEffect(() => {
     initFlowbite();

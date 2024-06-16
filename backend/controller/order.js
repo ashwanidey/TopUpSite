@@ -206,7 +206,7 @@ export const orderStatus = async (req, res) => {
               { status: "Completed",customer_vpa : data.data.customer_vpa,upi_txn_id : data.data.upi_txn_id,date : date ,product_name : product.name,customer_email : data.data.customer_email  },
               
             );
-            sendEmail(process.env.EMAIL, `Your order ${data.data.client_txn_id}  has been completed successfully`, `Order Number : ${data.data.client_txn_id}\n\nOrder Date : ${date}\n\nProduct Name : ${product.name}\n\nItem : ${order.itemname}\n\nUserId : ${order.input1}\n\nServerId : ${order.input2}\n\nPrice : ₹${order.value}\n\nUPI transaction id : ${data.data.upi_txn_id}\n\nCustomer VPA : ${data.data.customer_vpa}`);
+            sendEmail(data.data.customer_email, `Your order ${data.data.client_txn_id}  has been completed successfully`, `Order Number : ${data.data.client_txn_id}\n\nOrder Date : ${date}\n\nProduct Name : ${product.name}\n\nItem : ${order.itemname}\n\nUserId : ${order.input1}\n\nServerId : ${order.input2}\n\nPrice : ₹${order.value}\n\nUPI transaction id : ${data.data.upi_txn_id}\n\nCustomer VPA : ${data.data.customer_vpa}`);
           }
           else{
             await Order.findOneAndUpdate(
