@@ -34,12 +34,12 @@ const Banner = () => {
             {product && (product?.name).toUpperCase()}
       </div>
       <div className='text-blue-500 font-[700] lg:text-[1.3rem] text-[1.1rem] '>
-            {/* {product?.note} */}
+            
             {(id === mlbb || id === mlbbph) ? "Instant Delivery" : "Delivery within 30 mins"}
       </div>
-      <div className='text-white font-[700] text-[1.1rem] lg:mt-5'>
-            {/* {product?.note} */}
-            Note
+      <div className='text-white font-[700] text-[1rem] md:text-[1.1rem] lg:mt-5'>
+            Note : {product?.importantnote}
+            
       </div>
       </div>
       </div>

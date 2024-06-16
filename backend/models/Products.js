@@ -24,6 +24,10 @@ const productSchema = mongoose.Schema(
       type:String,
       default : "",
     },
+    importantnote : {
+      type:String,
+      default : "",
+    },
     inputs : {
       type : Array,
       default : [],
