@@ -31,9 +31,9 @@ const Confirmation = () => {
       <div className="mt-[6rem] md:mx-9 mx-5 flex-col gap-3 flex justify-center md:items-center w-full">
         <div className="top-20 bg-[#363C3F] p-10 rounded-lg md:w-[30%] w-full flex flex-col items-center">
           <div className="font-[800] text-[1.5rem] text-white mb-3">ORDER PLACED SUCCESSFULLY</div>
-          {order?.status === "Processing" && <div>Order #{order?._id} is currently being processed and will be completed within 30 minutes.</div>}
+          {order?.status === "Processing" && <div>Order #{order?.orderid} is currently being processed and will be completed within 30 minutes.</div>}
           <div className="text-white font-[500] flex flex-col gap-3">
-            <div>Order ID - {order?._id}</div>
+            <div>Order ID - {order?.orderid}</div>
             <div>Item - {order?.itemname}</div>
             <div>Payment Mode - {order && (order?.paymentmode).toUpperCase()}</div>
             <div>Status : {order?.status}</div>

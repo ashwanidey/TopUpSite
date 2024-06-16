@@ -21,7 +21,7 @@ const AdminTableRow = ({ data, setChange }) => {
         scope="row"
         class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
       >
-        {data?._id}
+        {data?.orderid}
       </th>
       <td class="px-6 py-4">{data?.itemname}</td>
       <td
