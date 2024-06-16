@@ -49,123 +49,47 @@ export const updateOrder = async(req,res) => {
       
     )
     if(status1 === "Completed"){
-      // sendEmail(order.customer_email,`Order ${order.orderid} completed succesfully`,`Order Number : ${order.orderid}\n\nOrder Date : ${order.date}\n\nProduct Name : ${order.product_name}\n\nItem : ${order.itemname}\n\nUserId : ${order.input1}\n\nServerId : ${order.input2}\n\nPrice : ₹${order.value}\n\nUPI transaction id : ${order.upi_txn_id}\n\nCustomer VPA : ${order.customer_vpa}`)
-      const emailBody = `
-            <p>Your order ${order.orderid} has been completed.</p>
-            <table border="1" cellpadding="5" cellspacing="0">
-                <tr>
-                    <th>Order Number:</th>
-                    <td>${order.orderid}</td>
-                    <th>Order Date:</th>
-                    <td>${order.date}</td>
-                </tr>
-                <tr>
-                    <td colspan="4"><strong>Order Status:</strong> Completed</td>
-                </tr>
-                <tr>
-                    <td colspan="4">
-                        <strong>Product:</strong>
-                        <ul>
-                            <li>${order.product_name}</li>
-                            <li><strong>Quantity:</strong> ${order.itemname}</li>
-                            <li><strong>User ID:</strong> ${order.input1}</li>
-                            <li><strong>Server ID:</strong> ${order.input2}</li>
-                        </ul>
-                    </td>
-                </tr>
-                <tr>
-                    <th>Price:</th>
-                    <td>₹${order.value}</td>
-                    <th>Payment Method:</th>
-                    <td>UPI</td>
-                </tr>
-                <tr>
-                    <th>UPI Transaction ID:</th>
-                    <td>${order.upi_txn_id}</td>
-                    <th>Total:</th>
-                    <td>₹${order.value}</td>
-                </tr>
-            </table>
-            <p>Thank you for purchasing from Miraki Store.</p>
-            <p>If you have any issues related to the order, kindly contact customer service via <a href="https://example.com/livechat">Live Chat</a>. Our Live Chat is located at the bottom right of our website. You may check your order status at <a href="https://example.com/orderpage">my order page</a>.</p>
-            <p>Best Regards,<br>Miraki Store</p>
-    `;
-
-    sendEmail(order.customer_email, `Order ${order.orderid} completed successfully!`, emailBody);
-
+      sendEmail(order.customer_email,`Your order ${order.orderid} has been completed succesfully`,
+        `Order Number : ${order.orderid}\n\n
+        Order Date : ${order.date}\n\n
+        Product Name : ${order.product_name}\n\n
+        Item : ${order.itemname}\n\n
+        UserId : ${order.input1}\n\n
+        ServerId : ${order.input2}\n\n
+        Price : ₹${order.value}\n\n
+        UPI transaction id : ${order.upi_txn_id}\n\n
+        
+        Thank you for purchasing from Miraki Store.\n\n
+        
+        If you have any issues related to the order, kindly contact customer service via Live Chat. Our Live Chat is located at the bottom right of our website.\n\n
+        Best Regards,\n\n
+        Miraki Store`)
+        // Customer VPA : ${order.customer_vpa}
+     
     }
     else if(status1 === "Refunded"){
       
       try{
-      // sendEmail(order.customer_email,`Your order cannot be completed!`,`We regret to inform you that your order could not be completed.\n\nReson : ${reason1}\n\nWe will initiate a refund amount to your source account. The amount will reflect in your account within 24 hours.\n\nOrder Number : ${order.orderid}\n\nOrder Date : ${order.date}\n\nProduct Name : ${order.product_name}\n\nItem : ${order.itemname}\n\nUserId : ${order.input1}\n\nServerId : ${order.input2}\n\nPrice : ₹${order.value}\n\nUPI transaction id : ${order.upi_txn_id}\n\nCustomer VPA : ${order.customer_vpa}\n\nThank you for purchasing from Miraki Store.\n\nIf you have any issues related to the order, kindly contact customer service via Live Chat. Our Live Chat is located at the bottom right of our website.\n\nBest Regards,\n\nMiraki Store`)
-      const emailBody = `
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Order Notification</title>
-    <style>
-        body { font-family: Arial, sans-serif; line-height: 1.6; }
-        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-        th, td { padding: 10px; border: 1px solid #ddd; }
-        th { background-color: #f4f4f4; }
-        ul { list-style-type: none; padding-left: 0; }
-    </style>
-</head>
-<body>
-    <p>We regret to inform you that your order could not be completed.</p>
-    <p>Reason: ${reason1}</p>
-    <table>
-        <tr>
-            <th>Order Number:</th>
-            <td>${order.orderid}</td>
-            <th>Order Date:</th>
-            <td>${order.date}</td>
-        </tr>
-        <tr>
-            <td colspan="4"><strong>Order Status:</strong> Not Completed</td>
-        </tr>
-        <tr>
-            <td colspan="4">
-                <strong>Product:</strong>
-                <ul>
-                    <li>${order.product_name}</li>
-                    <li><strong>Quantity:</strong> ${order.itemname}</li>
-                    <li><strong>User ID:</strong> ${order.input1}</li>
-                    <li><strong>Server ID:</strong> ${order.input2}</li>
-                </ul>
-            </td>
-        </tr>
-        <tr>
-            <th>Price:</th>
-            <td>₹${order.value}</td>
-            <th>Payment Method:</th>
-            <td>UPI</td>
-        </tr>
-        <tr>
-            <th>UPI Transaction ID:</th>
-            <td>${order.upi_txn_id}</td>
-            <th>Total:</th>
-            <td>₹${order.value}</td>
-        </tr>
-        <tr>
-            <th>Customer VPA:</th>
-            <td>${order.customer_vpa}</td>
-            <th>Refund Amount:</th>
-            <td>₹${order.value}</td>
-        </tr>
-    </table>
-    <p>The refund amount will reflect in your account within 24 hours.</p>
-    <p>Thank you for purchasing from Miraki Store.</p>
-    <p>If you have any issues related to the order, kindly contact customer service via <a href="https://example.com/livechat">Live Chat</a>. Our Live Chat is located at the bottom right of our website. You may also contact us via email at support@example.com.</p>
-    <p>Best Regards,<br>Miraki Store</p>
-</body>
-</html>
-`;
-
-sendEmail(order.customer_email, `Your order cannot be completed!`, emailBody);
-  
+      sendEmail(order.customer_email,`Your order cannot be completed!`,
+        `We regret to inform you that your order could not be completed.\n\n
+        Reson : ${reason1}\n\n
+        We will initiate a refund amount to your source account. The amount will reflect in your account within 24 hours.\n\n
+        Order Number : ${order.orderid}\n\n
+        Order Date : ${order.date}\n\n
+        Product Name : ${order.product_name}\n\n
+        Item : ${order.itemname}\n\n
+        UserId : ${order.input1}\n\n
+        ServerId : ${order.input2}\n\n
+        Price : ₹${order.value}\n\n
+        UPI transaction id : ${order.upi_txn_id}\n\n
+        Customer VPA : ${order.customer_vpa}\n\n
+        
+        Thank you for purchasing from Miraki Store.\n\n
+        
+        If you have any issues related to the order, kindly contact customer service via Live Chat. Our Live Chat is located at the bottom right of our website.\n\n
+        Best Regards,\n\n
+        Miraki Store`)
+       
     }
       catch(err){
         console.log(err.message)

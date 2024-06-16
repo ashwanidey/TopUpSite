@@ -11,8 +11,19 @@ export const forgetPassword = async(req,res) => {
     
     //send email to user with link to reset password
     const token = jwt.sign({id: user._id}, process.env.JWT_SECRET, {expiresIn: "1d"})
-    sendEmail(user.email,"Reset Password",`https://topupsite.netlify.app/reset_password/${user._id}/${token}`);
-    res.status(200).json({msg:"Email sent."});
+    sendEmail(user.email,"Reset Password",
+      `
+      Dear user,\n
+      We received a request to reset your password for your Miraki Store account.\m
+      Please click below to reset your password\n\n
+      https://topupsite.netlify.app/reset_password/${user._id}/${token}\n\n
+      
+      If you did not request a password reset, please ignore this email. Your password will remain unchanged.\n\n
+      Best Regards,\n
+      Miraki Store\n
+      `);
+
+    res.status(200).json({msg:"Email sent, please check your inbox."});
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
@@ -34,7 +45,7 @@ export const resetPassword = async(req,res) => {
 
     const newUser = await User.findByIdAndUpdate({_id: id}, {password: passwordHash})
 
-    res.status(500).json({msg: "Successfully changed the password",code:"0"});
+    res.status(500).json({msg: "Password changed successfully.",code:"0"});
 
   } catch (err) {
     res.status(500).json({ error: err.message });

@@ -207,7 +207,22 @@ export const orderStatus = async (req, res) => {
               { status: "Completed",customer_vpa : data.data.customer_vpa,upi_txn_id : data.data.upi_txn_id,date : date ,product_name : product.name,customer_email : data.data.customer_email  },
               
             );
-            sendEmail(data.data.customer_email, `Your order ${data.data.client_txn_id}  has been completed successfully`, `Order Number : ${data.data.client_txn_id}\n\nOrder Date : ${date}\n\nProduct Name : ${product.name}\n\nItem : ${order.itemname}\n\nUserId : ${order.input1}\n\nServerId : ${order.input2}\n\nPrice : ₹${order.value}\n\nUPI transaction id : ${data.data.upi_txn_id}\n\nCustomer VPA : ${data.data.customer_vpa}`);
+            sendEmail(data.data.customer_email, `Your order ${data.data.client_txn_id}  has been completed successfully`, 
+              `Order Number : ${data.data.client_txn_id}\n\n
+              Order Date : ${date}\n\n
+              Product Name : ${product.name}\n\n
+              Item : ${order.itemname}\n\n
+              UserId : ${order.input1}\n\n
+              ServerId : ${order.input2}\n\n
+              Price : ₹${order.value}\n\n
+              UPI transaction id : ${data.data.upi_txn_id}\n\n
+              
+              Thank you for purchasing from Miraki Store.\n\n
+              
+              If you have any issues related to the order, kindly contact customer service via Live Chat. Our Live Chat is located at the bottom right of our website.\n\n
+              Best Regards,\n\n
+              Miraki Store`);
+              // Customer VPA : ${data.data.customer_vpa}
           }
           else{
             await Order.findOneAndUpdate(
@@ -216,7 +231,16 @@ export const orderStatus = async (req, res) => {
               
             );
             // sendEmail(data.data.customer_email,``)
-            sendEmail(process.env.EMAIL,`Miraki - New Order Received!`,`Order Number : ${data.data.client_txn_id}\n\nOrder Date : ${date}\n\nProduct Name : ${product.name}\n\nItem : ${order.itemname}\n\nUserId : ${order.input1}\n\nServerId : ${order.input2}\n\nPrice : ₹${order.value}\n\nUPI transaction id : ${data.data.upi_txn_id}\n\nCustomer VPA : ${data.data.customer_vpa}`)
+            sendEmail(process.env.EMAIL,`Miraki - New Order Received!`,
+              `Order Number : ${data.data.client_txn_id}\n\n
+              Order Date : ${date}\n\n
+              Product Name : ${product.name}\n\n
+              Item : ${order.itemname}\n\n
+              UserId : ${order.input1}\n\n
+              ServerId : ${order.input2}\n\n
+              Price : ₹${order.value}\n\n
+              UPI transaction id : ${data.data.upi_txn_id}\n\n
+              Customer VPA : ${data.data.customer_vpa}`)
           }
       
         }
@@ -233,7 +257,16 @@ export const orderStatus = async (req, res) => {
           { status: "Processing",customer_vpa : data.data.customer_vpa,upi_txn_id : data.data.upi_txn_id,date : date,product_name : product.name ,customer_email : data.data.customer_email  }
         );
       }
-      sendEmail(process.env.EMAIL,`Miraki - New Order Received!`,`Order Number : ${data.data.client_txn_id}\n\nOrder Date : ${date}\n\nProduct Name : ${product.name}\n\nItem : ${order.itemname}\n\nUserId : ${order.input1}\n\nServerId : ${order.input2}\n\nPrice : ₹${order.value}\n\nUPI transaction id : ${data.data.upi_txn_id}\n\nCustomer VPA : ${data.data.customer_vpa}`)
+      sendEmail(process.env.EMAIL,`Miraki - New Order Received!`,
+        `Order Number : ${data.data.client_txn_id}\n\n
+        Order Date : ${date}\n\n
+        Product Name : ${product.name}\n\n
+        Item : ${order.itemname}\n\n
+        UserId : ${order.input1}\n\n
+        ServerId : ${order.input2}\n\n
+        Price : ₹${order.value}\n\n
+        UPI transaction id : ${data.data.upi_txn_id}\n\n
+        Customer VPA : ${data.data.customer_vpa}`)
     }
     
     
