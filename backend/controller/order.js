@@ -49,7 +49,8 @@ export const upiGateway = async (req, res) => {
     const uniqueId = generateUniqueId();
     const userInfo = await User.find({ _id: userid });
     const user = userInfo[0];
-    console.log(user.name);
+    
+  
 
     const response = await fetch(`https://api.ekqr.in/api/create_order`, {
       method: "POST",
@@ -121,10 +122,10 @@ export const orderStatus = async (req, res) => {
     // console.log(product)
 
     if (data.status && data.data.status === "success" && order.status === "Created") {
-      console.log(product.productid)
+      
 
       if (product.productid === 100 || product.productid === 112 && order.status === "Created") {
-        console.log("in")
+        
         let email = process.env.API_EMAIL;
         let uid = process.env.API_UID;
         let userid = order.input1;
@@ -169,7 +170,7 @@ export const orderStatus = async (req, res) => {
 
         // console.log(sign); // Output the generated sign
         let url;
-        console.log(product.productid === 100);
+       
         if(product.productid === 100){
           
           url = "https://www.smile.one/smilecoin/api/createorder";
@@ -227,13 +228,14 @@ export const orderStatus = async (req, res) => {
         
       } 
       else {
-        
+       
         await Order.findOneAndUpdate(
           { transactionid: client_txn_id },
           { status: "Processing",customer_vpa : data.data.customer_vpa,upi_txn_id : data.data.upi_txn_id,date : date,product_name : product.name ,customer_email : data.data.customer_email  }
         );
+        sendEmail(process.env.EMAIL,`Miraki - New Order Received!`,`Order Number : ${data.data.client_txn_id}\n\nOrder Date : ${date}\n\nProduct Name : ${product.name}\n\nItem : ${order.itemname}\n\nUserId : ${order.input1}\n\nServerId : ${order.input2}\n\nPrice : ₹${order.value}\n\nUPI transaction id : ${data.data.upi_txn_id}\n\nCustomer VPA : ${data.data.customer_vpa}`)
       }
-      sendEmail(process.env.EMAIL,`Miraki - New Order Received!`,`Order Number : ${data.data.client_txn_id}\n\nOrder Date : ${date}\n\nProduct Name : ${product.name}\n\nItem : ${order.itemname}\n\nUserId : ${order.input1}\n\nServerId : ${order.input2}\n\nPrice : ₹${order.value}\n\nUPI transaction id : ${data.data.upi_txn_id}\n\nCustomer VPA : ${data.data.customer_vpa}`)
+      
     }
     
     
