@@ -16,7 +16,7 @@ export const forgetPassword = async(req,res) => {
       Dear user,\n
       We received a request to reset your password for your Miraki Store account.\m
       Please click below to reset your password\n\n
-      https://topupsite.netlify.app/reset_password/${user._id}/${token}\n\n
+      https://mirakistore.com/reset_password/${user._id}/${token}\n\n
       
       If you did not request a password reset, please ignore this email. Your password will remain unchanged.\n\n
       Best Regards,\n

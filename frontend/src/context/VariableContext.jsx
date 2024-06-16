@@ -4,8 +4,7 @@ import { json } from "react-router-dom";
 export const VariableContext= createContext({});
 export const VariableProvider = ({children}) => {
    const host = "https://topupsite.onrender.com";
-  // const host = "http://localhost:3001";
-//const host = "http://13.233.121.186:3001"
+  // const host = "http://localhost:8080";
   const imageUrl = "../../assets/"
   const mlbb = "100";
   const mlbbph = "112";
@@ -47,13 +46,6 @@ export const VariableProvider = ({children}) => {
     }
   },[])
 
-
-  
-  
- 
-  
-    
- 
   return(
     <VariableContext.Provider
     value={{

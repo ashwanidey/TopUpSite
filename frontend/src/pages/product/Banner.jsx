@@ -24,7 +24,7 @@ const Banner = () => {
     {!isLoading ? 
     <div className='w-full mb-10'>
       <div className='flex md:gap-10 gap-5'>
-       <div className="max-w-[90px] min-w-[80px] h-[90px] lg:max-w-[130px] lg:h-[130pxpx] lg:min-w-[130px] rounded-[1em] overflow-hidden" style={{boxShadow: "0 3px 14px 0 rgba(4, 0, 0, .51)"}}>
+       <div className="max-w-[90px] min-w-[90px] h-[90px] lg:max-w-[130px] lg:h-[130px] lg:min-w-[130px] rounded-[1em] overflow-hidden" style={{boxShadow: "0 3px 14px 0 rgba(4, 0, 0, .51)"}}>
       <img src={`/${product?.imgpath}`} alt=""  className="object-cover w-full h-full rounded-[1em]" onError={(e) => {
               e.target.src = defaultImg;
             }} />

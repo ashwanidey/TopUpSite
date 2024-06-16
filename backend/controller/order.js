@@ -65,7 +65,7 @@ export const upiGateway = async (req, res) => {
         customer_name: user.name,
         customer_email: user.email,
         customer_mobile: user.mobilenumber,
-        redirect_url: "https://topupsite.netlify.app/confirmation",
+        redirect_url: "https://mirakistore.com/confirmation",
       }),
     });
 

@@ -29,7 +29,7 @@ export const register = async (req, res) => {
       `Dear user,\n
       Thank you for registering on Miraki Store.\n
       Please click below to verify your email address.\n\n
-      https://topupsite.netlify.app/verification/${savedUser._id}/${token}\n\n
+      https://mirakistore.com/verification/${savedUser._id}/${token}\n\n
       
       If you did not request this, please ignore this email.\n\n
       Best Regards,\n
@@ -77,7 +77,7 @@ export const login = async (req, res) => {
         Dear user,\n
         Thank you for registering on Miraki Store.\n
         Please click below to verify your email address.\n\n
-        https://topupsite.netlify.app/verification/${user._id}/${token}\n\n
+        https://mirakistore.com/verification/${user._id}/${token}\n\n
         If you did not request this, please ignore this email.\n\n
         Best Regards,\n
         Miraki Store\n`)
