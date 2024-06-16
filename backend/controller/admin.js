@@ -49,13 +49,48 @@ export const updateOrder = async(req,res) => {
       
     )
     if(status1 === "Completed"){
-      sendEmail(order.customer_email,`Order ${order.orderid} completed succesfully`,`Order Number : ${order.orderid}\n\nOrder Date : ${order.date}\n\nProduct Name : ${order.product_name}\n\nItem : ${order.itemname}\n\nUserId : ${order.input1}\n\nServerId : ${order.input2}\n\nPrice : ₹${order.value}\n\nUPI transaction id : ${order.upi_txn_id}\n\nCustomer VPA : ${order.customer_vpa}`)
+      sendEmail(order.customer_email,`Your order ${order.orderid} has been completed succesfully`,
+        `Order Number : ${order.orderid}\n\n
+        Order Date : ${order.date}\n\n
+        Product Name : ${order.product_name}\n\n
+        Item : ${order.itemname}\n\n
+        UserId : ${order.input1}\n\n
+        ServerId : ${order.input2}\n\n
+        Price : ₹${order.value}\n\n
+        UPI transaction id : ${order.upi_txn_id}\n\n
+        
+        Thank you for purchasing from Miraki Store.\n\n
+        
+        If you have any issues related to the order, kindly contact customer service via Live Chat. Our Live Chat is located at the bottom right of our website.\n\n
+        Best Regards,\n\n
+        Miraki Store`)
+        // Customer VPA : ${order.customer_vpa}
+     
     }
     else if(status1 === "Refunded"){
       
       try{
-      sendEmail(order.customer_email,`Your order cannot be completed!`,`We regret to inform you that your order could not be completed.\n\nReson : ${reason1}\n\nWe will initiate a refund amount to your source account. The amount will reflect in your account within 24 hours.\n\nOrder Number : ${order.orderid}\n\nOrder Date : ${order.date}\n\nProduct Name : ${order.product_name}\n\nItem : ${order.itemname}\n\nUserId : ${order.input1}\n\nServerId : ${order.input2}\n\nPrice : ₹${order.value}\n\nUPI transaction id : ${order.upi_txn_id}\n\nCustomer VPA : ${order.customer_vpa}\n\nThank you for purchasing from Miraki Store.\n\nIf you have any issues related to the order, kindly contact customer service via Live Chat. Our Live Chat is located at the bottom right of our website.\n\nBest Regards,\n\nMiraki Store`)
-      }
+      sendEmail(order.customer_email,`Your order cannot be completed!`,
+        `We regret to inform you that your order could not be completed.\n\n
+        Reson : ${reason1}\n\n
+        We will initiate a refund amount to your source account. The amount will reflect in your account within 24 hours.\n\n
+        Order Number : ${order.orderid}\n\n
+        Order Date : ${order.date}\n\n
+        Product Name : ${order.product_name}\n\n
+        Item : ${order.itemname}\n\n
+        UserId : ${order.input1}\n\n
+        ServerId : ${order.input2}\n\n
+        Price : ₹${order.value}\n\n
+        UPI transaction id : ${order.upi_txn_id}\n\n
+        Customer VPA : ${order.customer_vpa}\n\n
+        
+        Thank you for purchasing from Miraki Store.\n\n
+        
+        If you have any issues related to the order, kindly contact customer service via Live Chat. Our Live Chat is located at the bottom right of our website.\n\n
+        Best Regards,\n\n
+        Miraki Store`)
+       
+    }
       catch(err){
         console.log(err.message)
       }
