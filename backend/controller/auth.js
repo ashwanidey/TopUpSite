@@ -26,6 +26,7 @@ export const register = async (req, res) => {
     const token = jwt.sign({id: savedUser._id}, process.env.JWT_SECRET, {expiresIn: "1d"})
 
     sendEmail(email,"Verification",`https://topupsite.netlify.app/verification/${savedUser._id}/${token}`)
+    
     res.status(201).json(savedUser);
   } catch (err) {
     // res.json(res.body)

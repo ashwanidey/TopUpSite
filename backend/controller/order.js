@@ -129,8 +129,8 @@ export const orderStatus = async (req, res) => {
         let uid = process.env.API_UID;
         let userid = order.input1;
         let zoneid = order.input2;
-        let product = "mobilelegends";
-        let productid = order.itemid;
+        let product1 = "mobilelegends";
+        let productid1 = order.itemid;
         let time = Math.floor(Date.now() / 1000); // Unix timestamp in seconds
         
 
@@ -142,8 +142,8 @@ export const orderStatus = async (req, res) => {
           uid: uid,
           userid: userid,
           zoneid: zoneid,
-          product: product,
-          productid: productid,
+          product: product1,
+          productid: productid1,
           time: time,
         };
 
@@ -169,6 +169,7 @@ export const orderStatus = async (req, res) => {
 
         // console.log(sign); // Output the generated sign
         let url;
+        console.log(product.productid === 100);
         if(product.productid === 100){
           
           url = "https://www.smile.one/smilecoin/api/createorder";
@@ -189,8 +190,8 @@ export const orderStatus = async (req, res) => {
                 uid: uid,
                 userid: userid,
                 zoneid: zoneid,
-                product: product,
-                productid: productid,
+                product: product1,
+                productid: productid1,
                 time: time,
                 sign: sign,
               }),
@@ -217,7 +218,7 @@ export const orderStatus = async (req, res) => {
             // sendEmail(data.data.customer_email,``)
             sendEmail(process.env.EMAIL,`Miraki - New Order Received!`,`Order Number : ${data.data.client_txn_id}\n\nOrder Date : ${date}\n\nProduct Name : ${product.name}\n\nItem : ${order.itemname}\n\nUserId : ${order.input1}\n\nServerId : ${order.input2}\n\nPrice : ₹${order.value}\n\nUPI transaction id : ${data.data.upi_txn_id}\n\nCustomer VPA : ${data.data.customer_vpa}`)
           }
-         console.log(data)
+      
         }
         catch(err){
           console.log({ error: err.message });
@@ -232,7 +233,6 @@ export const orderStatus = async (req, res) => {
           { status: "Processing",customer_vpa : data.data.customer_vpa,upi_txn_id : data.data.upi_txn_id,date : date,product_name : product.name ,customer_email : data.data.customer_email  }
         );
       }
-      // sendEmail(data.data.customer_email, `Order ${client_txn_id} Created`, `Order #${client_txn_id} is currently being processed and will be completed within 30 minutes.`);
       sendEmail(process.env.EMAIL,`Miraki - New Order Received!`,`Order Number : ${data.data.client_txn_id}\n\nOrder Date : ${date}\n\nProduct Name : ${product.name}\n\nItem : ${order.itemname}\n\nUserId : ${order.input1}\n\nServerId : ${order.input2}\n\nPrice : ₹${order.value}\n\nUPI transaction id : ${data.data.upi_txn_id}\n\nCustomer VPA : ${data.data.customer_vpa}`)
     }
     
