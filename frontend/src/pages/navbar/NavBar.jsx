@@ -4,6 +4,7 @@ import { initFlowbite } from "flowbite";
 import { useAuth0 } from "@auth0/auth0-react";
 import { VariableContext } from "../../context/VariableContext";
 import defaultpp from "../../assets/defaultpp.png"
+import logo from "../../../public/logo.png"
 
 const NavBar = () => {
   const { loginWithRedirect,isAuthenticated,logout,isLoading } = useAuth0();
@@ -22,10 +23,10 @@ const NavBar = () => {
           href="/"
           class="flex items-center space-x-3 rtl:space-x-reverse"
         >
-          
-          <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
+          <img src={logo} alt="" className="w-[100px]"/>
+          {/* <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
             Miraki Store
-          </span>
+          </span> */}
         </a>
         <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
           {!isLoggedIn ? 
