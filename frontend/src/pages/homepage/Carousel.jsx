@@ -20,20 +20,35 @@ const Carousel = () => {
           >
             <img
               src={banner2}
-              class="absolute -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 w-full h-full object-cover"
+              class="absolute -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 w-full h-full object-cover hidden md:block"
+              alt="..."
+            />
+            <img
+              src="/bannermb1.jpg"
+              class="absolute -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 w-full h-full object-cover md:hidden block"
               alt="..."
             />
           </div>
 
           <div class="hidden duration-700 ease-in-out w-full h-full" data-carousel-item>
-    <img src={banner1} class="absolute -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 w-full h-full object-cover" alt="..." />
+    <img src={banner1} class="absolute -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 w-full h-full object-cover hidden md:block" alt="..." />
+    <img
+              src="/bannermb2.jpg"
+              class="absolute -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 w-full h-full object-cover md:hidden block"
+              alt="..."
+            />
 </div>
 
 
           <div class="hidden duration-700 ease-in-out" data-carousel-item>
             <img
               src={banner3}
-              class="absolute -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 w-full h-full object-cover"
+              class="absolute -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 w-full h-full object-cover hidden md:block"
+              alt="..."
+            />
+             <img
+              src="/bannermb3.jpg"
+              class="absolute -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 w-full h-full object-cover md:hidden block"
               alt="..."
             />
           </div>
