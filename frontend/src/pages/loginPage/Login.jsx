@@ -11,7 +11,7 @@ export const Login = () => {
 
   const handleSubmit = async() => {
     await login(email,password);
-    console.log(loginErr);
+    
   }
 
   return (

@@ -6,7 +6,7 @@ import { VariableContext } from "../../context/VariableContext";
 const UserProfile = () => {
   const {isLoading} = useAuth0();
   const {user} = useContext(VariableContext)
-  console.log(user);
+  
   return (
     <>
     { !isLoading &&

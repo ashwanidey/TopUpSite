@@ -4,7 +4,7 @@ import Order from "../models/Orders.js";
 export const myOrders = async(req,res) => {
   try{
     const {userid} = req.params
-    console.log(userid)
+    
     const orders = await Order.find({userid:userid});
     let completed = 0;
     let refunded=0;

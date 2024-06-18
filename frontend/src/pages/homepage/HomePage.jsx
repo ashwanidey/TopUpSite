@@ -33,7 +33,7 @@ const HomePage = () => {
   const callProtected = async() =>{
     try{
     const token = await getAccessTokenSilently();
-    console.log(token);
+    
 
     // const response = await fetch(`http://localhost:3001/protected`,{
     //   method:"GET",
@@ -46,7 +46,7 @@ const HomePage = () => {
       },
       
     })
-    console.log(response.data)
+    
   }catch(err){
     console.log(err.message);
   }

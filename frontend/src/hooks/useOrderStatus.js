@@ -50,7 +50,7 @@ export const useOrderStatus = () => {
     
     setOrder(data.order);
     setStatus(data.data);
-    console.log(data.data);
+  
     setIsLoading(false);
   };
 

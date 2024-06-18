@@ -14,7 +14,7 @@ const Payments = () => {
 
   // const {user,getAccessTokenSilently} = useAuth0()
   
-  console.log(verified)
+
 
   const handleSubmit = async() =>{
     // console.log(selected)
