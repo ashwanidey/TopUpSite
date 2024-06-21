@@ -13,7 +13,7 @@ const ProductCard = ({data,handleSelected}) => {
     <li>
       <div>
       
-      <div className='p-[1em] bg-[#23292A] rounded-[1em] flex gap-5' style={selected?._id === data._id ? selectedStyle : {}} onClick={()=>handleSelected(data)}>
+      <div className='p-[1em] bg-[#23292A] rounded-[1em] md:flex gap-5' style={selected?._id === data._id ? selectedStyle : {}} onClick={()=>handleSelected(data)}>
         <div className="min-w-[50px] max-w-[50px] md:min-w-[60px] md:max-w-[60px]">
       <img 
       src={`/${data.imgpath}`} 

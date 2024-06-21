@@ -31,6 +31,7 @@ const Footer = () => {
           <div>Facebook</div>
           <div>Whatsapp</div>
         </div>
+        <a href='#'>Developed by</a>
       </div>
     </div>
     </footer>

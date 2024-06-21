@@ -39,7 +39,7 @@ const Products = () => {
         // </div>
         <div className="w-full justify-center items-center flex"><Spinner/></div>
       ) : (
-        <ul className='grid xl:grid-cols-3 lg:grid-cols-2 grid-cols-1 gap-5 w-full'>
+        <ul className='grid xl:grid-cols-3 grid-cols-2 gap-5 w-full'>
           {items.map((item, index) => (
             <ProductCard data={item} handleSelected={(data)=>handleSelected(data)}/> // passing 'item' as prop
           ))}

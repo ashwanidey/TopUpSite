@@ -17,7 +17,7 @@ export const VariableProvider = ({children}) => {
   const [selected,setSelected] = useState(null);
   const [input1,setInput1] = useState(null);
   const [input2,setInput2] = useState(null);
-  const [payment,setPayment] = useState("hi");
+  const [payment,setPayment] = useState("upi");
   const [order,setOrder] = useState(null);
   const [product,setProduct] = useState(null);
   const [after,setAfter] = useState(null);
