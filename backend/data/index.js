@@ -200,7 +200,7 @@ export const items = [  //10-50: BR, 210-250: PH
     productid: ProductIds[0],
     originalprice: 500,
     discountedprice : 450,
-    imgpath : "itemimage/mlbbweeklypass.png",
+    imgpath : "itemimage/couponpass.png",
   },
   {
     _id: new mongoose.Types.ObjectId(),
@@ -210,7 +210,7 @@ export const items = [  //10-50: BR, 210-250: PH
     productid: ProductIds[0],
     originalprice: 180,
     discountedprice : 150,
-    imgpath : "itemimage/mlbbweeklypass.png",
+    imgpath : "itemimage/weeklypass.png",
   },
   {
     _id: new mongoose.Types.ObjectId(),
@@ -300,7 +300,7 @@ export const items = [  //10-50: BR, 210-250: PH
     productid: ProductIds[0],
     originalprice: 800,
     discountedprice : 750,
-    imgpath : "itemimage/mlbbtwilightpass.png",
+    imgpath : "itemimage/twilightpass.png",
   },
   //mlbb-ph diamonds 210-250
   {
@@ -536,7 +536,7 @@ export const items = [  //10-50: BR, 210-250: PH
     productid: ProductIds[3],
     originalprice: 420,
     discountedprice : 70,
-    imgpath : "itemimage/genshincrystal.png",
+    imgpath : "itemimage/welkinmoon.png",
   },
   {
     _id: new mongoose.Types.ObjectId(),
@@ -779,7 +779,7 @@ export const items = [  //10-50: BR, 210-250: PH
     productid: ProductIds[6],
     originalprice: 550,
     discountedprice : 550,
-    imgpath : "itemimage/cocgems.png",
+    imgpath : "itemimage/goldpass.png",
   },
     //360-400
   {
