@@ -104,7 +104,7 @@ const insertData = async () => {
       const dummyUser = {
         name: "Dummy User",
         mobilenumber: "1234567890",
-        userid: "dummyuser",
+        userid: "2000",
         email: "dummyuser@example.com",
         password: "dummyPassword",
         verified: "false",
