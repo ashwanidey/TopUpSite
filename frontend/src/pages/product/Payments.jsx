@@ -20,15 +20,15 @@ const Payments = () => {
     // console.log(selected)
    
     const values = {
-      itemname : selected.name,
+      // itemname : selected.name,
       itemid : selected.itemid,
-      productid : productId,
-      status : "Created",
+      // productid : productId,
+      // status : "Created",
       userid : user._id,
       input1,
       input2,
       paymentmode : payment,
-      value : selected.discountedprice,
+      // value : selected.discountedprice,
     }
     // const token = await getAccessTokenSilently();
     setAfter(selected)

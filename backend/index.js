@@ -31,7 +31,7 @@ app.use(helmet());
 app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
 app.use(bodyParser.json({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
-// app.use(cors());
+app.use(cors());
 
 // app.use((req, res, next) => {
 //   const referer = req.headers['referer'];
