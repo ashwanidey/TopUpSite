@@ -31,7 +31,26 @@ app.use(helmet());
 app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
 app.use(bodyParser.json({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cors());
+// app.use(cors());
+
+// app.use((req, res, next) => {
+//   const referer = req.headers['referer'];
+//   if (referer && referer.startsWith('http://localhost:5173/')) {
+//     next();
+//   } else {
+//     res.status(403).send('Forbidden');
+//   }
+// });
+// const allowedOrigins = ['http://localhost:5173/'];
+// app.use(cors({
+//   origin: function (origin, callback) {
+//     if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+//       callback(null, true);
+//     } else {
+//       callback(new Error('Not allowed by CORS'));
+//     }
+//   }
+// }));
 
 // app.get("/show", (req, res) => {
 //   console.log("Unprotected Route");

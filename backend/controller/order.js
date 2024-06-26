@@ -1,4 +1,5 @@
 import { sendEmail } from "../mailer.js";
+import Items from "../models/Items.js";
 import Order from "../models/Orders.js";
 import Products from "../models/Products.js";
 import User from "../models/User.js";
@@ -35,20 +36,27 @@ export const createOrder = async (req, res) => {
 export const upiGateway = async (req, res) => {
   try {
     const {
-      itemname,
-      status,
+
       userid,
       input1,
       input2,
       paymentmode,
-      value,
-      productid,
       itemid
     } = req.body;
+    const item = await Items.findOne({itemid : itemid});
+   
+    const productid = item.productid
+    const itemname = item.name
+    const status = "Created"
+    // console.log(item)
+    const value = item.discountedprice;
     const number = parseFloat(value);
     const uniqueId = generateUniqueId();
     const userInfo = await User.find({ _id: userid });
     const user = userInfo[0];
+    
+    
+    // console.log(item.discountedprice)
     
   
 
