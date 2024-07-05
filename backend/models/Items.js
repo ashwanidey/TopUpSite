@@ -5,6 +5,10 @@ const itemsSchema = mongoose.Schema({
     type: String,
     required: true,
   },
+  sku: {
+    type: String,
+    required: true,
+  },
   itemid: {
     type: Number,
     required: true,
@@ -12,6 +16,11 @@ const itemsSchema = mongoose.Schema({
   productid: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Product",
+  },
+  itemidarray: {
+    type: Array,
+    required: true,
+    default : [],
   },
   originalprice: {
     type: Number,
