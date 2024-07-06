@@ -137,7 +137,10 @@ export const orderStatus = async (req, res) => {
       let allGood;
 
       if (product.productid === 100 || product.productid === 112 && order.status === "Created") {
-
+        await Order.findOneAndUpdate(
+          { transactionid: client_txn_id },
+          { status: "In Proccessing"},
+        )
         
         for(let i =0;i<itemidarray.length;i++){
         let email = process.env.API_EMAIL;
