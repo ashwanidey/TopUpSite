@@ -31,7 +31,7 @@ const Footer = () => {
           <div>Facebook</div>
           <div>Whatsapp</div>
         </div>
-        <a href='#'>Developed by</a>
+        <a href='https://api.whatsapp.com/send/?phone=919883084820&text&type=phone_number&app_absent=0'>Click here to contact developer.</a>
       </div>
     </div>
     </footer>
