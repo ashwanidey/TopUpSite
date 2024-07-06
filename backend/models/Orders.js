@@ -18,6 +18,11 @@ const orderSchema = mongoose.Schema({
     type : String,
     required: true,
   },
+  itemidarray: {
+    type: Array,
+    required: true,
+    default : [],
+  },
   status :{
     type : String,
     required: true,

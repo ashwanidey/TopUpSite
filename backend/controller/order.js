@@ -54,6 +54,7 @@ export const upiGateway = async (req, res) => {
     const uniqueId = generateUniqueId();
     const userInfo = await User.find({ _id: userid });
     const user = userInfo[0];
+    const itemidarray = item.itemidarray;
     
     
     // console.log(item.discountedprice)
@@ -91,6 +92,7 @@ export const upiGateway = async (req, res) => {
       paymentmode,
       value,
       transactionid: uniqueId,
+      itemidarray
     });
 
     const savedOrder = await newOrder.save();
@@ -127,19 +129,23 @@ export const orderStatus = async (req, res) => {
     const data = await response.json();
     const order = await Order.findOne({ transactionid: client_txn_id });
     const product = await Products.findOne({_id : order.productid})
+    const itemidarray = order.itemidarray;
     // console.log(product)
 
     if (data.status && data.data.status === "success" && order.status === "Created") {
       
+      let allGood;
 
       if (product.productid === 100 || product.productid === 112 && order.status === "Created") {
+
         
+        for(let i =0;i<itemidarray.length;i++){
         let email = process.env.API_EMAIL;
         let uid = process.env.API_UID;
         let userid = order.input1;
         let zoneid = order.input2;
         let product1 = "mobilelegends";
-        let productid1 = order.itemid;
+        let productid1 = order.itemidarray[i];
         let time = Math.floor(Date.now() / 1000); // Unix timestamp in seconds
         
 
@@ -186,7 +192,7 @@ export const orderStatus = async (req, res) => {
         else{
           url = "https://www.smile.one/ph/smilecoin/api/createorder";
         }
-        try{
+        
           const response = await fetch(
             url,
             {
@@ -208,9 +214,14 @@ export const orderStatus = async (req, res) => {
           );
       
           const data1 = await response.json();
+          allGood = data1.message;
+          if(data1.message !== "success") break;
+        }
+        
+        
           // console.log(data)
           
-          if(data1.message === "success"){
+          if(allGood === "success"){
             await Order.findOneAndUpdate(
               { transactionid: client_txn_id },
               { status: "Completed",customer_vpa : data.data.customer_vpa,upi_txn_id : data.data.upi_txn_id,date : date ,product_name : product.name,customer_email : data.data.customer_email  },
@@ -252,10 +263,7 @@ export const orderStatus = async (req, res) => {
               Customer VPA : ${data.data.customer_vpa}`)
           }
       
-        }
-        catch(err){
-          console.log({ error: err.message });
-        }
+        
         
         
       } 
