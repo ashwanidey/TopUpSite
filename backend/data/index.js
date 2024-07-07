@@ -1347,7 +1347,7 @@ export const items = [  //10-50: BR, 210-250: PH
     productid: ProductIds[13],
     originalprice: 85,
     discountedprice : 75,
-    imgpath : "itemimage/honortokens.png",
+    imgpath : "itemimage/honorweeklycard.png",
   },
   {
     _id: new mongoose.Types.ObjectId(),
@@ -1358,7 +1358,7 @@ export const items = [  //10-50: BR, 210-250: PH
     productid: ProductIds[13],
     originalprice: 270,
     discountedprice : 255,
-    imgpath : "itemimage/honortokens.png",
+    imgpath : "itemimage/honorweeklycardplus.png",
   },
 
   // 661-650
@@ -1426,6 +1426,6 @@ export const items = [  //10-50: BR, 210-250: PH
     productid: ProductIds[14],
     originalprice: 430,
     discountedprice : 400,
-    imgpath : "itemimage/honkaioneiric.png",
+    imgpath : "itemimage/honkaiexpress.png",
   },
 ]
