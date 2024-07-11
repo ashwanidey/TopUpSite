@@ -6,7 +6,7 @@ const Footer = () => {
     <div className='flex flex-col w-full py-[50px] md:px-[100px] px-[50px] border-t mt-10 bg-[#23292A]'>
       <div className='flex flex-col items-center w-full gap-4'>
         <div className='font-[800] text-[#ff962d] text-[2rem]'>Miraki Store</div>
-        <div className='text-white'>Welcome to Miraki Store! We're your go-to spot for topping up games quickly and safely. Discover popular games, enjoy fast transactions, and level up your gaming experience with our easy platform.</div>
+        <div className='text-white'>Welcome to Mirakistore, your ultimate destination for gaming recharge! Dive into a world where your gaming experience is enhanced with seamless and swift recharge options. Whether you're a casual player or a dedicated gamer, Mirakistore offers a range of services tailored to meet your gaming needs. Discover convenience, reliability, and speed as we empower your gaming journey. Join us at Mirakistore and elevate your gaming experience today!</div>
         <div className='text-white'>+91 70857 42871 | mirakistore87@gmail.com | Lengte, Mizoram 796501</div>
       </div>
 
@@ -22,16 +22,24 @@ const Footer = () => {
         <div>
           <div className='text-[#ff962d] text-[1.2rem] font-[600]'>Quick Links</div>
           <div>Login</div>
-          <div>Contact</div>
+          <div> <a href='https://wa.me/message/AJJBCKZO5BAEB1'>
+              Contact Us</a> </div>
           <div>Track Order</div>
         </div>
         <div>
           <div className='text-[#ff962d] text-[1.2rem] font-[600]'>Follow Us</div>
-          <div>Instagram</div>
-          <div>Facebook</div>
-          <div>Whatsapp</div>
+          <div>
+            <a href="Welcome to Mirakistore, your ultimate destination for gaming recharge! Dive into a world where your gaming experience is enhanced with seamless and swift recharge options. Whether you're a casual player or a dedicated gamer, Mirakistore offers a range of services tailored to meet your gaming needs. Discover convenience, reliability, and speed as we empower your gaming journey. Join us at Mirakistore and elevate your gaming experience today!">
+              Instagram</a></div>
+          <div> <a href='https://www.facebook.com/valpuia.vanlala?mibextid=ZbWKwL'>
+              Facebook</a> </div>
+          <div> <a href='https://chat.whatsapp.com/DvcxK6jXT84AQbgYCdHid6'>
+              Whatsapp</a> </div>
         </div>
-        <a href='https://api.whatsapp.com/send/?phone=919883084820&text&type=phone_number&app_absent=0'>Click here to contact developer.</a>
+        <a href='https://api.whatsapp.com/send/?phone=919883084820&text&type=phone_number&app_absent=0' className="text-yellow-500">
+              Click here to contact developer.
+        </a>
+
       </div>
     </div>
     </footer>

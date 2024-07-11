@@ -715,13 +715,13 @@ export const items = [  //10-50: BR, 210-250: PH
   },
   {
     _id: new mongoose.Types.ObjectId(),
-    name: "60 Crystal",
-    sku: "genshinimpact GB 60 Crystall",
+    name: "330 Crystal",
+    sku: "genshinimpact GB 330 Crystall",
     itemid : 162,
     itemidarray : [],
     productid: ProductIds[3],
-    originalprice: 90,
-    discountedprice : 70,
+    originalprice: 450,
+    discountedprice : 350,
     imgpath : "itemimage/genshincrystal.png",
   },
   {
