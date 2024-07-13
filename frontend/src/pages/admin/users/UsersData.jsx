@@ -24,17 +24,17 @@ const UsersData = () => {
               <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
                   <th scope="col" class="px-6 py-3">
-                    ID
+                    Customer ID & User ID
                   </th>
                   <th scope="col" class="px-6 py-3">
-                    Name
+                    Name, Mobile, Email
                   </th>
-                  <th scope="col" class="px-6 py-3">
+                  {/* <th scope="col" class="px-6 py-3">
                     Mobile No.
                   </th>
                   <th scope="col" class="px-6 py-3">
                     Email
-                  </th>
+                  </th> */}
                   
                 </tr>
               </thead>

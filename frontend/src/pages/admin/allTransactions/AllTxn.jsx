@@ -25,7 +25,7 @@ const AllTxn = () => {
                 <tr>
                   
                   <th scope="col" class="px-6 py-3">
-                    Txn Id
+                    Txn Id & Userid
                   </th>
                   <th scope="col" class="px-6 py-3">
                     Item name
@@ -34,11 +34,11 @@ const AllTxn = () => {
                     Status
                   </th>
                   <th scope="col" class="px-6 py-3">
-                    Userid/ Email
+                    User Input
                   </th>
-                  <th scope="col" class="px-6 py-3">
+                  {/* <th scope="col" class="px-6 py-3">
                     UN/ Number
-                  </th>
+                  </th> */}
                   <th scope="col" class="px-6 py-3">
                     Price
                   </th>

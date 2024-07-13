@@ -1,6 +1,9 @@
 import React from 'react'
 
 const TxnRow = ({data}) => {
+
+  const txn = data?.transactionid?.split('-')[1];
+
   return (
     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
       
@@ -8,7 +11,9 @@ const TxnRow = ({data}) => {
         scope="row"
         class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
       >
-        {data?.transactionid}
+        {/* {data?.transactionid}<br></br><br></br> */}
+        {txn}<br></br><br></br>
+        {data?.userid}
       </th>
       <td class="px-6 py-4">{data?.itemname}</td>
       <td
@@ -23,8 +28,8 @@ const TxnRow = ({data}) => {
       >
         {data?.status}
       </td>
-      <td class="px-6 py-4">{data?.input1}</td>
-      <td class="px-6 py-4">{data?.input2}</td>
+      <td class="px-6 py-4">{data?.input1} <br></br> {data?.input2}</td>
+      {/* <td class="px-6 py-4">{data?.input2}</td> */}
 
       <td class="px-6 py-4">₹ {data?.value}</td>
       <td class="px-6 py-4">{data?.paymentmode}</td>
