@@ -29,6 +29,7 @@ import RefundPolicy from "./pages/footer/pages/RefundPolicy";
 import TnC from "./pages/footer/pages/TnC";
 import Verification from "./pages/verification/Verification";
 import CheckVerification from "./pages/verification/CheckVerification";
+import EditUserRole from "./pages/admin/editUser/EditUser"; // Import EditUserRole component
 
 function App() {
   document.documentElement.classList.add("dark");
@@ -228,6 +229,20 @@ function App() {
                   {" "}
                   {isLoggedIn && user?.role === "admin" ? (
                     <AllTxn />
+                  ) : (
+                    <Dashboard />
+                  )}
+                </>
+              }
+            ></Route>
+
+<Route
+              path="/admin/edituser"
+              element={
+                <>
+                  {" "}
+                  {isLoggedIn && user?.role === "admin" ? (
+                    <EditUserRole />
                   ) : (
                     <Dashboard />
                   )}

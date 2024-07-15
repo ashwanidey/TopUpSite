@@ -30,6 +30,10 @@ const itemsSchema = mongoose.Schema({
     type: Number,
     required: true,
   },
+  resellprice: {
+    type: Number,
+    required: true,
+  },
   imgpath: {
     type: String,
     default: "",

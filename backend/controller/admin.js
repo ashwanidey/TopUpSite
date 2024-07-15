@@ -37,6 +37,33 @@ export const deleteUser = async(req,res) => {
 
 }
 
+export const editUserRole = async (req, res) => {
+  try {
+    const { email } = req.params;
+    const { role } = req.query;
+
+    // Find user by email
+    const user = await User.findOne({ email: email });
+    if (!user) {
+      return res.status(404).send({ msg: "User not found" });
+    }
+
+    // Update user's role
+    // console.log(role);
+    user.role = role;
+    // console.log(user.role)
+    await user.save();
+    // console.log(user.role)
+    // Save updated user
+    // const updatedUser = await user.save();
+    res.status(200).send({msg : "updated successfully"});
+  } catch (err) {
+    res.status(500).send({ error: err.message });
+  }
+};
+
+
+
 export const updateOrder = async(req,res) => {
   try{
     const {orderId,status1,reason1} = req.params;
@@ -106,19 +133,33 @@ export const updateOrder = async(req,res) => {
   }
 }
 
-export const updatePrice = async(req,res) => {
-  try{
-    const {itemId,price} = req.params;
+// export const updatePrice = async(req,res) => {
+//   try{
+//     const {itemId,price} = req.params;
 
-    const updatedOrder = await Items.findByIdAndUpdate(
+//     const updatedOrder = await Items.findByIdAndUpdate(
+//       itemId,
+//       {discountedprice : price}
+//     )
+//   }
+//   catch(err){
+//     res.status(500).send({error: err.message})
+//   }
+// }
+
+export const updatePrice = async (req, res) => {
+  try {
+    const { itemId, price, resellPrice } = req.params;
+
+    const updatedItem = await Items.findByIdAndUpdate(
       itemId,
-      {discountedprice : price}
-    )
+      { discountedprice: price, resellprice: resellPrice }
+    );
+    res.status(200).send(updatedItem);
+  } catch (err) {
+    res.status(500).send({ error: err.message });
   }
-  catch(err){
-    res.status(500).send({error: err.message})
-  }
-}
+};
 
 
 export const allTxn = async(req,res) => {

@@ -48,18 +48,39 @@ export const upiGateway = async (req, res) => {
     const productid = item.productid
     const itemname = item.name
     const status = "Created"
+
+    // Fetch user information
+    const userInformation = await User.findById(userid);
+    // console.log(userInformation);
+    if (!userInformation) {
+      return res.status(404).json({ error: "User not found" });
+    }
+    // Determine the price based on user role
+    let value;
+    if (userInformation.role === "reseller") {
+      // console.log(userInformation.role);
+      value = item.resellprice;
+      // console.log(value);
+    } else {
+      // console.log(userInformation.role);
+      value = item.discountedprice;
+      // console.log(value);
+    }
+
     // console.log(item)
-    const value = item.discountedprice;
+    // const value = item.discountedprice;
+    // const value = item.resellprice;
+    // console.log(value);
     const number = parseFloat(value);
     const uniqueId = generateUniqueId();
     const userInfo = await User.find({ _id: userid });
     const user = userInfo[0];
     const itemidarray = item.itemidarray;
+
+
+    // console.log(item.discountedprice) 
     
     
-    // console.log(item.discountedprice)
-    
-  
 
     const response = await fetch(`https://api.ekqr.in/api/create_order`, {
       method: "POST",

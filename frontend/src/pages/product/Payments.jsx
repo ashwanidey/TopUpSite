@@ -52,7 +52,10 @@ const Payments = () => {
     <div className="py-[1.5em] px-[2em]  bg-[#293133] flex flex-col  rounded-[1em] w-full">
       <div className='flex justify-between mb-3'>
         <div className='text-white text-[1.4rem] font-[600]'>Total</div>
-        <div className='text-[1.4rem] font-[600] text-[#00BBFF]'>₹{selected ? selected.discountedprice : "0"}</div>
+        {/* <div className='text-[1.4rem] font-[600] text-[#00BBFF]'>₹{selected ? selected.discountedprice : "0"}</div> */}
+        <div className='text-[1.4rem] font-[600] text-[#00BBFF]'>
+          ₹{selected ? (user?.role === 'reseller' ? selected.resellprice : selected.discountedprice) : "0"}
+        </div>
       </div>
       <hr className='w-full'></hr>
 
