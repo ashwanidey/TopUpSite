@@ -11,7 +11,7 @@ const EditUserRole = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     await editUserRole(token, email, role);
-  };e
+  };
 
   return (
     <div className="mt-12 lg:mx-12 mx-4 flex flex-col gap-6">
