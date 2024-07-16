@@ -16,6 +16,8 @@ const ProductIds = [
   new mongoose.Types.ObjectId(),
   new mongoose.Types.ObjectId(),
   new mongoose.Types.ObjectId(),
+  new mongoose.Types.ObjectId(),
+  new mongoose.Types.ObjectId(),
   
 ];
 
@@ -33,9 +35,9 @@ export const products = [
     _id: ProductIds[0],
     name: "Mobile Legends",
     type: "games",
-    productid: 100,
+    productid: 100,  //BR Automatic
     imgpath: "productimage/mobilelegends.jpeg",
-    istrending : true,
+    istrending : false,
     importantnote : "Recharge not available for Indo IDs",
     inputs: [{label : "User Id"},{label : "Server Id"}],
     items : ['20340','16642','13','23','25','26','27','28','29','30','33','40','41','42','43','44','45','46','47','48','49','50'],
@@ -61,7 +63,7 @@ export const products = [
     type: "games",
     productid: 102,
     imgpath: "productimage/bgmi.jpeg",
-    istrending : true,
+    istrending : false,
     importantnote : "Please verify your details before placing order to avoid any kind of delay.",
     inputs: [{label : "Player Id"},{label : "Player Name"}],
     items : ['111','112','113','114','115','116'],
@@ -179,7 +181,7 @@ export const products = [
     _id: ProductIds[12],
     name: "MLBB Small Packs",
     type: "games",
-    productid: 112,
+    productid: 112,  //PHP Automatic
     imgpath: "productimage/mobilelegends.jpeg",
     istrending : true,
     importantnote : "Recharge not available for Indo IDs",
@@ -194,7 +196,7 @@ export const products = [
     type: "games",
     productid: 113,
     imgpath: "productimage/honorofkings.jpg",
-    istrending : true,
+    istrending : false,
     importantnote : "Please verify your details before placing order to avoid any kind of delay.",
     inputs: [{label : "User Id"},{label : "Username"}],
     items : [],
@@ -206,16 +208,40 @@ export const products = [
     type: "games",
     productid: 114,
     imgpath: "productimage/honkaistar.jpg",
-    istrending : true,
+    istrending : false,
     importantnote : "Double bonus for 1st time recharge. Please verify your details before placing order to avoid any kind of delay.",
     inputs: [{label : "User Id"},{label : "Server"}],
     items : [],
     __v: 0,
   },
+  {
+    _id: ProductIds[15],
+    name: "Event Pack 1",
+    type: "games",
+    productid: 100,  //BR Automatic
+    imgpath: "productimage/mobilelegends.jpeg",
+    istrending : true,
+    importantnote : "Recharge not available for Indo IDs",
+    inputs: [{label : "User Id"},{label : "Server Id"}],
+    items : [230, 231, 232, 233],
+    __v: 0,
+  },
+  {
+    _id: ProductIds[16],
+    name: "Event Pack 2",
+    type: "games",
+    productid: 112,  //PHP Automatic
+    imgpath: "productimage/mobilelegends.jpeg",
+    istrending : true,
+    importantnote : "Recharge not available for Indo IDs",
+    inputs: [{label : "User Id"},{label : "Server Id"}],
+    items : [234, 235],
+    // '216','217','218','219','220','221'
+    __v: 0,
+  },
 
 
 ]
-
 export const items = [  //10-50: BR, 210-250: PH
 
   {
@@ -227,6 +253,7 @@ export const items = [  //10-50: BR, 210-250: PH
     productid: ProductIds[0],
     originalprice: 500,
     discountedprice : 450,
+    resellprice : 385,
     imgpath : "itemimage/couponpass.png",
   },
   {
@@ -238,6 +265,7 @@ export const items = [  //10-50: BR, 210-250: PH
     productid: ProductIds[0],
     originalprice: 180,
     discountedprice : 150,
+    resellprice : 130,
     imgpath : "itemimage/weeklypass.png",
   },
   {
@@ -249,6 +277,7 @@ export const items = [  //10-50: BR, 210-250: PH
     productid: ProductIds[0],
     originalprice: 360,
     discountedprice : 300,
+    resellprice : 260,
     imgpath : "itemimage/weeklypass.png",
   },
   {
@@ -260,6 +289,7 @@ export const items = [  //10-50: BR, 210-250: PH
     productid: ProductIds[0],
     originalprice: 540,
     discountedprice : 450,
+    resellprice : 390,
     imgpath : "itemimage/weeklypass.png",
   },
   {
@@ -271,6 +301,7 @@ export const items = [  //10-50: BR, 210-250: PH
     productid: ProductIds[0],
     originalprice: 130,
     discountedprice : 115,
+    resellprice : 105,
     imgpath : "itemimage/mlbbminidiamonds.png",
   },
   {
@@ -282,6 +313,7 @@ export const items = [  //10-50: BR, 210-250: PH
     productid: ProductIds[0],
     originalprice: 250,
     discountedprice : 230,
+    resellprice : 210,
     imgpath : "itemimage/mlbbdiamonds.png",
   },
   {
@@ -293,6 +325,7 @@ export const items = [  //10-50: BR, 210-250: PH
     productid: ProductIds[0],
     originalprice: 360,
     discountedprice : 335,
+    resellprice : 310,
     imgpath : "itemimage/mlbbdiamonds.png",
   },
   {
@@ -303,7 +336,8 @@ export const items = [  //10-50: BR, 210-250: PH
     itemidarray : [13, 25],
     productid: ProductIds[0],
     originalprice: 480,
-    discountedprice : 410,
+    discountedprice : 450,
+    resellprice : 410,
     imgpath : "itemimage/mlbbminidiamonds.png",
   },
   {
@@ -314,7 +348,8 @@ export const items = [  //10-50: BR, 210-250: PH
     itemidarray : [23, 25],
     productid: ProductIds[0],
     originalprice: 600,
-    discountedprice : 515,
+    discountedprice : 550,
+    resellprice : 510,
     imgpath : "itemimage/mlbbminidiamonds.png",
   },
   {
@@ -325,7 +360,8 @@ export const items = [  //10-50: BR, 210-250: PH
     itemidarray : [25, 25],
     productid: ProductIds[0],
     originalprice: 695,
-    discountedprice : 610,
+    discountedprice : 650,
+    resellprice : 610,
     imgpath : "itemimage/mlbbminidiamonds.png",
   },
   {
@@ -336,7 +372,8 @@ export const items = [  //10-50: BR, 210-250: PH
     itemidarray : [13,25, 25],
     productid: ProductIds[0],
     originalprice: 800,
-    discountedprice : 715,
+    discountedprice : 760,
+    resellprice : 710,
     imgpath : "itemimage/mlbbminidiamonds.png",
   },
   {
@@ -347,7 +384,8 @@ export const items = [  //10-50: BR, 210-250: PH
     itemidarray : [26],
     productid: ProductIds[0],
     originalprice: 970,
-    discountedprice : 950,
+    discountedprice : 900,
+    resellprice : 810,
     imgpath : "itemimage/mlbbdiamonds.png",
   },
   {
@@ -358,7 +396,8 @@ export const items = [  //10-50: BR, 210-250: PH
     itemidarray : [13, 26],
     productid: ProductIds[0],
     originalprice: 1090,
-    discountedprice : 900,
+    discountedprice : 990,
+    resellprice : 915,
     imgpath : "itemimage/mlbbdiamonds.png",
   },
   {
@@ -368,8 +407,9 @@ export const items = [  //10-50: BR, 210-250: PH
     itemid : 47, //custom
     itemidarray : [25, 26],
     productid: ProductIds[0],
-    originalprice: 1100,
-    discountedprice : 1320,
+    originalprice: 1300,
+    discountedprice : 1200,
+    resellprice : 1150,
     imgpath : "itemimage/mlbbdiamonds.png",
   },
   {
@@ -380,7 +420,8 @@ export const items = [  //10-50: BR, 210-250: PH
     itemidarray : [13,25, 26],
     productid: ProductIds[0],
     originalprice: 1450,
-    discountedprice : 1205,
+    discountedprice : 1320,
+    resellprice : 1250,
     imgpath : "itemimage/mlbbdiamonds.png",
   },
   {
@@ -391,7 +432,8 @@ export const items = [  //10-50: BR, 210-250: PH
     itemidarray : [25,25, 26],
     productid: ProductIds[0],
     originalprice: 1650,
-    discountedprice : 1405,
+    discountedprice : 1550,
+    resellprice : 1435,
     imgpath : "itemimage/mlbbdiamonds.png",
   },
   {
@@ -402,7 +444,8 @@ export const items = [  //10-50: BR, 210-250: PH
     itemidarray : [26, 26],
     productid: ProductIds[0],
     originalprice: 1950,
-    discountedprice : 1590,
+    discountedprice : 1780,
+    resellprice : 1600,
     imgpath : "itemimage/mlbbdiamonds.png",
   },
   {
@@ -414,6 +457,7 @@ export const items = [  //10-50: BR, 210-250: PH
     productid: ProductIds[0],
     originalprice: 2900,
     discountedprice : 2700,
+    resellprice : 2435,
     imgpath : "itemimage/mlbbbulkdiamonds.png",
   },
   {
@@ -425,6 +469,7 @@ export const items = [  //10-50: BR, 210-250: PH
     productid: ProductIds[0],
     originalprice: 4700,
     discountedprice : 4450,
+    resellprice : 4000,
     imgpath : "itemimage/mlbbbulkdiamonds.png",
   },
   {
@@ -436,6 +481,7 @@ export const items = [  //10-50: BR, 210-250: PH
     productid: ProductIds[0],
     originalprice: 6900,
     discountedprice : 6700,
+    resellprice : 6000,
     imgpath : "itemimage/mlbbbulkdiamonds.png",
   },
   {
@@ -447,6 +493,7 @@ export const items = [  //10-50: BR, 210-250: PH
     productid: ProductIds[0],
     originalprice: 11500,
     discountedprice : 11250,
+    resellprice : 10000,
     imgpath : "itemimage/mlbbbulkdiamonds.png",
   },
   {
@@ -458,6 +505,7 @@ export const items = [  //10-50: BR, 210-250: PH
     productid: ProductIds[0],
     originalprice: 800,
     discountedprice : 750,
+    resellprice : 685,
     imgpath : "itemimage/twilightpass.png",
   },
   //mlbb-ph diamonds 210-250
@@ -469,7 +517,8 @@ export const items = [  //10-50: BR, 210-250: PH
     itemidarray : [212],
     productid: ProductIds[12],
     originalprice: 25,
-    discountedprice : 18,
+    discountedprice : 20,
+    resellprice : 18,
     imgpath : "itemimage/mlbbminidiamonds.png",
   },
   {
@@ -480,7 +529,8 @@ export const items = [  //10-50: BR, 210-250: PH
     itemidarray : [213],
     productid: ProductIds[12],
     originalprice: 45,
-    discountedprice : 35,
+    discountedprice : 40,
+    resellprice : 35,
     imgpath : "itemimage/mlbbminidiamonds.png",
   },
   {
@@ -491,7 +541,8 @@ export const items = [  //10-50: BR, 210-250: PH
     itemidarray : [214],
     productid: ProductIds[12],
     originalprice: 90,
-    discountedprice : 80,
+    discountedprice : 85,
+    resellprice : 80,
     imgpath : "itemimage/mlbbminidiamonds.png",
   },
   {
@@ -502,7 +553,8 @@ export const items = [  //10-50: BR, 210-250: PH
     itemidarray : [215],
     productid: ProductIds[12],
     originalprice: 180,
-    discountedprice : 150,
+    discountedprice : 165,
+    resellprice : 155,
     imgpath : "itemimage/mlbbdiamonds.png",
   },
   // {
@@ -513,6 +565,7 @@ export const items = [  //10-50: BR, 210-250: PH
   //   productid: ProductIds[12],
   //   originalprice: 330,
   //   discountedprice : 300,
+  //   resellprice : ,
   //   imgpath : "itemimage/mlbbdiamonds.png",
   // },
   // {
@@ -523,6 +576,7 @@ export const items = [  //10-50: BR, 210-250: PH
   //   productid: ProductIds[12],
   //   originalprice: 470,
   //   discountedprice : 440,
+  //   resellprice : ,
   //   imgpath : "itemimage/mlbbdiamonds.png",
   // },
   // {
@@ -533,6 +587,7 @@ export const items = [  //10-50: BR, 210-250: PH
   //   productid: ProductIds[12],
   //   originalprice: 770,
   //   discountedprice : 735,
+  //   resellprice : ,
   //   imgpath : "itemimage/mlbbdiamonds.png",
   // },
   // {
@@ -543,6 +598,7 @@ export const items = [  //10-50: BR, 210-250: PH
   //   productid: ProductIds[12],
   //   originalprice: 890,
   //   discountedprice : 930,
+  //   resellprice : ,
   //   imgpath : "itemimage/mlbbdiamonds.png",
   // },
   // {
@@ -553,6 +609,7 @@ export const items = [  //10-50: BR, 210-250: PH
   //   productid: ProductIds[12],
   //   originalprice: 3200,
   //   discountedprice : 2950,
+  //   resellprice : ,
   //   imgpath : "itemimage/mlbbbulkdiamonds.png",
   // },
   // {
@@ -563,8 +620,84 @@ export const items = [  //10-50: BR, 210-250: PH
   //   productid: ProductIds[12],
   //   originalprice: 7600,
   //   discountedprice : 7300,
+  //   resellprice : ,
   //   imgpath : "itemimage/mlbbbulkdiamonds.png",
   // },
+
+  //230 - 250 Event packs
+  {
+    _id: new mongoose.Types.ObjectId(),
+    name : "Weekly Pass",
+    sku: "mlbb event pack 1 BR Weekly Pass",
+    itemid : 230,
+    itemidarray : [16642],
+    productid: ProductIds[15],
+    originalprice: 180,
+    discountedprice : 150,
+    resellprice : 130,
+    imgpath : "itemimage/weeklypass.png",
+  },
+  {
+    _id: new mongoose.Types.ObjectId(),
+    name : "Weekly Pass + 172 diamonds",
+    sku: "mlbb event pack 1 BR Weekly Pass + 172 diamonds",
+    itemid : 231,
+    itemidarray : [16642, 23],
+    productid: ProductIds[15],
+    originalprice: 390,
+    discountedprice : 380,
+    resellprice : 340,
+    imgpath : "itemimage/weeklypass.png",
+  },
+  {
+    _id: new mongoose.Types.ObjectId(),
+    name: "343 Diamonds",
+    sku: "mlbb event pack 1 BR 343 Diamond",
+    itemid : 232, //custom
+    itemidarray : [13, 25],
+    productid: ProductIds[15],
+    originalprice: 480,
+    discountedprice : 450,
+    resellprice : 410,
+    imgpath : "itemimage/mlbbminidiamonds.png",
+  },
+  {
+    _id: new mongoose.Types.ObjectId(),
+    name: "600 Diamonds",
+    sku: "mlbb event pack 1 BR 600 Diamond",
+    itemid : 233, //custom
+    itemidarray : [13,25, 25],
+    productid: ProductIds[15],
+    originalprice: 800,
+    discountedprice : 760,
+    resellprice : 710,
+    imgpath : "itemimage/mlbbminidiamonds.png",
+  },
+  {
+    _id: new mongoose.Types.ObjectId(),
+    name : "11 Diamonds",
+    sku: "mlbb event pack 2 PH-diamond_11",
+    itemid : 234,  //Custom
+    itemidarray : [212],
+    productid: ProductIds[16],
+    originalprice: 25,
+    discountedprice : 18,
+    resellprice : 1 ,
+    imgpath : "itemimage/mlbbminidiamonds.png",
+  },
+  {
+    _id: new mongoose.Types.ObjectId(),
+    name: "112 Diamonds",
+    sku: "mlbb event pack 2 PH-diamond_112",
+    itemid : 235,  //Custom
+    itemidarray : [215],
+    productid: ProductIds[16],
+    originalprice: 180,
+    discountedprice : 165,
+    resellprice : 155,
+    imgpath : "itemimage/mlbbdiamonds.png",
+  },
+
 
      //60-100
 
@@ -577,6 +710,7 @@ export const items = [  //10-50: BR, 210-250: PH
     productid: ProductIds[1],
     originalprice: 100,
     discountedprice : 90,
+    resellprice : 80,
     imgpath : "itemimage/pubgglobaluc.png",
   },
   {
@@ -587,7 +721,8 @@ export const items = [  //10-50: BR, 210-250: PH
     itemidarray : [],
     productid: ProductIds[1],
     originalprice: 470,
-    discountedprice : 420,
+    discountedprice : 440,
+    resellprice : 395,
     imgpath : "itemimage/pubgglobaluc.png",
   },
   {
@@ -598,7 +733,8 @@ export const items = [  //10-50: BR, 210-250: PH
     itemidarray : [],
     productid: ProductIds[1],
     originalprice: 900,
-    discountedprice : 800,
+    discountedprice : 840,
+    resellprice : 760,
     imgpath : "itemimage/pubgglobaluc.png",
   },
   {
@@ -610,6 +746,7 @@ export const items = [  //10-50: BR, 210-250: PH
     productid: ProductIds[1],
     originalprice: 2200,
     discountedprice : 2000,
+    resellprice : 1930,
     imgpath : "itemimage/pubgglobaluc.png",
   },
   {
@@ -621,6 +758,7 @@ export const items = [  //10-50: BR, 210-250: PH
     productid: ProductIds[1],
     originalprice: 4200,
     discountedprice : 3950,
+    resellprice : 3800,
     imgpath : "itemimage/pubgglobaluc.png",
   },
   {
@@ -631,7 +769,8 @@ export const items = [  //10-50: BR, 210-250: PH
     itemidarray : [],
     productid: ProductIds[1],
     originalprice: 8100,
-    discountedprice : 7700,
+    discountedprice : 7800,
+    resellprice : 7550,
     imgpath : "itemimage/pubgglobaluc.png",
   },
 
@@ -644,6 +783,7 @@ export const items = [  //10-50: BR, 210-250: PH
     productid: ProductIds[2],
     originalprice: 100,
     discountedprice : 90,
+    resellprice : 90,
     imgpath : "itemimage/bgmiuc.png",
   },
   {
@@ -655,6 +795,7 @@ export const items = [  //10-50: BR, 210-250: PH
     productid: ProductIds[2],
     originalprice: 420,
     discountedprice : 400,
+    resellprice : 400,
     imgpath : "itemimage/bgmiuc.png",
   },
   {
@@ -666,6 +807,7 @@ export const items = [  //10-50: BR, 210-250: PH
     productid: ProductIds[2],
     originalprice: 800,
     discountedprice : 780,
+    resellprice : 780,
     imgpath : "itemimage/bgmiuc.png",
   },
   {
@@ -677,6 +819,7 @@ export const items = [  //10-50: BR, 210-250: PH
     productid: ProductIds[2],
     originalprice: 2000,
     discountedprice : 1950,
+    resellprice : 1950,
     imgpath : "itemimage/bgmiuc.png",
   },
   {
@@ -688,6 +831,7 @@ export const items = [  //10-50: BR, 210-250: PH
     productid: ProductIds[2],
     originalprice: 4000,
     discountedprice : 3850,
+    resellprice : 3850,
     imgpath : "itemimage/bgmiuc.png",
   },
   {
@@ -699,6 +843,7 @@ export const items = [  //10-50: BR, 210-250: PH
     productid: ProductIds[2],
     originalprice: 8000,
     discountedprice : 7600,
+    resellprice : 7600,
     imgpath : "itemimage/bgmiuc.png",
   },
     //160-200
@@ -709,8 +854,9 @@ export const items = [  //10-50: BR, 210-250: PH
     itemid : 161,
     itemidarray : [],
     productid: ProductIds[3],
-    originalprice: 420,
-    discountedprice : 70,
+    originalprice: 450,
+    discountedprice : 380,
+    resellprice : 350,
     imgpath : "itemimage/welkinmoon.png",
   },
   {
@@ -721,7 +867,8 @@ export const items = [  //10-50: BR, 210-250: PH
     itemidarray : [],
     productid: ProductIds[3],
     originalprice: 450,
-    discountedprice : 350,
+    discountedprice : 380,
+    resellprice : 350,
     imgpath : "itemimage/genshincrystal.png",
   },
   {
@@ -732,7 +879,8 @@ export const items = [  //10-50: BR, 210-250: PH
     itemidarray : [],
     productid: ProductIds[3],
     originalprice: 1350,
-    discountedprice : 1050,
+    discountedprice : 1200,
+    resellprice : 1050,
     imgpath : "itemimage/genshincrystal.png",
   },
   {
@@ -743,7 +891,8 @@ export const items = [  //10-50: BR, 210-250: PH
     itemidarray : [],
     productid: ProductIds[3],
     originalprice: 2700,
-    discountedprice : 2250,
+    discountedprice : 2450,
+    resellprice : 2250,
     imgpath : "itemimage/genshincrystal.png",
   },
   {
@@ -754,7 +903,8 @@ export const items = [  //10-50: BR, 210-250: PH
     itemidarray : [],
     productid: ProductIds[3],
     originalprice: 4000,
-    discountedprice : 3400,
+    discountedprice : 3700,
+    resellprice : 3350,
     imgpath : "itemimage/genshincrystal.png",
   },
   {
@@ -765,7 +915,8 @@ export const items = [  //10-50: BR, 210-250: PH
     itemidarray : [],
     productid: ProductIds[3],
     originalprice: 7800,
-    discountedprice : 6800,
+    discountedprice : 7100,
+    resellprice : 6600,
     imgpath : "itemimage/genshincrystal.png",
   },
       //560-570
@@ -778,6 +929,7 @@ export const items = [  //10-50: BR, 210-250: PH
     productid: ProductIds[4],
     originalprice: 115,
     discountedprice : 100,
+    resellprice : 100,
     imgpath : "itemimage/genshincrystal.png",
   },
   {
@@ -789,6 +941,7 @@ export const items = [  //10-50: BR, 210-250: PH
     productid: ProductIds[4],
     originalprice: 220,
     discountedprice : 200,
+    resellprice : 200,
     imgpath : "itemimage/genshincrystal.png",
   },
   {
@@ -800,6 +953,7 @@ export const items = [  //10-50: BR, 210-250: PH
     productid: ProductIds[4],
     originalprice: 420,
     discountedprice : 390,
+    resellprice : 390,
     imgpath : "itemimage/genshincrystal.png",
   },
   {
@@ -811,6 +965,7 @@ export const items = [  //10-50: BR, 210-250: PH
     productid: ProductIds[4],
     originalprice: 1000,
     discountedprice : 950,
+    resellprice : 950,
     imgpath : "itemimage/genshincrystal.png",
   },
        //260-300
@@ -823,6 +978,7 @@ export const items = [  //10-50: BR, 210-250: PH
     productid: ProductIds[5],
     originalprice: 110,
     discountedprice : 100,
+    resellprice : 100,
     imgpath : "itemimage/freefireiamonds.png",
   },
   {
@@ -834,6 +990,7 @@ export const items = [  //10-50: BR, 210-250: PH
     productid: ProductIds[5],
     originalprice: 220,
     discountedprice : 200,
+    resellprice : 200,
     imgpath : "itemimage/freefireiamonds.png",
   },
   {
@@ -845,6 +1002,7 @@ export const items = [  //10-50: BR, 210-250: PH
     productid: ProductIds[5],
     originalprice: 500,
     discountedprice : 480,
+    resellprice : 480,
     imgpath : "itemimage/freefireiamonds.png",
   },
   {
@@ -856,6 +1014,7 @@ export const items = [  //10-50: BR, 210-250: PH
     productid: ProductIds[5],
     originalprice: 600,
     discountedprice : 570,
+    resellprice : 570,
     imgpath : "itemimage/freefireiamonds.png",
   },
   {
@@ -867,6 +1026,7 @@ export const items = [  //10-50: BR, 210-250: PH
     productid: ProductIds[5],
     originalprice: 1000,
     discountedprice : 950,
+    resellprice : 950,
     imgpath : "itemimage/freefireiamonds.png",
   },
   {
@@ -878,6 +1038,7 @@ export const items = [  //10-50: BR, 210-250: PH
     productid: ProductIds[5],
     originalprice: 1950,
     discountedprice : 1870,
+    resellprice : 1870,
     imgpath : "itemimage/freefireiamonds.png",
   },
   {
@@ -889,6 +1050,7 @@ export const items = [  //10-50: BR, 210-250: PH
     productid: ProductIds[5],
     originalprice: 3900,
     discountedprice : 3700,
+    resellprice : 3700,
     imgpath : "itemimage/freefireiamonds.png",
   },
   {
@@ -900,6 +1062,7 @@ export const items = [  //10-50: BR, 210-250: PH
     productid: ProductIds[5],
     originalprice: 4700,
     discountedprice : 4500,
+    resellprice : 4500,
     imgpath : "itemimage/freefireiamonds.png",
   },
      //310-350
@@ -912,6 +1075,7 @@ export const items = [  //10-50: BR, 210-250: PH
     productid: ProductIds[6],
     originalprice: 110,
     discountedprice : 95,
+    resellprice : 95,
     imgpath : "itemimage/cocgems.png",
   },
   {
@@ -923,6 +1087,7 @@ export const items = [  //10-50: BR, 210-250: PH
     productid: ProductIds[6],
     originalprice: 450,
     discountedprice : 430,
+    resellprice : 430,
     imgpath : "itemimage/cocgems.png",
   },
   {
@@ -934,6 +1099,7 @@ export const items = [  //10-50: BR, 210-250: PH
     productid: ProductIds[6],
     originalprice: 850,
     discountedprice : 800,
+    resellprice : 800,
     imgpath : "itemimage/cocgems.png",
   },
   {
@@ -945,6 +1111,7 @@ export const items = [  //10-50: BR, 210-250: PH
     productid: ProductIds[6],
     originalprice: 1800,
     discountedprice : 1700,
+    resellprice : 1700,
     imgpath : "itemimage/cocgems.png",
   },
   {
@@ -956,6 +1123,7 @@ export const items = [  //10-50: BR, 210-250: PH
     productid: ProductIds[6],
     originalprice: 4150,
     discountedprice : 4000,
+    resellprice : 4000,
     imgpath : "itemimage/cocgems.png",
   },
   {
@@ -967,6 +1135,7 @@ export const items = [  //10-50: BR, 210-250: PH
     productid: ProductIds[6],
     originalprice: 8400,
     discountedprice : 8000,
+    resellprice : 8000,
     imgpath : "itemimage/cocgems.png",
   },
   {
@@ -978,6 +1147,7 @@ export const items = [  //10-50: BR, 210-250: PH
     productid: ProductIds[6],
     originalprice: 550,
     discountedprice : 550,
+    resellprice : 550,
     imgpath : "itemimage/goldpass.png",
   },
     //360-400
@@ -989,7 +1159,8 @@ export const items = [  //10-50: BR, 210-250: PH
     itemidarray : [],
     productid: ProductIds[7],
     originalprice: 800,
-    discountedprice : 650,
+    discountedprice : 700,
+    resellprice : 650,
     imgpath : "itemimage/mlbbdiamonds.png",
   },
   {
@@ -1001,6 +1172,7 @@ export const items = [  //10-50: BR, 210-250: PH
     productid: ProductIds[7],
     originalprice: 1500,
     discountedprice : 1350,
+    resellprice : 1250,
     imgpath : "itemimage/mlbbdiamonds.png",
   },
   {
@@ -1012,6 +1184,7 @@ export const items = [  //10-50: BR, 210-250: PH
     productid: ProductIds[7],
     originalprice: 2200,
     discountedprice : 1900,
+    resellprice : 1800,
     imgpath : "itemimage/mlbbbulkdiamonds.png",
   },
   {
@@ -1022,7 +1195,8 @@ export const items = [  //10-50: BR, 210-250: PH
     itemidarray : [],
     productid: ProductIds[7],
     originalprice: 3500,
-    discountedprice : 3150,
+    discountedprice : 3250,
+    resellprice : 2950,
     imgpath : "itemimage/mlbbbulkdiamonds.png",
   },
   {
@@ -1032,8 +1206,9 @@ export const items = [  //10-50: BR, 210-250: PH
     itemid : 365,
     itemidarray : [],
     productid: ProductIds[7],
-    originalprice: 6000,
-    discountedprice : 5600,
+    originalprice: 6500,
+    discountedprice : 6000,
+    resellprice : 5800,
     imgpath : "itemimage/mlbbbulkdiamonds.png",
   },
   {
@@ -1043,8 +1218,9 @@ export const items = [  //10-50: BR, 210-250: PH
     itemid : 366,
     itemidarray : [],
     productid: ProductIds[7],
-    originalprice: 12000,
-    discountedprice : 11200,
+    originalprice: 12500,
+    discountedprice : 12000,
+    resellprice : 11600,
     imgpath : "itemimage/mlbbbulkdiamonds.png",
   },
     //410-450
@@ -1057,6 +1233,7 @@ export const items = [  //10-50: BR, 210-250: PH
     productid: ProductIds[8],
     originalprice: 100,
     discountedprice : 90,
+    resellprice : 90,
     imgpath : "itemimage/pubgkoreauc.png",
   },
   {
@@ -1068,6 +1245,7 @@ export const items = [  //10-50: BR, 210-250: PH
     productid: ProductIds[8],
     originalprice: 300,
     discountedprice : 270,
+    resellprice : 250,
     imgpath : "itemimage/pubgkoreauc.png",
   },
   {
@@ -1079,6 +1257,7 @@ export const items = [  //10-50: BR, 210-250: PH
     productid: ProductIds[8],
     originalprice: 800,
     discountedprice : 780,
+    resellprice : 750,
     imgpath : "itemimage/pubgkoreauc.png",
   },
   {
@@ -1090,6 +1269,7 @@ export const items = [  //10-50: BR, 210-250: PH
     productid: ProductIds[8],
     originalprice: 2100,
     discountedprice : 2000,
+    resellprice : 1900,
     imgpath : "itemimage/pubgkoreauc.png",
   },
   {
@@ -1101,6 +1281,7 @@ export const items = [  //10-50: BR, 210-250: PH
     productid: ProductIds[8],
     originalprice: 4100,
     discountedprice : 3900,
+    resellprice : 3800,
     imgpath : "itemimage/pubgkoreauc.png",
   },
   {
@@ -1112,6 +1293,7 @@ export const items = [  //10-50: BR, 210-250: PH
     productid: ProductIds[8],
     originalprice: 8000,
     discountedprice : 7700,
+    resellprice : 7400,
     imgpath : "itemimage/pubgkoreauc.png",
   },
 
@@ -1124,6 +1306,7 @@ export const items = [  //10-50: BR, 210-250: PH
     productid: ProductIds[9],
     originalprice: 120,
     discountedprice : 90,
+    resellprice : 90,
     imgpath : "itemimage/roboloxrobux.png",
   },
   {
@@ -1135,6 +1318,7 @@ export const items = [  //10-50: BR, 210-250: PH
     productid: ProductIds[9],
     originalprice: 450,
     discountedprice : 430,
+    resellprice : 430,
     imgpath : "itemimage/roboloxrobux.png",
   },
   {
@@ -1146,6 +1330,7 @@ export const items = [  //10-50: BR, 210-250: PH
     productid: ProductIds[9],
     originalprice: 900,
     discountedprice : 850,
+    resellprice : 850,
     imgpath : "itemimage/roboloxrobux.png",
   },
   {
@@ -1157,6 +1342,7 @@ export const items = [  //10-50: BR, 210-250: PH
     productid: ProductIds[9],
     originalprice: 1850,
     discountedprice : 1700,
+    resellprice : 1700,
     imgpath : "itemimage/roboloxrobux.png",
   },
   {
@@ -1168,6 +1354,7 @@ export const items = [  //10-50: BR, 210-250: PH
     productid: ProductIds[9],
     originalprice: 4300,
     discountedprice : 4100,
+    resellprice : 4100,
     imgpath : "itemimage/roboloxrobux.png",
   },
   {
@@ -1179,6 +1366,7 @@ export const items = [  //10-50: BR, 210-250: PH
     productid: ProductIds[9],
     originalprice: 8300,
     discountedprice : 8000,
+    resellprice : 8000,
     imgpath : "itemimage/roboloxrobux.png",
   },
   {
@@ -1190,6 +1378,7 @@ export const items = [  //10-50: BR, 210-250: PH
     productid: ProductIds[9],
     originalprice: 16000,
     discountedprice : 15550,
+    resellprice : 15550,
     imgpath : "itemimage/roboloxrobux.png",
   },
    //510-550
@@ -1202,6 +1391,7 @@ export const items = [  //10-50: BR, 210-250: PH
     productid: ProductIds[10],
     originalprice: 774,
     discountedprice : 320,
+    resellprice : 320,
     imgpath : "itemimage/youtubepremium.png",
   },
   {
@@ -1213,6 +1403,7 @@ export const items = [  //10-50: BR, 210-250: PH
     productid: ProductIds[10],
     originalprice: 1290,
     discountedprice : 600,
+    resellprice : 600,
     imgpath : "itemimage/youtubepremium.png",
   },
   {
@@ -1224,6 +1415,7 @@ export const items = [  //10-50: BR, 210-250: PH
     productid: ProductIds[11],
     originalprice: 750,
     discountedprice : 600,
+    resellprice : 600,
     imgpath : "itemimage/spotifypremium.png",
   },
 
@@ -1237,6 +1429,7 @@ export const items = [  //10-50: BR, 210-250: PH
     productid: ProductIds[13],
     originalprice: 30,
     discountedprice : 20,
+    resellprice : 20,
     imgpath : "itemimage/honortokens.png",
   },
   {
@@ -1246,8 +1439,9 @@ export const items = [  //10-50: BR, 210-250: PH
     itemid : 552,
     itemidarray : [],
     productid: ProductIds[13],
-    originalprice: 85,
-    discountedprice : 75,
+    originalprice: 90,
+    discountedprice : 80,
+    resellprice : 80,
     imgpath : "itemimage/honortokens.png",
   },
   {
@@ -1257,8 +1451,9 @@ export const items = [  //10-50: BR, 210-250: PH
     itemid : 553,
     itemidarray : [],
     productid: ProductIds[13],
-    originalprice: 270,
-    discountedprice : 255,
+    originalprice: 280,
+    discountedprice : 260,
+    resellprice : 260,
     imgpath : "itemimage/honortokens.png",
   },
   {
@@ -1268,8 +1463,9 @@ export const items = [  //10-50: BR, 210-250: PH
     itemid : 554,
     itemidarray : [],
     productid: ProductIds[13],
-    originalprice: 430,
-    discountedprice : 400,
+    originalprice: 500,
+    discountedprice : 440,
+    resellprice : 440,
     imgpath : "itemimage/honortokens.png",
   },
   {
@@ -1279,8 +1475,9 @@ export const items = [  //10-50: BR, 210-250: PH
     itemid : 555,
     itemidarray : [],
     productid: ProductIds[13],
-    originalprice: 600,
-    discountedprice : 550,
+    originalprice: 690,
+    discountedprice : 570,
+    resellprice : 570,
     imgpath : "itemimage/honortokens.png",
   },
   {
@@ -1290,8 +1487,9 @@ export const items = [  //10-50: BR, 210-250: PH
     itemid : 556,
     itemidarray : [],
     productid: ProductIds[13],
-    originalprice: 750,
-    discountedprice : 700,
+    originalprice: 850,
+    discountedprice : 710,
+    resellprice : 710,
     imgpath : "itemimage/honortokens.png",
   },
   {
@@ -1301,8 +1499,9 @@ export const items = [  //10-50: BR, 210-250: PH
     itemid : 557,
     itemidarray : [],
     productid: ProductIds[13],
-    originalprice: 1100,
-    discountedprice : 1050,
+    originalprice: 1400,
+    discountedprice : 1150,
+    resellprice : 1150,
     imgpath : "itemimage/honortokens.png",
   },
   {
@@ -1312,19 +1511,21 @@ export const items = [  //10-50: BR, 210-250: PH
     itemid : 558,
     itemidarray : [],
     productid: ProductIds[13],
-    originalprice: 2150,
-    discountedprice : 2100,
+    originalprice: 2700,
+    discountedprice : 2570,
+    resellprice : 2570,
     imgpath : "itemimage/honortokens.png",
   },
   {
     _id: new mongoose.Types.ObjectId(),
     name: "4580 Tokens",
-    sku: "honor of king 4580 tokens ",
+    sku: "honor of king 4180 tokens ",
     itemid : 559,
     itemidarray : [],
     productid: ProductIds[13],
-    originalprice: 3400,
-    discountedprice : 3300,
+    originalprice: 4500,
+    discountedprice : 4250,
+    resellprice : 4250,
     imgpath : "itemimage/honortokens.png",
   },
   {
@@ -1334,8 +1535,9 @@ export const items = [  //10-50: BR, 210-250: PH
     itemid : 560,
     itemidarray : [],
     productid: ProductIds[13],
-    originalprice: 6700,
-    discountedprice : 6600,
+    originalprice: 8000,
+    discountedprice : 7100,
+    resellprice : 7100,
     imgpath : "itemimage/honortokens.png",
   },
   {
@@ -1345,8 +1547,9 @@ export const items = [  //10-50: BR, 210-250: PH
     itemid : 561,
     itemidarray : [],
     productid: ProductIds[13],
-    originalprice: 85,
-    discountedprice : 75,
+    originalprice: 90,
+    discountedprice : 80,
+    resellprice : 80,
     imgpath : "itemimage/honorweeklycard.png",
   },
   {
@@ -1356,8 +1559,9 @@ export const items = [  //10-50: BR, 210-250: PH
     itemid : 562,
     itemidarray : [],
     productid: ProductIds[13],
-    originalprice: 270,
-    discountedprice : 255,
+    originalprice: 290,
+    discountedprice : 260,
+    resellprice : 260,
     imgpath : "itemimage/honorweeklycardplus.png",
   },
 
@@ -1371,6 +1575,7 @@ export const items = [  //10-50: BR, 210-250: PH
     productid: ProductIds[14],
     originalprice: 420,
     discountedprice : 400,
+    resellprice : 370,
     imgpath : "itemimage/honkaioneiric.png",
   },
   {
@@ -1380,8 +1585,9 @@ export const items = [  //10-50: BR, 210-250: PH
     itemid : 662,
     itemidarray : [],
     productid: ProductIds[14],
-    originalprice: 1300,
+    originalprice: 1350,
     discountedprice : 1250,
+    resellprice : 1100,
     imgpath : "itemimage/honkaioneiric.png",
   },
   {
@@ -1391,8 +1597,9 @@ export const items = [  //10-50: BR, 210-250: PH
     itemid : 663,
     itemidarray : [],
     productid: ProductIds[14],
-    originalprice: 2600,
+    originalprice: 2700,
     discountedprice : 2550,
+    resellprice : 2300,
     imgpath : "itemimage/honkaioneiric.png",
   },
   {
@@ -1404,6 +1611,7 @@ export const items = [  //10-50: BR, 210-250: PH
     productid: ProductIds[14],
     originalprice: 3800,
     discountedprice : 3700,
+    resellprice : 3600,
     imgpath : "itemimage/honkaioneiric.png",
   },
   {
@@ -1415,6 +1623,7 @@ export const items = [  //10-50: BR, 210-250: PH
     productid: ProductIds[14],
     originalprice: 7500,
     discountedprice : 7300,
+    resellprice : 7000,
     imgpath : "itemimage/honkaioneiric.png",
   },
   {
@@ -1426,6 +1635,7 @@ export const items = [  //10-50: BR, 210-250: PH
     productid: ProductIds[14],
     originalprice: 430,
     discountedprice : 400,
+    resellprice : 370,
     imgpath : "itemimage/honkaiexpress.png",
   },
 ]
