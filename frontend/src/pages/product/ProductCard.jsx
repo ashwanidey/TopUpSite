@@ -25,7 +25,7 @@ const ProductCard = ({ data, handleSelected }) => {
       <div >
             <div className='text-white font-[500]'>{data.name}</div>
             <div className='flex gap-2 items-center'>
-              <div className='text-[0.9rem] line-through text-[#9ACD32]'>₹{data.originalprice}</div>
+              {/* <div className='text-[0.9rem] line-through text-[#9ACD32]'>₹{data.originalprice}</div> */}
               <div className='text-[#00BBFF] text-[1rem] font-[500]'>
                 {user?.role === 'reseller' ? `₹${data.resellprice}` : `₹${data.discountedprice}`}
               </div>
