@@ -36,15 +36,15 @@ export const register = async (req, res) => {
 
     const token = jwt.sign({id: savedUser._id}, process.env.JWT_SECRET, {expiresIn: "1d"})
 
-    sendEmail(email,`Please verify you account!`,
-      `Dear user,\n
-      Thank you for registering on Miraki Store.\n
-      Please click below to verify your email address.\n\n
-      https://mirakistore.com/verification/${savedUser._id}/${token}\n\n
+    // sendEmail(email,`Please verify you account!`,
+    //   `Dear user,\n
+    //   Thank you for registering on Miraki Store.\n
+    //   Please click below to verify your email address.\n\n
+    //   https://mirakistore.com/verification/${savedUser._id}/${token}\n\n
       
-      If you did not request this, please ignore this email.\n\n
-      Best Regards,\n
-      Miraki Store\n`)
+    //   If you did not request this, please ignore this email.\n\n
+    //   Best Regards,\n
+    //   Miraki Store\n`)
     
     res.status(201).json(savedUser);
   } catch (err) {
@@ -80,22 +80,22 @@ export const login = async (req, res) => {
     if (!user) return res.status(400).json({ msg: "User does not exist. " });
 
 
-    if (user.verified === "false"){
-      const token = jwt.sign({id: user._id}, process.env.JWT_SECRET, {expiresIn: "1d"})
+    // if (user.verified === "false"){
+    //   const token = jwt.sign({id: user._id}, process.env.JWT_SECRET, {expiresIn: "1d"})
 
-      sendEmail(email,"Please verify you account!",
-        `
-        Dear user,\n
-        Thank you for registering on Miraki Store.\n
-        Please click below to verify your email address.\n\n
-        https://mirakistore.com/verification/${user._id}/${token}\n\n
-        If you did not request this, please ignore this email.\n\n
-        Best Regards,\n
-        Miraki Store\n`)
+    //   sendEmail(email,"Please verify you account!",
+    //     `
+    //     Dear user,\n
+    //     Thank you for registering on Miraki Store.\n
+    //     Please click below to verify your email address.\n\n
+    //     https://mirakistore.com/verification/${user._id}/${token}\n\n
+    //     If you did not request this, please ignore this email.\n\n
+    //     Best Regards,\n
+    //     Miraki Store\n`)
 
-      return res.status(400).json({ msg: "Please verify you email. Verification mail sent on your email address" }
-    );
-    } 
+    //   return res.status(400).json({ msg: "Please verify you email. Verification mail sent on your email address" }
+    // );
+    // } 
   
 
     const isMatch = await bcrypt.compare(password, user.password);

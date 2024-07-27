@@ -53,8 +53,8 @@ export const useRegister = () => {
       if (data.msg === "Invalid credentials. ") {
         return;
       }
-
-      window.location = "/checkverification";
+      window.location = "/login";
+      // window.location = "/checkverification";
     } catch (error) {
       console.log(error);
     }
