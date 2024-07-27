@@ -1,6 +1,6 @@
 import React from "react";
 import UserProfile from "./UserProfile";
-import Wallet from "./Wallet";
+import Balance from "./Balance";
 import OrdersTable from "./orders/OrdersTable";
 import { useAuth0 } from "@auth0/auth0-react";
 import OrdersBox from "./orders/OrdersBox";
@@ -24,7 +24,7 @@ const Dashboard = () => {
           >
             <UserProfile />
             <Counter/>
-          
+            <Balance/>
           </div>
           <Orders/>
         </div>

@@ -30,6 +30,9 @@ import TnC from "./pages/footer/pages/TnC";
 import Verification from "./pages/verification/Verification";
 import CheckVerification from "./pages/verification/CheckVerification";
 import EditUserRole from "./pages/admin/editUser/EditUser"; // Import EditUserRole component
+import Wallet from "./pages/wallet/Wallet";
+import TopUp from "./pages/wallet/TopUp";
+import WalletConfirmation from "./pages/confirmationPage/WalletConfirmation";
 
 function App() {
   document.documentElement.classList.add("dark");
@@ -56,19 +59,46 @@ function App() {
             ></Route>
 
             <Route
+              path="/walletconfirmation"
+              element={
+                <>
+                  <WalletConfirmation />
+                </>
+              }
+            ></Route>
+            <Route
+              path="/wallet"
+              element={
+                <>
+                  <Wallet />
+                </>
+              }
+            ></Route>
+            <Route
+              path="/topup"
+              element={
+                <>
+                  <TopUp />
+                </>
+              }
+            ></Route>
+
+            <Route
               path="/forgetpassword"
               element={<>{!isLoggedIn ? <ForgetPassword /> : <HomePage />}</>}
             ></Route>
             <Route
               path="/checkverification"
-              element={<>{!isLoggedIn ? <CheckVerification /> : <HomePage />}</>}
+              element={
+                <>{!isLoggedIn ? <CheckVerification /> : <HomePage />}</>
+              }
             ></Route>
 
             <Route
               path="/reset_password/:id/:token"
               element={<>{!isLoggedIn ? <ResetPassword /> : <HomePage />}</>}
             ></Route>
-            
+
             <Route
               path="/verification/:id/:token"
               element={<>{!isLoggedIn ? <Verification /> : <HomePage />}</>}
@@ -152,6 +182,7 @@ function App() {
                 </>
               }
             ></Route>
+
             <Route
               path="/admin"
               element={
@@ -220,8 +251,6 @@ function App() {
               }
             ></Route>
 
-
-
             <Route
               path="/admin/txn"
               element={
@@ -236,7 +265,7 @@ function App() {
               }
             ></Route>
 
-<Route
+            <Route
               path="/admin/edituser"
               element={
                 <>
@@ -249,7 +278,6 @@ function App() {
                 </>
               }
             ></Route>
-
           </Routes>
 
           <Footer />

@@ -2,6 +2,7 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import User from "../models/User.js";
 import { sendEmail } from "../mailer.js";
+import Wallet from "../models/Wallet.js";
 
 
 export const register = async (req, res) => {
@@ -12,16 +13,26 @@ export const register = async (req, res) => {
     const salt = await bcrypt.genSalt();
     const passwordHash = await bcrypt.hash(password, salt);
 
+    const userId = Number(users[users.length-1].userid) + 1;
+
     const newUser = new User({
       name,
       mobilenumber,
       email,
       password: passwordHash,
-      userid : Number(users[users.length-1].userid) + 1
+      userid : userId
       
     });
     
     const savedUser = await newUser.save();
+
+    const wallet = new Wallet({
+      dbuserid : savedUser._id,
+      userid : userId,
+      useremail : email,
+    })
+
+    const savedWallet = await wallet.save();
 
     const token = jwt.sign({id: savedUser._id}, process.env.JWT_SECRET, {expiresIn: "1d"})
 
