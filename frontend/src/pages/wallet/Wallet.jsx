@@ -1,4 +1,5 @@
 import React from 'react'
+import Transactions from './transactions/Transactions'
 
 const Wallet = () => {
   return (
@@ -12,6 +13,7 @@ const Wallet = () => {
         <div></div>
         </div>
       </div>
+      <Transactions/>
     </div>
   )
 }

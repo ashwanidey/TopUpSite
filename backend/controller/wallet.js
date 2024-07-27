@@ -10,6 +10,29 @@ function generateUniqueId() {
 }
 
 
+export const getWalletBalance = async(req,res) =>{
+  try{
+    const {userid} = req.params;
+   
+    const wallet = await Wallet.findOne({userid:userid});
+    console.log(wallet)
+    res.status(200).json({"balance" : wallet.balance});
+  }
+  catch(err){
+    res.status(500).json({error: err.message});
+  }
+}
+
+export const getTransactions = async(req,res) => {
+  try{
+    const {userid} = req.params;
+    const transactions = await Transaction.find({userid:userid});
+    res.status(200).json(transactions);
+  }catch(err){
+    res.status(500).json({error: err.message});
+  }
+}
+
 export const topUp = async(req,res) => {
   try{
     const {value,userid} = req.body;
@@ -35,7 +58,7 @@ export const topUp = async(req,res) => {
         customer_name: user.name,
         customer_email: user.email,
         customer_mobile: user.mobilenumber,
-        redirect_url: "https://topupsite.netlify.app/walletconfirmation",
+        redirect_url: "https://mirakistore.com/walletconfirmation",
       }),
     });
 
