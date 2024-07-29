@@ -30,6 +30,10 @@ const transactionSchema = mongoose.Schema(
       type: String,
       default: "Created",
     },
+    currency: {
+      type : String,
+      default : "INR",
+    }
   },
   { timestamps: true }
 )

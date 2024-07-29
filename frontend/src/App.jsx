@@ -33,6 +33,7 @@ import EditUserRole from "./pages/admin/editUser/EditUser"; // Import EditUserRo
 import Wallet from "./pages/wallet/Wallet";
 import TopUp from "./pages/wallet/TopUp";
 import WalletConfirmation from "./pages/confirmationPage/WalletConfirmation";
+import BalanceErr from "./pages/wallet/BalanceErr";
 
 function App() {
   document.documentElement.classList.add("dark");
@@ -54,6 +55,15 @@ function App() {
               element={
                 <>
                   <Test />
+                </>
+              }
+            ></Route>
+           
+            <Route
+              path="/balanceerror"
+              element={
+                <>
+                  <BalanceErr />
                 </>
               }
             ></Route>
