@@ -39,8 +39,9 @@ export const upiGateway = async (req, res) => {
   try {
     const { userid, input1, input2, paymentmode, itemid } = req.body;
     const item = await Items.findOne({ itemid: itemid });
-
-    const productid = item.productid;
+    const product = await Products.findById(item.productid);
+    const productid = product.productid;
+    const dbproductid = item.productid;
     const itemname = item.name;
     const status = "Created";
 
@@ -97,6 +98,8 @@ export const upiGateway = async (req, res) => {
       orderid: uniqueId,
       itemname,
       productid,
+      dbproductid,
+      useremail : userInformation.email,
       itemid,
       status,
       userid,
@@ -128,7 +131,9 @@ export const wallet = async (req, res) => {
     console.log(userid)
     const balance = parseInt(wallet.balance);
     const item = await Items.findOne({ itemid: itemid });
-    const productid = item.productid;
+    const product = await Products.findById(item.productid);
+    const productid = product.productid;
+    const dbproductid = item.productid;
     const itemname = item.name;
     const status = "Created";
 
@@ -163,6 +168,8 @@ export const wallet = async (req, res) => {
       orderid: uniqueId,
       itemname,
       productid,
+      dbproductid,
+      useremail : userInformation.email,
       itemid,
       status,
       userid,
@@ -206,11 +213,11 @@ export const orderStatus = async (req, res) => {
 
     const data = await response.json();
     if(data.status){
-      const newUpiTransaction = new UpiTransaction(data);
+      const newUpiTransaction = new UpiTransaction(data.data);
       await newUpiTransaction.save();
     }
     const order = await Order.findOne({ transactionid: client_txn_id });
-    const product = await Products.findOne({ _id: order.productid });
+    const product = await Products.findOne({ productid: order.productid });
     const itemidarray = order.itemidarray;
     // console.log(product)
 

@@ -11,9 +11,18 @@ const orderSchema = mongoose.Schema({
     required: true,
   },
   productid :{
-    type : String,
+    type : Number,
     required: true,
   },
+  dbproductid : {
+    type : String,
+    required : true
+  },
+  useremail : {
+    type : String,
+    required : true
+  },
+  
   itemid :{
     type : String,
     required: true,

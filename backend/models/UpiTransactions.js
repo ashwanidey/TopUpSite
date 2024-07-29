@@ -38,7 +38,7 @@ const upiTransactionSchema = mongoose.Schema({
   },
   upi_txn_id: {
     type: String,
-    required: true,
+   default : "",
   },
   status: {
     type: String,
