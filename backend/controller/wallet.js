@@ -58,7 +58,7 @@ export const topUp = async(req,res) => {
         customer_name: user.name,
         customer_email: user.email,
         customer_mobile: user.mobilenumber,
-        redirect_url: "https://mirakistore.com/walletconfirmation",
+        redirect_url: "https://https://topupsite.netlify.app/walletconfirmation",
       }),
     });
 
