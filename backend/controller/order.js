@@ -6,6 +6,7 @@ import User from "../models/User.js";
 import CryptoJS from "crypto-js";
 import Wallet from "../models/Wallet.js";
 import UpiTransaction from "../models/UpiTransactions.js";
+import Transaction from "../models/Transaction.js";
 
 function generateUniqueId() {
   const timestamp = Date.now(); // Get the current timestamp
@@ -100,6 +101,7 @@ export const upiGateway = async (req, res) => {
       productid,
       dbproductid,
       useremail : userInformation.email,
+      productname : product.name,
       itemid,
       status,
       userid,
@@ -160,7 +162,7 @@ export const wallet = async (req, res) => {
     const itemidarray = item.itemidarray;
 
     if(balance < number){
-      res.status(200).json({msg : "Not Enough Balance","redirect_url": "http://localhost:5173/balanceerror"});
+      res.status(200).json({msg : "Not Enough Balance","redirect_url": "https://topupsite.netlify.app/balanceerror"});
       return;
     }
 
@@ -170,6 +172,7 @@ export const wallet = async (req, res) => {
       productid,
       dbproductid,
       useremail : userInformation.email,
+      productname : product.name,
       itemid,
       status,
       userid,
@@ -183,6 +186,21 @@ export const wallet = async (req, res) => {
     });
     wallet.balance -= number;
     await wallet.save();
+
+    const transactionId = generateUniqueId()
+
+    const transaction = new Transaction({
+      txnid :  transactionId,
+      userid : userInformation.userid,
+      useremail : userInformation.email,
+      amount: value,
+      type : "Debit",
+      status : "Success",
+      walletid : wallet._id,
+
+    });
+
+    await transaction.save();
 
     const savedOrder = await newOrder.save();
     res.status(200).json({"redirect_url": `http://localhost:5173/confirmation?client_txn_id=${uniqueId}`});

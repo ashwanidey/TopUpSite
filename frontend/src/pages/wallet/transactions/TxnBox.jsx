@@ -20,6 +20,9 @@ const TxnBox = ({txns}) => {
               (order?.status === "Success" ? {color : "#9ACD32"} : {color : "#FF4646"})}>
                           Status - {order?.status} <div>{order?.status === "Refunded" && `Reason : ${order?.reason}`}</div>
                         </div>
+                        <div class="text-sm text-gray-500 truncate dark:text-gray-400">
+                          Type - {order?.type}
+                        </div>
                        
                         <div class="text-sm text-gray-500 truncate dark:text-gray-400">
                           Amount - ₹{order?.amount}

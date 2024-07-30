@@ -21,6 +21,7 @@ const TopUp = () => {
   };
   return (
     <div className="mt-[6rem] lg:mx-[6rem] mx-[1rem] flex flex-col gap-4 ">
+      <div className="text-yellow-200"> ENTER THE AMOUNT : </div>
       <input type="number" min="0" onChange={(e) => setValue(e.target.value)} />
 
       <button

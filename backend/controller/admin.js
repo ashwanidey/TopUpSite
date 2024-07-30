@@ -1,7 +1,15 @@
 import { sendEmail } from "../mailer.js";
 import Items from "../models/Items.js";
 import Order from "../models/Orders.js"
+import Transaction from "../models/Transaction.js";
 import User from "../models/User.js";
+import Wallet from "../models/Wallet.js";
+
+function generateUniqueId() {
+  const timestamp = Date.now(); // Get the current timestamp
+  const randomNum = Math.floor(Math.random() * 1000000); // Generate a random number
+  return `${timestamp}-${randomNum}`; // Combine them to form the unique ID
+}
 
 export const getProcessingOrders = async(req,res) =>{
   try{
@@ -68,6 +76,9 @@ export const updateOrder = async(req,res) => {
   try{
     const {orderId,status1,reason1} = req.params;
     const order = await Order.findOne({_id : orderId})
+
+    const userInformation = await User.findOne({_id : order.userid});
+    const wallet = await Wallet.findOne({ dbuserid: order.userid });
    
 
     const updatedOrder = await Order.findByIdAndUpdate(
@@ -95,6 +106,27 @@ export const updateOrder = async(req,res) => {
      
     }
     else if(status1 === "Refunded"){
+
+      
+      
+      const transactionId = generateUniqueId()
+
+    const transaction = new Transaction({
+      txnid :  transactionId,
+      userid : userInformation.userid,
+      useremail : userInformation.email,
+      amount: order.value,
+      type : "Refunded",
+      status : "Success",
+      walletid : wallet._id,
+
+    });
+
+    await transaction.save();
+    console.log(order.value)
+    wallet.balance += parseInt(order.value);
+    await wallet.save()
+      
       
       try{
       sendEmail(order.customer_email,`Your order cannot be completed!`,

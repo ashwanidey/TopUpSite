@@ -26,7 +26,8 @@ export const getWalletBalance = async(req,res) =>{
 export const getTransactions = async(req,res) => {
   try{
     const {userid} = req.params;
-    const transactions = await Transaction.find({userid:userid});
+    const transactions = await Transaction.find({userid:userid}); 
+    transactions.reverse();
     res.status(200).json(transactions);
   }catch(err){
     res.status(500).json({error: err.message});
@@ -58,7 +59,7 @@ export const topUp = async(req,res) => {
         customer_name: user.name,
         customer_email: user.email,
         customer_mobile: user.mobilenumber,
-        redirect_url: "https://https://topupsite.netlify.app/walletconfirmation",
+        redirect_url: "https://topupsite.netlify.app/walletconfirmation",
       }),
     });
 

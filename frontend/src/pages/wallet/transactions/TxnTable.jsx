@@ -16,6 +16,9 @@ const TxnTable = ({txns}) => {
               <th scope="col" class="px-6 py-3">
                 Status
               </th>
+              <th scope="col" class="px-6 py-3">
+                Type
+              </th>
               
               <th scope="col" class="px-6 py-3">
                 Amount

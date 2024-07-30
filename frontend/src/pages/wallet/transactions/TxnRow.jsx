@@ -13,6 +13,8 @@ const TxnRow = ({data}) => {
                 {data?.status} {data?.status === "Refunded" && `Reason : ${data?.reason}`}
                 </td>
                 <td class="px-6 py-4">{
+                data?.type}</td>
+                <td class="px-6 py-4">{
                 data?.amount}</td>
                 <td class="px-6 py-4">{timeFormatter(                data?.createdAt) }</td>
                 

@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from "react";
 import { useTxnStatus } from "../../hooks/wallet/useTxnStatus";
 import { VariableContext } from "../../context/VariableContext";
 import Spinner from "../../components/Spinner";
+import Waiting from "./Waiting";
 
 const WalletConfirmation = () => {
   const { token } = useContext(VariableContext);
@@ -46,7 +47,7 @@ const WalletConfirmation = () => {
           </div>
         </div>
       ) : (
-        <Spinner />
+        <div className="mt-[6rem] md:mx-9 mx-5 flex-col gap-3 flex justify-center md:items-center "><Waiting/></div>
       )}
     </>
   );

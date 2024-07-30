@@ -15,10 +15,10 @@ const Balance = () => {
   return (
     <a href="/wallet">
       {!isLoading ? 
-    <div className=''>
-      <div className='text-white font-[600] text-[1.4rem]'>Wallet</div>
-      <div className='text-white font-[600] text-[1.4rem]'>Balance</div>
-      <div className='text-white font-[600] text-[1.2rem]'>{balance?.balance}</div>
+    <div className='flex flex-col justify-center items-center bg-yellow-300 p-5 rounded-lg'>
+      <div className=' font-[900] text-[2rem]'>Wallet</div>
+      <div className=' font-[600] text-[1.4rem]'>Balance : {balance?.balance}</div>
+  
     </div>
     : <div></div>
 }
