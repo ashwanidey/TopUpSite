@@ -111,7 +111,7 @@ export const txnStatus = async(req,res) => {
     if (data.status && data.data.status === "success" && txn.status === "Created") {
       const wallet = await Wallet.findOne({ _id: txn.walletid });
 
-      wallet.balance = wallet.balance + txn.amount;
+      wallet.balance = wallet.balance + parseInt(txn.amount);
       await wallet.save();
 
       txn.status = "Success";
