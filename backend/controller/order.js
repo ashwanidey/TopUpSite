@@ -203,7 +203,7 @@ export const wallet = async (req, res) => {
     await transaction.save();
 
     const savedOrder = await newOrder.save();
-    res.status(200).json({"redirect_url": `http://localhost:5173/confirmation?client_txn_id=${uniqueId}`});
+    res.status(200).json({"redirect_url": `https://topupsite.netlify.app/confirmation?client_txn_id=${uniqueId}`});
 
 
   } catch (err) {
