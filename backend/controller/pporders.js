@@ -112,55 +112,31 @@ export const ppGateway = async (req, res) => {
 
 export const test = async (req, res) => {
   try {
-    console.log(req.body);
+     const {transactionId} = req.body
+    const merchantId = process.env.MERCHANT_ID
 
-    const merchantTransactionId = Date.now();
-    const data = {
-      merchantId: MERCHANT_ID,
-      merchantTransactionId: merchantTransactionId,
-      merchantUserId: "MUID123",
-
-      amount: 10 * 100,
-      redirectUrl: `http://localhost:8000/status/?id=${merchantTransactionId}`,
-      redirectMode: "POST",
-      mobileNumber: "9354725491",
-      paymentInstrument: {
-        type: "PAY_PAGE",
-      },
-    };
-    const payload = JSON.stringify(data);
-    const payloadMain = Buffer.from(payload).toString("base64");
-    const keyIndex = 1;
-    const string = payloadMain + "/pg/v1/pay" + SALT_KEY;
-    const sha256 = crypto.createHash("sha256").update(string).digest("hex");
-    const checksum = sha256 + "###" + keyIndex;
-
-    const prod_URL = "https://api.phonepe.com/apis/hermes/pg/v1/pay";
-    // const prod_URL = "https://api-preprod.phonepe.com/apis/pg-sandbox/pg/v1/pay"
+    
+    const string = `/pg/v1/status/${merchantId}/${transactionId}` + process.env.SALT_KEY;
+    const sha256 = crypto.createHash('sha256').update(string).digest('hex');
+    const checksum = sha256 + "###" + process.env.SALT_INDEX;
 
     const options = {
-      method: "POST",
-      url: prod_URL,
-      headers: {
-        accept: "application/json",
-        "Content-Type": "application/json",
-        "X-VERIFY": checksum,
-      },
-      data: {
-        request: payloadMain,
-      },
+        method: 'GET',
+        url: `https://api.phonepe.com/apis/hermes/pg/v1/status/${merchantId}/${transactionId}`,
+        headers: {
+            accept: 'application/json',
+            'Content-Type': 'application/json',
+            'X-VERIFY': checksum,
+            'X-MERCHANT-ID': `${merchantId}`
+        }
     };
 
-    axios
-      .request(options)
-      .then(function (response) {
-        console.log(response.data);
+    // CHECK PAYMENT TATUS
+    const response = await axios.request(options);
+    res.status(200).json(response.data);
+        
 
-        return res.json(response.data);
-      })
-      .catch(function (error) {
-        console.error(error.message);
-      });
+
   } catch (error) {
     res.status(500).send({
       message: error.message,

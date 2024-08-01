@@ -215,3 +215,64 @@ export const txnStatus = async(req,res) => {
     res.status(500).json({error: err});
   }
 }
+
+
+export const ppTxnStatus = async(req,res) => {
+  try{
+    const { client_txn_id} = req.body;
+
+    
+    const merchantId = process.env.MERCHANT_ID
+
+    
+    const string = `/pg/v1/status/${merchantId}/${transactionId}` + process.env.SALT_KEY;
+    const sha256 = crypto.createHash('sha256').update(string).digest('hex');
+    const checksum = sha256 + "###" + process.env.SALT_INDEX;
+
+    const options = {
+        method: 'GET',
+        url: `https://api.phonepe.com/apis/hermes/pg/v1/status/${merchantId}/${transactionId}`,
+        headers: {
+            accept: 'application/json',
+            'Content-Type': 'application/json',
+            'X-VERIFY': checksum,
+            'X-MERCHANT-ID': `${merchantId}`
+        }
+    };
+
+    // CHECK PAYMENT TATUS
+    const response = await axios.request(options);
+    
+
+
+    const data = await response.json();
+    const txn = await Transaction.findOne({ txnid: client_txn_id });
+
+    if (data.code && data.code === "PAYMENT_SUCCESS" && txn.status === "Created") {
+      const wallet = await Wallet.findOne({ _id: txn.walletid });
+
+      wallet.balance = wallet.balance + parseInt(txn.amount);
+      await wallet.save();
+
+      txn.status = "Success";
+      await txn.save();
+    }
+    else if(data.code && (data.code === "PAYMENT_DECLINED" || data.code === "PAYMENT_ERROR" )){
+      txn.status = "Failed";
+      await txn.save();
+    }
+
+    const updatedTransaction = await Transaction.findOne({txnid:client_txn_id});
+
+    res.status(200).json({
+      txnid : client_txn_id,
+      status : updatedTransaction.status,
+      amount : updatedTransaction.amount
+    });
+
+
+  }
+  catch(err){
+    res.status(500).json({error: err});
+  }
+}
