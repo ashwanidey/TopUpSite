@@ -23,7 +23,12 @@ export const usePostTransaction = () => {
 
     const data = await response.json();
 
-    window.location = data.data.payment_url;
+
+    // UPI Gateway
+    // window.location = data.data.payment_url;
+
+    //Phonepay
+    window.location = data.url;
 
     // setSelected(null);
     // setInput1(null);

@@ -1,6 +1,8 @@
 import Transaction from "../models/Transaction.js";
 import User from "../models/User.js";
 import Wallet from "../models/Wallet.js";
+import crypto from "crypto";
+import axios from "axios";
 
 
 function generateUniqueId() {
@@ -86,6 +88,83 @@ export const topUp = async(req,res) => {
   }
 }
 
+
+export const ppTopUp = async(req,res) => {
+  try{
+    const {value,userid} = req.body;
+    const number = parseFloat(value);
+    const transactionId = generateUniqueId();
+    const userInfo = await User.find({ userid: userid });
+    const user = userInfo[0];
+    
+
+    const wallet = await Wallet.findOne({userid : userid});
+
+    // Gateway
+
+    const data = {
+      merchantId: process.env.MERCHANT_ID,
+      merchantTransactionId: transactionId,
+      merchantUserId: "MUID" + user.userid,
+
+      amount: number * 100,
+      redirectUrl: `https://topupsite.netlify.app/walletconfirmation?client_txn_id=${transactionId}`,
+      redirectMode: "POST",
+      mobileNumber: user.mobilenumber,
+      paymentInstrument: {
+        type: "PAY_PAGE",
+      },
+    };
+    const payload = JSON.stringify(data);
+    const payloadMain = Buffer.from(payload).toString("base64");
+   
+    const string = payloadMain + "/pg/v1/pay" + process.env.SALT_KEY;
+    const sha256 = crypto.createHash("sha256").update(string).digest("hex");
+    const checksum = sha256 + "###" + process.env.SALT_INDEX;
+
+    const prod_URL = "https://api.phonepe.com/apis/hermes/pg/v1/pay";
+    // const prod_URL = "https://api-preprod.phonepe.com/apis/pg-sandbox/pg/v1/pay"
+
+    const options = {
+      method: "POST",
+      url: prod_URL,
+      headers: {
+        accept: "application/json",
+        "Content-Type": "application/json",
+        "X-VERIFY": checksum,
+      },
+      data: {
+        request: payloadMain,
+      },
+    };
+
+    let ppResData;
+
+    const response = await axios.request(options);
+    
+
+    //   Order Creation
+
+    const transaction = new Transaction({
+      txnid :  transactionId,
+      userid,
+      useremail : user.email,
+      amount: value,
+      type : "Credit",
+      walletid : wallet._id,
+
+    });
+
+    const savedTxn = await transaction.save();
+
+    res.status(200).json(response.data.data.instrumentResponse.redirectInfo);
+
+
+    
+  }catch(err){
+    res.status(500).json({error: err.message});
+  }
+}
 
 export const txnStatus = async(req,res) => {
   try{
