@@ -109,7 +109,7 @@ export const ppTopUp = async(req,res) => {
 
       amount: number * 100,
       redirectUrl: `https://senofficial.in/walletconfirmation?client_txn_id=${transactionId}`,
-      redirectMode: "POST",
+      redirectMode: "REDIRECt",
       mobileNumber: user.mobilenumber,
       paymentInstrument: {
         type: "PAY_PAGE",

@@ -45,7 +45,7 @@ export const ppGateway = async (req, res) => {
 
       amount: price * 100,
       redirectUrl: `https://senofficial.in/confirmation?client_txn_id=${transactionId}`,
-      redirectMode: "POST",
+      redirectMode: "REDIRECT",
       mobileNumber: userInformation.mobilenumber,
       paymentInstrument: {
         type: "PAY_PAGE",
