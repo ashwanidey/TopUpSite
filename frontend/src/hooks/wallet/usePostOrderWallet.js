@@ -4,7 +4,7 @@ import { VariableContext } from "../../context/VariableContext";
 
 
 export const usePostOrderWallet = () => {
-  const [isLoading1, setIsLoading] = useState(null);
+  const [isLoading1, setIsLoading1] = useState(null);
   const [message, setMessage] = useState(null);
   const {host,setSelected,setInput1,setInput2,setPayment} = useContext(VariableContext);
   const [paymentUrl,setPaymentUrl] = useState(null);
@@ -13,7 +13,7 @@ export const usePostOrderWallet = () => {
  
 
   const postOrderWallet = async(values,token)=>{
-    setIsLoading(true);
+    setIsLoading1(true);
     const response = await fetch(`${host}/order/createWalletOrder`,{
       method : "POST",
       headers: {
@@ -38,7 +38,7 @@ export const usePostOrderWallet = () => {
     // setInput1(null);
     // setInput2(null);
     // setPayment(null);
-    setIsLoading(false); 
+    setIsLoading1(false); 
 
   }
 

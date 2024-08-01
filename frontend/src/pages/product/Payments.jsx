@@ -100,7 +100,7 @@ const Payments = () => {
     </li>
 </ul>
         </div>
-        {(!isLoading || !isLoading1) ? 
+        {(!isLoading && !isLoading1) ? 
         <button className='bg-[#00C5FF] hover:bg-blue-600 rounded-full p-2.5 text-white font-[600] text-[1.1rem] w-full' 
 
         onClick={() => ((!isLoggedIn) ? navigate("/login") : 
