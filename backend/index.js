@@ -23,6 +23,7 @@ import walletRoutes from "./routes/wallet.js";
 
 import { products, items } from "./data/index.js";
 import { isAdmin, verifyToken } from "./middleware/auth.js";
+import Wallet from "./models/Wallet.js";
 
 const app = express();
 
@@ -114,6 +115,25 @@ const insertData = async () => {
     const productCount = await Product.countDocuments();
     const itemCount = await Items.countDocuments();
     const userCount = await User.countDocuments();
+    const wallets = await Wallet.countDocuments();
+
+
+   
+    if(wallets === 0){
+      const users = await User.find();
+      users.map(async(user)=>{
+        const wallet = new Wallet({
+          dbuserid : user._id,
+          userid : user.userid,
+          useremail : user.email,
+        })
+
+        await wallet.save();
+      })
+    }
+    
+
+ 
     
     if (productCount === 0) {
       await Product.insertMany(products);
