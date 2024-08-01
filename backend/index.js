@@ -80,6 +80,8 @@ app.use("/wallet", walletRoutes);
 // });
 
 
+
+
 // Serve static files based on environment
 if (process.env.NODE_MODE === "production") {
   // Serve static files from the React app in production
