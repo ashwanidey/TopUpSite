@@ -61,7 +61,7 @@ export const topUp = async(req,res) => {
         customer_name: user.name,
         customer_email: user.email,
         customer_mobile: user.mobilenumber,
-        redirect_url: "https://topupsite.netlify.app/walletconfirmation",
+        redirect_url: "https://senofficial.in/walletconfirmation",
       }),
     });
 
@@ -108,8 +108,8 @@ export const ppTopUp = async(req,res) => {
       merchantUserId: "MUID" + user.userid,
 
       amount: number * 100,
-      redirectUrl: `https://topupsite.netlify.app/walletconfirmation?client_txn_id=${transactionId}`,
-      redirectMode: "POST",
+      redirectUrl: `https://senofficial.in/walletconfirmation?client_txn_id=${transactionId}`,
+      redirectMode: "REDIRECt",
       mobileNumber: user.mobilenumber,
       paymentInstrument: {
         type: "PAY_PAGE",

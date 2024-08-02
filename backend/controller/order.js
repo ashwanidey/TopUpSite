@@ -89,7 +89,7 @@ export const upiGateway = async (req, res) => {
         customer_name: user.name,
         customer_email: user.email,
         customer_mobile: user.mobilenumber,
-        redirect_url: "https://topupsite.netlify.app/confirmation",
+        redirect_url: "https://senofficial.in/confirmation",
       }),
     });
 
@@ -162,7 +162,7 @@ export const wallet = async (req, res) => {
     const itemidarray = item.itemidarray;
 
     if(balance < number){
-      res.status(200).json({msg : "Not Enough Balance","redirect_url": "https://topupsite.netlify.app/balanceerror"});
+      res.status(200).json({msg : "Not Enough Balance","redirect_url": "https://senofficial.in/balanceerror"});
       return;
     }
 
@@ -203,7 +203,7 @@ export const wallet = async (req, res) => {
     await transaction.save();
 
     const savedOrder = await newOrder.save();
-    res.status(200).json({"redirect_url": `https://topupsite.netlify.app/confirmation?client_txn_id=${uniqueId}`});
+    res.status(200).json({"redirect_url": `https://senofficial.in/confirmation?client_txn_id=${uniqueId}`});
 
 
   } catch (err) {

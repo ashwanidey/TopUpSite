@@ -45,7 +45,10 @@ export const ppGateway = async (req, res) => {
       merchantUserId: "MUID" + userInformation.userid,
 
       amount: price * 100,
+
       redirectUrl: `https://topupsite.netlify.app/confirmation?client_txn_id=${transactionId}`,
+
+
       redirectMode: "REDIRECT",
       mobileNumber: userInformation.mobilenumber,
       paymentInstrument: {
