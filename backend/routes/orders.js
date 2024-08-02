@@ -9,12 +9,12 @@ const router = express.Router();
 router.post("/neworder",checkApiKey,verifyToken,createOrder)
 
 //For Gateway
-// router.post("/createOrder",checkApiKey,verifyToken,upiGateway)
-// router.post("/orderstatus",verifyToken,orderStatus);
+router.post("/createOrder",checkApiKey,verifyToken,upiGateway)
+router.post("/orderstatus",verifyToken,orderStatus);
 
 //FOR PHONEPE
-router.post("/createOrder",checkApiKey,verifyToken,ppGateway)
-router.post("/orderstatus",verifyToken,ppOrderStatus);
+// router.post("/createOrder",checkApiKey,verifyToken,ppGateway)
+// router.post("/orderstatus",verifyToken,ppOrderStatus);
 
 
 router.post("/createWalletOrder",checkApiKey,verifyToken,wallet)

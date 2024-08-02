@@ -6,12 +6,12 @@ import { getTransactions, getWalletBalance, ppTopUp, ppTxnStatus, topUp, txnStat
 const router = express.Router();
 
 // UPI gateway
-// router.post("/topup",verifyToken,topUp)
-// router.post("/txnstatus",verifyToken,txnStatus);
+router.post("/topup",verifyToken,topUp)
+router.post("/txnstatus",verifyToken,txnStatus);
 
 // PhonePay
-router.post("/topup",verifyToken,ppTopUp)
-router.post("/txnstatus",verifyToken,ppTxnStatus);
+// router.post("/topup",verifyToken,ppTopUp)
+// router.post("/txnstatus",verifyToken,ppTxnStatus);
 
 
 

@@ -35,7 +35,7 @@ const Payments = () => {
     // const token = await getAccessTokenSilently();
     setAfter(selected)
     
-   console.log(values)
+  //  console.log(values)
    if(payment === "upi")
     await postOrder(values,token);
   else if(payment === "wallet")

@@ -46,7 +46,8 @@ export const ppGateway = async (req, res) => {
 
       amount: price * 100,
 
-      redirectUrl: `https://senofficial.in/confirmation?client_txn_id=${transactionId}`,
+      // redirectUrl: `https://senofficial.in/confirmation?client_txn_id=${transactionId}`,
+      redirectUrl : `${process.env.REDIRECT_DOMAIN}/confirmation?client_txn_id=${transactionId}`,
 
 
       redirectMode: "REDIRECT",
@@ -106,7 +107,7 @@ export const ppGateway = async (req, res) => {
 
     const savedOrder = await newOrder.save();
 
-    console.log(ppResData)
+    // console.log(ppResData)
 
     res.status(200).json(response.data.data.instrumentResponse.redirectInfo)
   } catch (err) {

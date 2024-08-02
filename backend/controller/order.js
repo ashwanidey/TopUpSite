@@ -89,7 +89,8 @@ export const upiGateway = async (req, res) => {
         customer_name: user.name,
         customer_email: user.email,
         customer_mobile: user.mobilenumber,
-        redirect_url: "https://senofficial.in/confirmation",
+        // redirect_url: "https://senofficial.in/confirmation",
+        redirect_url: `${process.env.REDIRECT_DOMAIN}/confirmation`,
       }),
     });
 
@@ -130,7 +131,7 @@ export const wallet = async (req, res) => {
   try {
     const { userid, input1, input2, paymentmode, itemid } = req.body;
     const wallet = await Wallet.findOne({ dbuserid: userid });
-    console.log(userid)
+    // console.log(userid)
     const balance = parseInt(wallet.balance);
     const item = await Items.findOne({ itemid: itemid });
     const product = await Products.findById(item.productid);
@@ -161,10 +162,14 @@ export const wallet = async (req, res) => {
     const uniqueId = generateUniqueId();
     const itemidarray = item.itemidarray;
 
-    if(balance < number){
-      res.status(200).json({msg : "Not Enough Balance","redirect_url": "https://senofficial.in/balanceerror"});
-      return;
-    }
+    // if(balance < number){
+    //   res.status(200).json({msg : "Not Enough Balance","redirect_url": "https://senofficial.in/balanceerror"});
+    //   return;
+    // }
+    res.status(200).json({
+      msg: "Not Enough Balance",
+      redirect_url: `${process.env.REDIRECT_DOMAIN}/balanceerror`
+    });
 
     const newOrder = new Order({
       orderid: uniqueId,
@@ -203,7 +208,10 @@ export const wallet = async (req, res) => {
     await transaction.save();
 
     const savedOrder = await newOrder.save();
-    res.status(200).json({"redirect_url": `https://senofficial.in/confirmation?client_txn_id=${uniqueId}`});
+    // res.status(200).json({"redirect_url": `https://senofficial.in/confirmation?client_txn_id=${uniqueId}`});
+    res.status(200).json({
+      redirect_url: `${process.env.REDIRECT_DOMAIN}/confirmation?client_txn_id=${uniqueId}`
+    });
 
 
   } catch (err) {

@@ -134,11 +134,9 @@ const insertData = async () => {
 
         await wallet.save();
       })
+      dataInserted = true;
     }
-    
 
- 
-    
     if (productCount === 0) {
       await Product.insertMany(products);
       dataInserted = true;

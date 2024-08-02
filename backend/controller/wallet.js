@@ -17,7 +17,7 @@ export const getWalletBalance = async(req,res) =>{
     const {userid} = req.params;
    
     const wallet = await Wallet.findOne({userid:userid});
-    console.log(wallet)
+    // console.log(wallet)
     res.status(200).json({"balance" : wallet.balance});
   }
   catch(err){
@@ -61,7 +61,9 @@ export const topUp = async(req,res) => {
         customer_name: user.name,
         customer_email: user.email,
         customer_mobile: user.mobilenumber,
-        redirect_url: "https://senofficial.in/walletconfirmation",
+        // redirect_url: "https://senofficial.in/walletconfirmation",
+        redirect_url: `${process.env.REDIRECT_DOMAIN}/walletconfirmation`,
+
       }),
     });
 
@@ -108,7 +110,8 @@ export const ppTopUp = async(req,res) => {
       merchantUserId: "MUID" + user.userid,
 
       amount: number * 100,
-      redirectUrl: `https://senofficial.in/walletconfirmation?client_txn_id=${transactionId}`,
+      // redirectUrl: `https://senofficial.in/walletconfirmation?client_txn_id=${transactionId}`,
+      redirectUrl: `${process.env.REDIRECT_DOMAIN}/walletconfirmation?client_txn_id=${transactionId}`,
       redirectMode: "REDIRECt",
       mobileNumber: user.mobilenumber,
       paymentInstrument: {
@@ -246,7 +249,7 @@ export const ppTxnStatus = async(req,res) => {
 
     const data = response.data;
   
-    console.log(data);
+    // console.log(data);
     const txn = await Transaction.findOne({ txnid: client_txn_id });
 
     if (data.code && data.code === "PAYMENT_SUCCESS" && txn.status === "Created") {

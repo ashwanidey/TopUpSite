@@ -4,7 +4,7 @@ import { json } from "react-router-dom";
 export const VariableContext= createContext({});
 export const VariableProvider = ({children}) => {
   // const host = "http://localhost:8080";
-  const host = "https://senofficial.in";
+  const host = "https://topupsite.netlify.app";
   const imageUrl = "../../assets/"
   const mlbb = "100";
   const mlbbph = "112";

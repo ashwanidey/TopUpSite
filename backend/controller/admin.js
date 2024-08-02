@@ -123,7 +123,7 @@ export const updateOrder = async(req,res) => {
     });
 
     await transaction.save();
-    console.log(order.value)
+    // console.log(order.value)
     wallet.balance += parseInt(order.value);
     await wallet.save()
       
