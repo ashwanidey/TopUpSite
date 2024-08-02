@@ -225,13 +225,13 @@ export const ppTxnStatus = async(req,res) => {
     const merchantId = process.env.MERCHANT_ID
 
     
-    const string = `/pg/v1/status/${merchantId}/${transactionId}` + process.env.SALT_KEY;
+    const string = `/pg/v1/status/${merchantId}/${client_txn_id}` + process.env.SALT_KEY;
     const sha256 = crypto.createHash('sha256').update(string).digest('hex');
     const checksum = sha256 + "###" + process.env.SALT_INDEX;
 
     const options = {
         method: 'GET',
-        url: `https://api.phonepe.com/apis/hermes/pg/v1/status/${merchantId}/${transactionId}`,
+        url: `https://api.phonepe.com/apis/hermes/pg/v1/status/${merchantId}/${client_txn_id}`,
         headers: {
             accept: 'application/json',
             'Content-Type': 'application/json',
@@ -244,8 +244,9 @@ export const ppTxnStatus = async(req,res) => {
     const response = await axios.request(options);
     
 
-
-    const data = await response.json();
+    const data = response.data;
+  
+    console.log(data);
     const txn = await Transaction.findOne({ txnid: client_txn_id });
 
     if (data.code && data.code === "PAYMENT_SUCCESS" && txn.status === "Created") {
@@ -273,6 +274,6 @@ export const ppTxnStatus = async(req,res) => {
 
   }
   catch(err){
-    res.status(500).json({error: err});
+    res.status(500).json({error: err.message});
   }
 }
