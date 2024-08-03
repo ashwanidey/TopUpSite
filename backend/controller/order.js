@@ -259,7 +259,7 @@ export const orderStatus = async (req, res) => {
       ) {
         await Order.findOneAndUpdate(
           { transactionid: client_txn_id },
-          { status: "In Proccessing" }
+          { status: "Processing" }
         );
 
         for (let i = 0; i < itemidarray.length; i++) {
