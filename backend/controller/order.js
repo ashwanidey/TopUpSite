@@ -162,14 +162,11 @@ export const wallet = async (req, res) => {
     const uniqueId = generateUniqueId();
     const itemidarray = item.itemidarray;
 
-    // if(balance < number){
-    //   res.status(200).json({msg : "Not Enough Balance","redirect_url": "https://senofficial.in/balanceerror"});
-    //   return;
-    // }
-    res.status(200).json({
-      msg: "Not Enough Balance",
-      redirect_url: `${process.env.REDIRECT_DOMAIN}/balanceerror`
-    });
+    if(balance < number){
+      res.status(200).json({msg : "Not Enough Balance","redirect_url": `${process.env.REDIRECT_DOMAIN}/balanceerror`});
+      return;
+    }
+   
 
     const newOrder = new Order({
       orderid: uniqueId,
