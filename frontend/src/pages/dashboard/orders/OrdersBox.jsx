@@ -20,7 +20,9 @@ const OrdersBox = ({orders}) => {
                         </div>
                         <div class="text-sm text-gray-500  dark:text-gray-400" style={order?.status === "Processing" ? {color : "#FF962D"} : 
               (order?.status === "Completed" ? {color : "#9ACD32"} : {color : "#FF4646"})}>
-                          Status - {order?.status} <div>{order?.status === "Refunded" && `Reason : ${order?.reason}`}</div>
+                          Status - {order?.status} 
+                          <div>{order?.status === "Refunded" && `Reason : ${order?.reason}`}</div>
+                          <div>{order?.status === "Completed" && `Rmarks : ${order?.reason}`}</div>
                         </div>
                         <div class="text-sm text-gray-500 truncate dark:text-gray-400">
                           Uid/Email - {order?.input1}
