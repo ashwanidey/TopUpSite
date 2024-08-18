@@ -18,6 +18,7 @@ const ProductIds = [
   new mongoose.Types.ObjectId(),
   new mongoose.Types.ObjectId(),
   new mongoose.Types.ObjectId(),
+  new mongoose.Types.ObjectId(),
   
 ];
 
@@ -186,8 +187,8 @@ export const products = [
     istrending : true,
     importantnote : "Recharge not available for Indo IDs",
     inputs: [{label : "User Id"},{label : "Server Id"}],
-    items : ['212','213','214','215'],
-    // '216','217','218','219','220','221'
+    items : ['212','213','214','215','222','223'],
+    // '216','217','218','219','220','221','222','223
     __v: 0,
   },
   {
@@ -216,7 +217,7 @@ export const products = [
   },
   {
     _id: ProductIds[15],
-    name: "Event Pack 1",
+    name: "Event Packs",
     type: "games",
     productid: 100,  //BR Automatic
     imgpath: "productimage/mobilelegends.jpeg",
@@ -226,17 +227,29 @@ export const products = [
     items : [230, 231, 232, 233],
     __v: 0,
   },
+  // {
+  //   _id: ProductIds[16],
+  //   name: "Event Pack 2",
+  //   type: "games",
+  //   productid: 112,  //PHP Automatic
+  //   imgpath: "productimage/mobilelegends.jpeg",
+  //   istrending : true,
+  //   importantnote : "Recharge not available for Indo IDs",
+  //   inputs: [{label : "User Id"},{label : "Server Id"}],
+  //   items : [234, 235],
+  //   // '216','217','218','219','220','221'
+  //   __v: 0,
+  // },
   {
-    _id: ProductIds[16],
-    name: "Event Pack 2",
+    _id: ProductIds[17],
+    name: "Brawl Stars",
     type: "games",
-    productid: 112,  //PHP Automatic
-    imgpath: "productimage/mobilelegends.jpeg",
+    productid: 115,
+    imgpath: "productimage/brawlstars.jpg",
     istrending : true,
-    importantnote : "Recharge not available for Indo IDs",
-    inputs: [{label : "User Id"},{label : "Server Id"}],
-    items : [234, 235],
-    // '216','217','218','219','220','221'
+    importantnote : "Please verify your details before placing order to avoid any kind of delay.",
+    inputs: [{label : "User Id"},{label : "Username"}],
+    items : [],
     __v: 0,
   },
 
@@ -623,6 +636,32 @@ export const items = [  //10-50: BR, 210-250: PH
   //   resellprice : ,
   //   imgpath : "itemimage/mlbbbulkdiamonds.png",
   // },
+  {
+    _id: new mongoose.Types.ObjectId(),
+    name: "33💎(22+11)",
+    sku: "Mobile Legends PH-diamond_33",
+    itemid : 222,
+    itemidarray : [212,213],
+    productid: ProductIds[12],
+    originalprice: 60,
+    discountedprice : 55,
+    resellprice : 50,
+    imgpath : "itemimage/mlbbdiamonds.png",
+  },
+  {
+    _id: new mongoose.Types.ObjectId(),
+    name: "44💎(22+22)",
+    sku: "Mobile Legends PH-diamond_44",
+    itemid : 223,
+    itemidarray : [213,213],
+    productid: ProductIds[12],
+    originalprice: 80,
+    discountedprice : 75,
+    resellprice : 70,
+    imgpath : "itemimage/mlbbdiamonds.png",
+  },
+
+  
 
   //230 - 250 Event packs
   {
@@ -715,7 +754,7 @@ export const items = [  //10-50: BR, 210-250: PH
   },
   {
     _id: new mongoose.Types.ObjectId(),
-    name: "325 UC",
+    name: "355 UC",
     sku: "pubgglobal GB 355 UC",
     itemid : 62,
     itemidarray : [],
@@ -727,7 +766,7 @@ export const items = [  //10-50: BR, 210-250: PH
   },
   {
     _id: new mongoose.Types.ObjectId(),
-    name: "660 UC",
+    name: "720 UC",
     sku: "pubgglobal GB 720 UC",
     itemid : 63,
     itemidarray : [],
@@ -739,7 +778,7 @@ export const items = [  //10-50: BR, 210-250: PH
   },
   {
     _id: new mongoose.Types.ObjectId(),
-    name: "1800 UC",
+    name: "1950 UC",
     sku: "pubgglobal GB 1950 UC",
     itemid : 64,
     itemidarray : [],
@@ -751,7 +790,7 @@ export const items = [  //10-50: BR, 210-250: PH
   },
   {
     _id: new mongoose.Types.ObjectId(),
-    name: "3850 UC",
+    name: "4000 UC",
     sku: "pubgglobal GB 4000 UC",
     itemid : 65,
     itemidarray : [],
@@ -763,7 +802,7 @@ export const items = [  //10-50: BR, 210-250: PH
   },
   {
     _id: new mongoose.Types.ObjectId(),
-    name: "8100 UC",
+    name: "8400 UC",
     sku: "pubgglobal GB 8400 UC",
     itemid : 66,
     itemidarray : [],
@@ -930,7 +969,7 @@ export const items = [  //10-50: BR, 210-250: PH
     originalprice: 115,
     discountedprice : 100,
     resellprice : 100,
-    imgpath : "itemimage/genshincrystal.png",
+    imgpath : "itemimage/bigodiamonds.png",
   },
   {
     _id: new mongoose.Types.ObjectId(),
@@ -942,7 +981,7 @@ export const items = [  //10-50: BR, 210-250: PH
     originalprice: 220,
     discountedprice : 200,
     resellprice : 200,
-    imgpath : "itemimage/genshincrystal.png",
+    imgpath : "itemimage/bigodiamonds.png",
   },
   {
     _id: new mongoose.Types.ObjectId(),
@@ -954,7 +993,7 @@ export const items = [  //10-50: BR, 210-250: PH
     originalprice: 420,
     discountedprice : 390,
     resellprice : 390,
-    imgpath : "itemimage/genshincrystal.png",
+    imgpath : "itemimage/bigodiamonds.png",
   },
   {
     _id: new mongoose.Types.ObjectId(),
@@ -966,7 +1005,7 @@ export const items = [  //10-50: BR, 210-250: PH
     originalprice: 1000,
     discountedprice : 950,
     resellprice : 950,
-    imgpath : "itemimage/genshincrystal.png",
+    imgpath : "itemimage/bigodiamonds.png",
   },
        //260-300
   {
@@ -1565,7 +1604,7 @@ export const items = [  //10-50: BR, 210-250: PH
     imgpath : "itemimage/honorweeklycardplus.png",
   },
 
-  // 661-650
+  // 661-700
   {
     _id: new mongoose.Types.ObjectId(),
     name: "330 Oneiric",
@@ -1638,4 +1677,92 @@ export const items = [  //10-50: BR, 210-250: PH
     resellprice : 370,
     imgpath : "itemimage/honkaiexpress.png",
   },
+
+  //700-750
+
+  {
+    _id: new mongoose.Types.ObjectId(),
+    name: "33 Gems",
+    sku: "brawl stars 33 gems",
+    itemid : 700,
+    itemidarray : [],
+    productid: ProductIds[17],
+    originalprice: 165,
+    discountedprice : 154,
+    resellprice : 154,
+    imgpath : "itemimage/brawlstarsgems.png",
+  },
+  {
+    _id: new mongoose.Types.ObjectId(),
+    name: "88 Gems",
+    sku: "brawl stars 88 gems",
+    itemid : 701,
+    itemidarray : [],
+    productid: ProductIds[17],
+    originalprice: 395,
+    discountedprice : 386,
+    resellprice : 386,
+    imgpath : "itemimage/brawlstarsgems.png",
+  },
+  {
+    _id: new mongoose.Types.ObjectId(),
+    name: "187 Gems",
+    sku: "brawl stars 187 gems",
+    itemid : 702,
+    itemidarray : [],
+    productid: ProductIds[17],
+    originalprice: 780,
+    discountedprice : 760,
+    resellprice : 760,
+    imgpath : "itemimage/brawlstarsgems.png",
+  },
+  {
+    _id: new mongoose.Types.ObjectId(),
+    name: "396 Gems",
+    sku: "brawl stars 396 gems",
+    itemid : 703,
+    itemidarray : [],
+    productid: ProductIds[17],
+    originalprice: 1560,
+    discountedprice : 1545,
+    resellprice : 1545,
+    imgpath : "itemimage/brawlstarsgems.png",
+  },
+  {
+    _id: new mongoose.Types.ObjectId(),
+    name: "1045 Gems",
+    sku: "brawl stars 1045 gems",
+    itemid : 704,
+    itemidarray : [],
+    productid: ProductIds[17],
+    originalprice: 3850,
+    discountedprice : 3800,
+    resellprice : 3800,
+    imgpath : "itemimage/brawlstarsgems.png",
+  },
+  {
+    _id: new mongoose.Types.ObjectId(),
+    name: "2200 Gems",
+    sku: "brawl stars 2200 gems",
+    itemid : 705,
+    itemidarray : [],
+    productid: ProductIds[17],
+    originalprice: 7700,
+    discountedprice : 7600,
+    resellprice : 7600,
+    imgpath : "itemimage/brawlstarsgems.png",
+  },
+  {
+    _id: new mongoose.Types.ObjectId(),
+    name: "Brawl Pass Plus",
+    sku: "brawl stars pass plus",
+    itemid : 706,
+    itemidarray : [],
+    productid: ProductIds[17],
+    originalprice: 750,
+    discountedprice : 760,
+    resellprice : 760,
+    imgpath : "itemimage/brawlpassplus.png",
+  },
+
 ]
