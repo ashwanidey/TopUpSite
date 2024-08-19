@@ -3,11 +3,11 @@ import React from 'react';
 const PrivacyPage = () => {
   return (
     <div className="mt-[6rem] lg:mx-[6rem] mx-[1rem] flex flex-col gap-3 text-white">
-      <h1>Privacy Policy for MIRAKITSORE</h1>
+      <h1>Privacy Policy for Gammerce.in</h1>
 
       <p>Effective Date: 18 June, 2024</p>
 
-      <p>Thank you for using mirakistore.com. Protecting your private information is our priority. This Privacy Policy outlines how we collect, use, disclose, and safeguard your information when you visit our website [mirakistore.com] or use our services.</p>
+      <p>Thank you for using Gammerce.in. Protecting your private information is our priority. This Privacy Policy outlines how we collect, use, disclose, and safeguard your information when you visit our website [gammerce.in] or use our services.</p>
 
       <h2>Information We Collect</h2>
 
@@ -49,7 +49,7 @@ const PrivacyPage = () => {
       <p>If you have any questions about this Privacy Policy, please contact us at:</p>
       <ul>
         <li>Phone: +91 7085 742871 / +91 6009 359518</li>
-        <li>Email: <a href="mailto:valpuia7085@gmail.com">valpuia7085@gmail.com</a></li>
+        <li>Email: <a href="mailto:firefalls2004@gmail.com">firefalls2004@gmail.com</a></li>
       </ul>
     </div>
   );

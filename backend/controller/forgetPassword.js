@@ -14,13 +14,13 @@ export const forgetPassword = async(req,res) => {
     sendEmail(user.email,"Reset Password",
       `
       Dear user,\n
-      We received a request to reset your password for your Miraki Store account.\m
+      We received a request to reset your password for your  Gammerce.in\m
       Please click below to reset your password\n\n
-      https://mirakistore.com/reset_password/${user._id}/${token}\n\n
+      https://gammerce.in/reset_password/${user._id}/${token}\n\n
       
       If you did not request a password reset, please ignore this email. Your password will remain unchanged.\n\n
       Best Regards,\n
-      Miraki Store\n
+      Gammerce.in\n
       `);
 
     res.status(200).json({msg:"Email sent, please check your inbox."});

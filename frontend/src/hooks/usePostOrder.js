@@ -26,11 +26,11 @@ export const usePostOrder = () => {
     const data = await response.json();
    
   //  FOR UPI GATEWAY
-    window.location  = data.data.payment_url
+    // window.location  = data.data.payment_url
 
 
-    // FOR PAYPAL GATEWAY
-    // window.location  = data.url;
+    // FOR PhonePe GATEWAY
+    window.location  = data.url;
 
     
 

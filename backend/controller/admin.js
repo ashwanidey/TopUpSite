@@ -97,11 +97,11 @@ export const updateOrder = async(req,res) => {
         Price : ₹${order.value}\n\n
         UPI transaction id : ${order.upi_txn_id}\n\n
         
-        Thank you for purchasing from Miraki Store.\n\n
+        Thank you for purchasing from Gammerce.in.\n\n
         
         If you have any issues related to the order, kindly contact customer service via Live Chat. Our Live Chat is located at the bottom right of our website.\n\n
         Best Regards,\n\n
-        Miraki Store`)
+        Gammerce.in`)
         // Customer VPA : ${order.customer_vpa}
      
     }
@@ -143,11 +143,11 @@ export const updateOrder = async(req,res) => {
         UPI transaction id : ${order.upi_txn_id}\n\n
         Customer VPA : ${order.customer_vpa}\n\n
         
-        Thank you for purchasing from Miraki Store.\n\n
+        Thank you for purchasing from Gammerce.in\n\n
         
         If you have any issues related to the order, kindly contact customer service via Live Chat. Our Live Chat is located at the bottom right of our website.\n\n
         Best Regards,\n\n
-        Miraki Store`)
+        Gammerce.in`)
        
     }
       catch(err){

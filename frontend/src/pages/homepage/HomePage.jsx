@@ -36,7 +36,7 @@ const HomePage = () => {
 
   return (
     <>
-      <a href="https://wa.me/917085742871" className="fixed bottom-[20px] right-[20px] z-50 flex items-center gap-2 bg-green-500 p-2 rounded-full text-white">
+      <a href="https://wa.me/919883084820" className="fixed bottom-[20px] right-[20px] z-50 flex items-center gap-2 bg-green-500 p-2 rounded-full text-white">
         <img src={whatsappIcon} alt="WhatsApp" className="w-8 h-8" />
         Contact us
       </a>

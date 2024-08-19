@@ -25,10 +25,10 @@ export const usePostTransaction = () => {
 
 
     // UPI Gateway
-    window.location = data.data.payment_url;
+    // window.location = data.data.payment_url;
 
-    //Phonepay
-    // window.location = data.url;
+    //PhonePe
+    window.location = data.url;
 
     // setSelected(null);
     // setInput1(null);

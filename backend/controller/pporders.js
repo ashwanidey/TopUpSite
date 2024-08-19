@@ -265,11 +265,11 @@ export const ppOrderStatus = async (req, res) => {
               Price : ₹${order.value}\n\n
               
               
-              Thank you for purchasing from Miraki Store.\n\n
+              Thank you for purchasing from Gammerce.in\n\n
               
               If you have any issues related to the order, kindly contact customer service via Live Chat. Our Live Chat is located at the bottom right of our website.\n\n
               Best Regards,\n\n
-              Miraki Store`
+              Gammerce.in`
           );
           // Customer VPA : ${data.data.customer_vpa}
         } else {
@@ -287,7 +287,7 @@ export const ppOrderStatus = async (req, res) => {
           // sendEmail(data.data.customer_email,``)
           sendEmail(
             process.env.EMAIL,
-            `Miraki - New Order Received!`,
+            `Gammerce - New Order Received!`,
             `Order Number : ${client_txn_id}\n\n
               
               Product Name : ${product.name}\n\n
@@ -310,7 +310,7 @@ export const ppOrderStatus = async (req, res) => {
         );
         sendEmail(
           process.env.EMAIL,
-          `Miraki - New Order Received!`,
+          `Gammerce - New Order Received!`,
           `Order Number : ${client_txn_id}\n\n
           Product Name : ${product.name}\n\n
           Item : ${order.itemname}\n\n

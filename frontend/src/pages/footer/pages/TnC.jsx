@@ -34,7 +34,7 @@ const TnC = () => {
       <p>We are not liable for any direct, indirect, incidental, special, consequential, or punitive damages arising out of your use of or inability to use our services.</p>
 
       <h2>7. Intellectual Property</h2>
-      <p>All content and materials on our website, including logos, text, graphics, and images, are the property of MiRaKi STORE.</p>
+      <p>All content and materials on our website, including logos, text, graphics, and images, are the property of Gammerce.in</p>
       <p>You may not reproduce, distribute, modify, display, or prepare derivative works based upon, or otherwise exploit our content without our prior written consent.</p>
 
       <h2>8. Modifications</h2>

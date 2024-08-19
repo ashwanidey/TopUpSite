@@ -38,13 +38,13 @@ export const register = async (req, res) => {
 
     // sendEmail(email,`Please verify you account!`,
     //   `Dear user,\n
-    //   Thank you for registering on Miraki Store.\n
+    //   Thank you for registering on Gammerce.in\n
     //   Please click below to verify your email address.\n\n
-    //   https://mirakistore.com/verification/${savedUser._id}/${token}\n\n
+    //   https://gammerce.inverification/${savedUser._id}/${token}\n\n
       
     //   If you did not request this, please ignore this email.\n\n
     //   Best Regards,\n
-    //   Miraki Store\n`)
+    //   Gammerce.in\n`)
     
     res.status(201).json(savedUser);
   } catch (err) {
@@ -86,12 +86,12 @@ export const login = async (req, res) => {
     //   sendEmail(email,"Please verify you account!",
     //     `
     //     Dear user,\n
-    //     Thank you for registering on Miraki Store.\n
+    //     Thank you for registering on Gammerce.in\n
     //     Please click below to verify your email address.\n\n
-    //     https://mirakistore.com/verification/${user._id}/${token}\n\n
+    //     https://gammerce.in/verification/${user._id}/${token}\n\n
     //     If you did not request this, please ignore this email.\n\n
     //     Best Regards,\n
-    //     Miraki Store\n`)
+    //     Gammerce.in\n`)
 
     //   return res.status(400).json({ msg: "Please verify you email. Verification mail sent on your email address" }
     // );
