@@ -6,6 +6,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import OrdersBox from "./orders/OrdersBox";
 import Orders from "./orders/Orders";
 import Counter from "./Counter";
+import PointsBalance from "./PointsBalance";
 
 const Dashboard = () => {
   const { isLoading } = useAuth0();
@@ -25,6 +26,7 @@ const Dashboard = () => {
             <UserProfile />
             <Counter/>
             <Balance/>
+            {/* <PointsBalance/> */}
           </div>
           <Orders/>
         </div>

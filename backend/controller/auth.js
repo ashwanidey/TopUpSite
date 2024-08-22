@@ -3,6 +3,7 @@ import jwt from "jsonwebtoken";
 import User from "../models/User.js";
 import { sendEmail } from "../mailer.js";
 import Wallet from "../models/Wallet.js";
+import Point from "../models/Points.js";
 
 
 export const register = async (req, res) => {
@@ -26,12 +27,19 @@ export const register = async (req, res) => {
     
     const savedUser = await newUser.save();
 
+    const point = new Point({
+      dbuserid : savedUser._id,
+      userid : userId,
+      useremail : email,
+    })
+
     const wallet = new Wallet({
       dbuserid : savedUser._id,
       userid : userId,
       useremail : email,
     })
 
+    const savedPoint = await point.save();
     const savedWallet = await wallet.save();
 
     const token = jwt.sign({id: savedUser._id}, process.env.JWT_SECRET, {expiresIn: "1d"})

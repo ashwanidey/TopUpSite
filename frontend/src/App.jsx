@@ -34,6 +34,7 @@ import Wallet from "./pages/wallet/Wallet";
 import TopUp from "./pages/wallet/TopUp";
 import WalletConfirmation from "./pages/confirmationPage/WalletConfirmation";
 import BalanceErr from "./pages/wallet/BalanceErr";
+import RedeemPoints from "./pages/wallet/RedeemPoints";
 
 function App() {
   document.documentElement.classList.add("dark");
@@ -64,6 +65,14 @@ function App() {
               element={
                 <>
                   <BalanceErr />
+                </>
+              }
+            ></Route>
+            <Route
+              path="/redeem"
+              element={
+                <>
+                  <RedeemPoints />
                 </>
               }
             ></Route>

@@ -7,6 +7,7 @@ import CryptoJS from "crypto-js";
 import Wallet from "../models/Wallet.js";
 import UpiTransaction from "../models/UpiTransactions.js";
 import Transaction from "../models/Transaction.js";
+import Point from "../models/Points.js";
 
 function generateUniqueId() {
   const timestamp = Date.now(); // Get the current timestamp
@@ -242,6 +243,7 @@ export const orderStatus = async (req, res) => {
     const order = await Order.findOne({ transactionid: client_txn_id });
     const product = await Products.findOne({ productid: order.productid });
     const itemidarray = order.itemidarray;
+    const points = await Point.findOne({ dbuserid: order.userid });
     // console.log(product)
 
     if (
@@ -348,6 +350,18 @@ export const orderStatus = async (req, res) => {
               customer_email: data.data.customer_email,
             }
           );
+          
+          let newBalance = points.balance;
+          newBalance += order.value / process.env.POINTS_RATIO;
+          
+          const transaction = {
+            type : "credit",
+            amount : order.value,
+           
+          }
+
+          const updatedPoint = await Point.findOneAndUpdate({dbuserid: order.userid },{balance:newBalance, $push:{transactions:transaction}},{new:true});
+
           sendEmail(
             data.data.customer_email,
             `Your order ${data.data.client_txn_id}  has been completed successfully`,
