@@ -25,6 +25,7 @@ import pointsRoutes from "./routes/points.js";
 import { products, items } from "./data/index.js";
 import { isAdmin, verifyToken } from "./middleware/auth.js";
 import Wallet from "./models/Wallet.js";
+import Point from "./models/Points.js";
 
 const app = express();
 
@@ -122,6 +123,7 @@ const insertData = async () => {
     const itemCount = await Items.countDocuments();
     const userCount = await User.countDocuments();
     const wallets = await Wallet.countDocuments();
+    const points = await Point.countDocuments();
 
 
    
@@ -135,6 +137,19 @@ const insertData = async () => {
         })
 
         await wallet.save();
+      })
+      dataInserted = true;
+    }
+    if(points === 0){
+      const users = await User.find();
+      users.map(async(user)=>{
+        const point = new Point({
+          dbuserid : user._id,
+          userid : user.userid,
+          useremail : user.email,
+        })
+
+        await point.save();
       })
       dataInserted = true;
     }

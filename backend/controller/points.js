@@ -30,10 +30,10 @@ export const redeemPoints = async(req,res) => {
     const point = await Point.findOne({userid : userid});
 
     if(point.balance < number){
-      return res.status(400).json({msg: "Insufficient balance"});
+      return res.status(400).json({msg: `Insufficient points, available points : ${point.balance}`});
     }
     if(number < process.env.MIN_REDEEM_POINTS){
-      return res.status(400).json({msg: "Invalid Minimum amount"});
+      return res.status(400).json({msg: `Minimum balance to be reedemed : ${process.env.MIN_REDEEM_POINTS}`});
     }
 
     const newBalance = point.balance - number;
@@ -41,6 +41,7 @@ export const redeemPoints = async(req,res) => {
     const transaction = {
       type : "redeem",
       amount : number,
+      date : Date.now()
      
     }
 
