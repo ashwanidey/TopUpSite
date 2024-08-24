@@ -52,7 +52,7 @@ export const oneGateway = async (req, res) => {
       body: JSON.stringify({
         scannerIncluded: true,
         orderId: uniqueId,
-        apiKey: "rTlOz0N2EHQZ8y10ZsSejL01",
+        apiKey: process.env.OG_API_KEY,
         amount: number.toFixed(2),
         paymentNote: "test",
         customerName: user.name,
@@ -106,7 +106,7 @@ export const ogOrderStatus = async (req, res) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        apiKey: "rTlOz0N2EHQZ8y10ZsSejL01" ,
+        apiKey: process.env.OG_API_KEY ,
         orderId: client_txn_id,
         
       }),
