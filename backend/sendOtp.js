@@ -2,11 +2,12 @@ import axios from "axios";
 
 export const sendOtp = async (otp, number) => {
   try {
+    
     const smsdata = {
-      sender_id: "FSTSMS",
-      message: otp,
-      langauage: "english",
-      route: "p",
+      
+      variables_values: otp,
+      // langauage: "english",
+      route: "otp",
       numbers: number,
     };
     return axios.post("https://www.fast2sms.com/dev/bulkV2", smsdata, {

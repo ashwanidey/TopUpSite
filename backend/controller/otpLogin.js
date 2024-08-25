@@ -20,7 +20,15 @@ export const checkMobileNumber = async (req, res) => {
       });
     }
     const smsOTP = Math.floor(100000 + Math.random() * 900000);
-    await sendOtp(smsOTP,  mobile);
+    try{
+    await sendOtp(String(smsOTP),  mobile);
+    }
+    catch(error){ 
+      return res.status(201).send({
+        success: false,
+        error: error.message,
+      });
+    }
     
     const savedOtpUser = await User.findOneAndUpdate(
       { mobilenumber: mobile },
