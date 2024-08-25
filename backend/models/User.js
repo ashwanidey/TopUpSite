@@ -39,6 +39,23 @@ const UserSchema = new mongoose.Schema(
       type: String,
       default: "",
     },
+    mobileOtp: {
+      type: String,
+      default: "",
+    },
+    otpExpiresAt: {
+      type: Date,
+      default: null,
+    },
+    otpLastSent: {
+      type: Date,
+      default: null,
+    },
+    otpAttempts: {
+      type: Number,
+      default: 0,
+},
+
     
     // location: String,
     // occupation: String,

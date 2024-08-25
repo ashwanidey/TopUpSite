@@ -35,6 +35,8 @@ import TopUp from "./pages/wallet/TopUp";
 import WalletConfirmation from "./pages/confirmationPage/WalletConfirmation";
 import BalanceErr from "./pages/wallet/BalanceErr";
 import RedeemPoints from "./pages/wallet/RedeemPoints";
+import OtpLogin from "./pages/loginPage/OtpLogin";
+import OtpVerify from "./pages/loginPage/OtpVerify";
 
 function App() {
   document.documentElement.classList.add("dark");
@@ -56,6 +58,24 @@ function App() {
               element={
                 <>
                   <Test />
+                </>
+              }
+            ></Route>
+         
+            <Route
+              path="/otplogin"
+              element={
+                <>
+                  <OtpLogin />
+                </>
+              }
+            ></Route>
+
+<Route
+              path="/otpverify/:mobile"
+              element={
+                <>
+                  <OtpVerify />
                 </>
               }
             ></Route>

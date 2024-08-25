@@ -21,6 +21,7 @@ import passwordRoutes from "./routes/forgetPassword.js";
 import userRoutes from "./routes/user.js";
 import walletRoutes from "./routes/wallet.js";
 import pointsRoutes from "./routes/points.js";
+import otpRoutes from "./routes/otpLogin.js";
 
 import { products, items } from "./data/index.js";
 import { isAdmin, verifyToken } from "./middleware/auth.js";
@@ -81,6 +82,7 @@ app.use("/password", passwordRoutes);
 app.use("/user", userRoutes);
 app.use("/wallet", walletRoutes);
 app.use("/points", pointsRoutes);
+app.use("/otp", otpRoutes);
 
 // app.get("/test",verifyToken,isAdmin,(req,res)=>{
 //   console.log("in")
