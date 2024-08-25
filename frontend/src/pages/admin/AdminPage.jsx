@@ -4,6 +4,7 @@ import ChangePrice from "./ChangePriceDropdown";
 import { useAuth0 } from "@auth0/auth0-react";
 import AdminCounter from "./AdminCounter";
 import PointsQuery from "./QueryPoints";
+import PointsQueryPh from "./QueryPointsPh";
 
 const AdminPage = () => {
   const { isLoading } = useAuth0();
@@ -18,6 +19,7 @@ const AdminPage = () => {
 
           <div className="bg-gray-800 p-6 rounded-lg shadow-md">
             <PointsQuery />
+            <PointsQueryPh />
           </div>
 
           <div className="flex flex-col gap-4 mt-4">

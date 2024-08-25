@@ -29,5 +29,27 @@ export const useQueryPoints = () => {
     setIsLoading(false);
   };
 
-  return { isLoading, queryPoints, points, message };
+  const queryPointsPh = async (token) => {
+    setIsLoading(true);
+    const response = await fetch(`${host}/admin/querypoints/ph`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+      }),
+    });
+    const data = await response.json();
+
+    if (data.status === 200) {
+      setPoints(data.smile_points);
+      setMessage("Points fetched successfully");
+    } else {
+      setMessage("Failed to fetch points");
+    }
+    setIsLoading(false);
+  };
+
+  return { isLoading, queryPoints,queryPointsPh, points, message };
 };
