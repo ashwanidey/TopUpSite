@@ -21,4 +21,3 @@ export const sendOtp = async (otp, number) => {
 
 
 
-sendOtp("1234", "9354725491");

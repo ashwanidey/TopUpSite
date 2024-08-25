@@ -16,7 +16,7 @@ export const checkMobileNumber = async (req, res) => {
     if(user.otpLastSent && user.otpLastSent > Date.now() - 120000){
       return res.status(201).send({
         success: false,
-        message: "Otp Already Sent",
+        message: "Otp Already Sent...Please Wait for 2 minutes",
       });
     }
     const smsOTP = Math.floor(100000 + Math.random() * 900000);
@@ -36,7 +36,7 @@ export const checkMobileNumber = async (req, res) => {
     }
     return res.status(200).send({
       success: true,
-      message: "Otp Sent Successfully",
+      message: "Otp Sent Successfully...Please Verify",
       
     });
   } catch (error) {
@@ -64,7 +64,7 @@ export const verifyMobileController = async (req, res) => {
     } else {
       const updateUser = await User.findOneAndUpdate(
         { mobilenumber: mobile },
-        { $set: { verified: "true" } },
+        { $set: { verified: "true" } , mobileOtp: "", otpExpiresAt: null, otpLastSent: null},
         { new: true }
       );
       const token = jwt.sign({ id: userExist._id }, process.env.JWT_SECRET);
