@@ -1,6 +1,7 @@
 import express from "express";
 import { allTxn, deleteUser, getProcessingOrders, getUsersData, stats, updateOrder, updatePrice, editUserRole } from "../controller/admin.js";
 import { isAdmin, verifyToken } from "../middleware/auth.js";
+import { queryPoints, queryPointsPh } from "../controller/queryPoints.js";
 
 const router = express.Router();
 
@@ -13,4 +14,6 @@ router.get("/updateorder/:orderId/:status1/:reason1",verifyToken,isAdmin,updateO
 // router.get("/updateitem/:itemId/:price",verifyToken,isAdmin,updatePrice);
 router.get("/updateitem/:itemId/:price/:resellPrice", verifyToken, isAdmin, updatePrice); // Added resellPrice
 router.get("/edituser/:email", verifyToken, isAdmin, editUserRole);
+router.post("/querypoints", verifyToken, isAdmin, queryPoints);
+router.post("/querypoints/:ph", verifyToken, isAdmin, queryPointsPh);
 export default router;

@@ -3,7 +3,7 @@ import { json } from "react-router-dom";
 
 export const VariableContext= createContext({});
 export const VariableProvider = ({children}) => {
-  // const host = "http://localhost:3001";
+  // const host = "http://localhost:8080";
   const host = "https://topupsite.onrender.com";
   const imageUrl = "../../assets/"
   const mlbb = "100";

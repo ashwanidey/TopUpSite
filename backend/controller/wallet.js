@@ -90,6 +90,57 @@ export const topUp = async(req,res) => {
   }
 }
 
+export const ogTopUp = async(req,res) => {
+  try{
+    const {value,userid} = req.body;
+    const number = parseFloat(value);
+    const uniqueId = generateUniqueId();
+    const userInfo = await User.find({ userid: userid });
+    const user = userInfo[0];
+    
+
+    const wallet = await Wallet.findOne({userid : userid});
+
+        const response = await fetch(`https://paygapi.onegateway.in/payment/initiate`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        scannerIncluded: true,
+        apiKey: process.env.OG_API_KEY,
+        orderId: uniqueId,
+        amount: number.toFixed(2),
+        paymentNote: "test",
+        customerName: user.name,
+        customerEmail: user.email,
+        customerNumber: user.mobilenumber,
+        redirectUrl: `${process.env.REDIRECT_DOMAIN}/walletconfirmation?client_txn_id=${uniqueId}`,
+      }),
+    });
+
+    const data = await response.json();
+
+    const transaction = new Transaction({
+      txnid :  uniqueId,
+      userid,
+      useremail : user.email,
+      amount: value,
+      type : "Credit",
+      walletid : wallet._id,
+
+    });
+
+    const savedTxn = await transaction.save();
+
+    res.status(200).json(data);
+
+
+    
+  }catch(err){
+    res.status(500).json({error: err.message});
+  }
+}
 
 export const ppTopUp = async(req,res) => {
   try{
@@ -278,5 +329,53 @@ export const ppTxnStatus = async(req,res) => {
   }
   catch(err){
     res.status(500).json({error: err.message});
+  }
+}
+
+export const ogTxnStatus = async(req,res) => {
+  try{
+    const { client_txn_id, date } = req.body;
+
+    const response = await fetch(`https://pay.onegateway.in/payment/status`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        apiKey: process.env.OG_API_KEY ,
+        orderId: client_txn_id,
+      }),
+    });
+
+
+    const data = await response.json();
+    const txn = await Transaction.findOne({ txnid: data.data.orderId });
+
+    if (data.success == true && data.data.status === "success" && txn.status === "Created"){
+      const wallet = await Wallet.findOne({ _id: txn.walletid });
+
+      wallet.balance = wallet.balance + parseInt(txn.amount);
+      await wallet.save();
+
+      txn.status = "Success";
+      await txn.save();
+    }
+    else if(data.success == true && data.data.status === "failed"){
+      txn.status = "Failed";
+      await txn.save();
+    }
+
+    const updatedTransaction = await Transaction.findOne({txnid:client_txn_id});
+
+    res.status(200).json({
+      txnid : client_txn_id,
+      status : updatedTransaction.status,
+      amount : updatedTransaction.amount
+    });
+
+
+  }
+  catch(err){
+    res.status(500).json({error: err});
   }
 }
