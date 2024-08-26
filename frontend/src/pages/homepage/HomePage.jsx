@@ -45,14 +45,23 @@ const HomePage = () => {
     <>
       {isPopupVisible && (
         <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
-          <div className="relative bg-white p-3 rounded-lg shadow-lg w-full max-w-xs sm:max-w-[300px]">
-            <img src={adImage} alt="Ad" className="w-full h-auto rounded-md" />
-            <button onClick={handlePopupClose} className="absolute top-2 right-2">
+          <div className="relative bg-white rounded-lg shadow-lg w-full max-w-xs sm:max-w-[300px]">
+            <img
+              src={adImage}
+              alt="Ad"
+              className="w-full h-auto rounded-lg object-cover"
+              style={{ borderRadius: '0.5rem' }}
+            />
+            <button
+              onClick={handlePopupClose}
+              className="absolute top-2 right-2"
+            >
               <img src={closeIcon} alt="Close" className="w-4 h-4 sm:w-6 sm:h-6" />
             </button>
           </div>
         </div>
       )}
+
 
       <a
         href="https://wa.me/919883084820"
