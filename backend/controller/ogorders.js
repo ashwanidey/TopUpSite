@@ -120,7 +120,7 @@ export const ogOrderStatus = async (req, res) => {
       await newUpiTransaction.save();
     }
 
-    const order = await Order.findOne({ transactionid: data.data.orderId });
+    const order = await Order.findOne({ transactionid: client_txn_id });
     const product = await Products.findOne({ productid: order.productid });
     const itemidarray = order.itemidarray;
     const points = await Point.findOne({ dbuserid: order.userid });
