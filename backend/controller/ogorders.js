@@ -221,11 +221,11 @@ export const ogOrderStatus = async (req, res) => {
             { transactionid: client_txn_id },
             {
               status: "Completed",
-              customer_vpa: data.data.customer_vpa,
-              upi_txn_id: data.data.upi_txn_id,
+              // customer_vpa: data.data.customer_vpa,
+              // upi_txn_id: data.data.upi_txn_id,
               date: date,
               product_name: product.name,
-              customer_email: data.data.customer_email,
+              // customer_email: data.data.customer_email,
             }
           );
           
@@ -264,11 +264,11 @@ export const ogOrderStatus = async (req, res) => {
             { transactionid: client_txn_id },
             {
               status: "Processing",
-              customer_vpa: data.data.customer_vpa,
-              upi_txn_id: data.data.upi_txn_id,
+              // customer_vpa: data.data.customer_vpa,
+              // upi_txn_id: data.data.upi_txn_id,
               date: date,
               product_name: product.name,
-              customer_email: data.data.customer_email,
+              // customer_email: data.data.customer_email,
             }
           );
           // sendEmail(data.data.customer_email,``)
@@ -291,11 +291,11 @@ export const ogOrderStatus = async (req, res) => {
           { transactionid: client_txn_id },
           {
             status: "Processing",
-            customer_vpa: data.data.customer_vpa,
-            upi_txn_id: data.data.upi_txn_id,
+            // customer_vpa: data.data.customer_vpa,
+            // upi_txn_id: data.data.upi_txn_id,
             date: date,
             product_name: product.name,
-            customer_email: data.data.customer_email,
+            // customer_email: data.data.customer_email,
           }
         );
         sendEmail(
