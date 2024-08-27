@@ -14,12 +14,12 @@ router.post("/neworder",checkApiKey,verifyToken,createOrder)
 // router.post("/orderstatus",verifyToken,orderStatus);
 
 //FOR ONEGateway
-router.post("/createOrder",checkApiKey,verifyToken,oneGateway)
-router.post("/orderstatus",verifyToken,ogOrderStatus);
+// router.post("/createOrder",checkApiKey,verifyToken,oneGateway)
+// router.post("/orderstatus",verifyToken,ogOrderStatus);
 
 //FOR PHONEPE
-// router.post("/createOrder",checkApiKey,verifyToken,ppGateway)
-// router.post("/orderstatus",verifyToken,ppOrderStatus);
+router.post("/createOrder",checkApiKey,verifyToken,ppGateway)
+router.post("/orderstatus",verifyToken,ppOrderStatus);
 
 
 

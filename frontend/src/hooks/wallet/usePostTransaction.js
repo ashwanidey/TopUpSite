@@ -28,10 +28,10 @@ export const usePostTransaction = () => {
     // window.location = data.data.payment_url;
 
     // OneGateway
-    window.location = data.data.paymentUrl;
+    // window.location = data.data.paymentUrl;
 
     //PhonePe Gateway
-    // window.location = data.url;
+    window.location = data.url;
 
     // setSelected(null);
     // setInput1(null);

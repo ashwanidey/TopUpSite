@@ -10,12 +10,12 @@ const router = express.Router();
 // router.post("/txnstatus",verifyToken,txnStatus);
 
 // OneGateway
-router.post("/topup",verifyToken,ogTopUp)
-router.post("/txnstatus",verifyToken,ogTxnStatus);
+// router.post("/topup",verifyToken,ogTopUp)
+// router.post("/txnstatus",verifyToken,ogTxnStatus);
 
 // PhonePe
-// router.post("/topup",verifyToken,ppTopUp)
-// router.post("/txnstatus",verifyToken,ppTxnStatus);
+router.post("/topup",verifyToken,ppTopUp)
+router.post("/txnstatus",verifyToken,ppTxnStatus);
 
 
 
