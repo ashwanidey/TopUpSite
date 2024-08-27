@@ -109,7 +109,7 @@ export const queryPointsPh = async (req, res) => {
     const sign = md5(md5(str + m_key));
 
     // Make a POST request to the query points API
-    const response = await fetch("https://www.smile.one/ru/smilecoin/api/querypoints", {
+    const response = await fetch("https://www.smile.one/ph/smilecoin/api/querypoints", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
