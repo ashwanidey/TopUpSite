@@ -8,12 +8,10 @@ const ChangePriceList = ({ productId }) => {
   const { getItems, items, isLoading } = useGetItems();
   const [price, setPrice] = useState(null);
   const [resellPrice, setResellPrice] = useState(null); // State for resell price
-  const { UpdateItem, item } = useUpdateItem();
-  const { getAccessTokenSilently } = useAuth0();
+  const { UpdateItem } = useUpdateItem();
   const { token } = useContext(VariableContext);
 
   const handleSubmit = async (itemId) => {
-    // const token = await getAccessTokenSilently();
     await UpdateItem(itemId, token, { price, resellPrice }); // Update function to include resell price
   };
 
@@ -27,30 +25,33 @@ const ChangePriceList = ({ productId }) => {
   return (
     <>
       {!isLoading && (
-        <div className="bg-gray-400 p-5 flex flex-col gap-4">
-          {items.map((item) => {
-            return (
-              <div className="flex gap-4" key={item._id}>
-                <div>{item.name}</div>
-                <input
-                  type="text"
-                  placeholder="Price"
-                  onChange={(e) => setPrice(e.target.value)}
-                />
-                <input
-                  type="text"
-                  placeholder="Resell Price"
-                  onChange={(e) => setResellPrice(e.target.value)}
-                />
-                <button
-                  className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-                  onClick={() => handleSubmit(item._id)}
-                >
-                  Submit
-                </button>
-              </div>
-            );
-          })}
+        <div className="bg-gray-800 p-6 rounded-lg shadow-md flex flex-col gap-6">
+          {items.map((item) => (
+            <div
+              className="flex flex-col sm:flex-row gap-4 items-center justify-between p-4 bg-gray-700 rounded-md"
+              key={item._id}
+            >
+              <div className="text-white text-lg font-medium">{item.name}</div>
+              <input
+                type="text"
+                placeholder="Price"
+                className="p-2 w-full sm:w-1/3 bg-gray-900 text-white rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                onChange={(e) => setPrice(e.target.value)}
+              />
+              <input
+                type="text"
+                placeholder="Resell Price"
+                className="p-2 w-full sm:w-1/3 bg-gray-900 text-white rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                onChange={(e) => setResellPrice(e.target.value)}
+              />
+              <button
+                className="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-blue-500"
+                onClick={() => handleSubmit(item._id)}
+              >
+                Submit
+              </button>
+            </div>
+          ))}
         </div>
       )}
     </>
