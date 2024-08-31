@@ -5,6 +5,7 @@ import Point from "../models/Points.js";
 import Transaction from "../models/Transaction.js";
 import User from "../models/User.js";
 import Wallet from "../models/Wallet.js";
+import Product from "../models/Products.js"
 
 function generateUniqueId() {
   const timestamp = Date.now(); // Get the current timestamp
@@ -241,6 +242,28 @@ export const stats = async (req, res) => {
     };
 
     res.status(200).json(result);
+  } catch (err) {
+    res.status(500).send({ error: err.message });
+  }
+};
+
+export const updateStock = async (req, res) => {
+  try {
+    const { productId, instock } = req.body;
+
+    // Validate the input
+    if (!productId || instock === undefined) {
+      return res.status(400).send({ error: 'Missing parameters' });
+    }
+
+    // Update the instock field in the Product collection
+    const updatedProduct = await Product.findByIdAndUpdate(productId, { instock }, { new: true });
+
+    if (!updatedProduct) {
+      return res.status(404).send({ error: 'Product not found' });
+    }
+
+    res.status(200).send(updatedProduct);
   } catch (err) {
     res.status(500).send({ error: err.message });
   }

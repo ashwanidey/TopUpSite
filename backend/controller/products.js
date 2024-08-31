@@ -2,7 +2,7 @@ import Product from "../models/Products.js";
 
 export const getGames = async(req,res) => {
   try{
-    const games = await Product.find({type : "games"});
+    const games = await Product.find({type : "games", instock: "true"});
     res.status(200).json(games);
   }
   catch(err){
@@ -12,7 +12,7 @@ export const getGames = async(req,res) => {
 
 export const getOtt = async(req,res) => {
   try{
-    const ott = await Product.find({type : "ott"});
+    const ott = await Product.find({type : "ott", instock : "true"});
     res.status(200).json(ott);
   }
   catch(err){
@@ -22,7 +22,7 @@ export const getOtt = async(req,res) => {
 
 export const getTrending = async(req,res) => {
   try{
-    const trending = await Product.find({istrending : "true"});
+    const trending = await Product.find({istrending : "true", instock: "true"});
     res.status(200).json(trending);
   }
   catch(err){

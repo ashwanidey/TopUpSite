@@ -7,8 +7,9 @@ import { extractPart } from '../../utils/userIdExtractor'
 import { usePostOrderWallet } from '../../hooks/wallet/usePostOrderWallet'
 
 const Payments = () => {
-  const {selected,setSelected,payment,setPayment,input1,input2,order,setOrder,after,setAfter,setInput1,setInput2,setShow,isLoggedIn,user,token,verified,mlbb,mlbbph} = useContext(VariableContext)
+  const {selected,setSelected,payment,setPayment,input1,input2,order,setOrder,after,setAfter,setInput1,setInput2,setShow,isLoggedIn,user,token,verified,mlbb,mlbbph, product} = useContext(VariableContext)
   const { productId,id } = useParams();
+// console.log(product.productid);
 
   const {postOrder,response,isLoading} = usePostOrder();
   const {postOrderWallet,isLoading1} = usePostOrderWallet()

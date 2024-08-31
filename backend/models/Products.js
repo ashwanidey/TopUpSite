@@ -35,7 +35,11 @@ const productSchema = mongoose.Schema(
     items : {
       type : Array,
       default : [],
-    }
+    },
+    instock : {
+      type:String,
+      default : "",
+    },
   },
   { timestamps: true }
 )
