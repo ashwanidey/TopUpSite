@@ -89,12 +89,12 @@ const HomePage = () => {
                 <CardsGrid data={games} />
               </section>
 
-              <section id="ott">
+              {/* <section id="ott">
                 <div className="font-[800] text-white md:text-[2rem] text-[1.5rem]">
                   OTT
                 </div>
                 <CardsGrid data={ott} />
-              </section>
+              </section> */}
             </>
           ) : (
             <div className="flex flex-col w-full gap-4 overflow-auto">
