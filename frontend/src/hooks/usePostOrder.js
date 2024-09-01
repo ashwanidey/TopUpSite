@@ -26,13 +26,13 @@ export const usePostOrder = () => {
     const data = await response.json();
    
     // FOR UpiGateway
-    // window.location  = data.data.payment_url;
+    window.location  = data.data.payment_url;
     
     // FOR PhonePe Gateway
     // window.location  = data.url;
     
     //FOR OneGateway
-    window.location  = data.data.paymentUrl;
+    // window.location  = data.data.paymentUrl;
     
 
     

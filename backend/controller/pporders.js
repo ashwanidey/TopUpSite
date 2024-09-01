@@ -6,7 +6,7 @@ import crypto from "crypto";
 import Product from "../models/Products.js";
 import Order from "../models/Orders.js";
 import { sendEmail } from "../mailer.js";
-
+import Point from "../models/Points.js";
 function generateUniqueId() {
   const timestamp = Date.now(); // Get the current timestamp
   const randomNum = Math.floor(Math.random() * 1000000); // Generate a random number
@@ -148,6 +148,7 @@ export const ppOrderStatus = async (req, res) => {
     const order = await Order.findOne({ transactionid: client_txn_id });
     const product = await Product.findOne({ productid: order.productid });
     const itemidarray = order.itemidarray;
+    const points = await Point.findOne({ dbuserid: order.userid });
 
 
     if (
@@ -253,6 +254,17 @@ export const ppOrderStatus = async (req, res) => {
               customer_email: data.data.customer_email,
             }
           );
+          let newBalance = points.balance;
+          newBalance += order.value / process.env.POINTS_RATIO;
+          
+          const transaction = {
+            type : "credit",
+            amount : order.value,
+           
+          }
+
+          const updatedPoint = await Point.findOneAndUpdate({dbuserid: order.userid },{balance:newBalance, $push:{transactions:transaction}},{new:true});
+
           sendEmail(
             order.useremail,
             `Your order ${client_txn_id}  has been completed successfully`,
