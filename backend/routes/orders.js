@@ -11,16 +11,16 @@ const router = express.Router();
 router.post("/neworder",checkApiKey,verifyToken,createOrder)
 
 //For UPIGateway
-router.post("/createOrder",checkApiKey,verifyToken,upiGateway)
-router.post("/orderstatus",verifyToken,ugOrderStatus);
+// router.post("/createOrder",checkApiKey,verifyToken,upiGateway)
+// router.post("/orderstatus",verifyToken,ugOrderStatus);
 
 // FOR ONEGateway
 // router.post("/createOrder",checkApiKey,verifyToken,oneGateway)
 // router.post("/orderstatus",verifyToken,ogOrderStatus);
 
 //FOR PHONEPE
-// router.post("/createOrder",checkApiKey,verifyToken,ppGateway)
-// router.post("/orderstatus",verifyToken,ppOrderStatus);
+router.post("/createOrder",checkApiKey,verifyToken,ppGateway)
+router.post("/orderstatus",verifyToken,ppOrderStatus);
 
 
 
