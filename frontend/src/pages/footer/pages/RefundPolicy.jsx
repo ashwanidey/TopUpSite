@@ -3,30 +3,38 @@ import React from 'react';
 const RefundPolicy = () => {
   return (
     <div className="mt-[6rem] lg:mx-[6rem] mx-[1rem] flex flex-col gap-3 text-white">
-      <h1>Refund Policy</h1>
-
-      <p>We offer refunds solely in cases where:</p>
-      <ul>
-        <li><strong>Incorrect Recharge:</strong> If a recharge or transaction fails due to incorrect details provided by the user (e.g., wrong gaming ID, server, or region), we will issue a refund upon verification.</li>
-      </ul>
-
-      <h2>Refund Process</h2>
-      <p>To request a refund, please follow these steps:</p>
-      <ul>
-        <li><strong>Contact Support:</strong> Send an email to WhatsApp - +91 7085 742871 within 2 days of the failed transaction.</li>
-        <li><strong>Provide Details:</strong> Include your order ID, the reason for the refund (incorrect details), and any supporting documentation if required.</li>
-        <li><strong>Verification:</strong> Our support team will verify the details provided.</li>
-        <li><strong>Refund Issuance:</strong> If your request is approved, we will process the refund Instantly.</li>
-      </ul>
-
-      <h2>Non-Refundable Situations</h2>
-      <p>Refunds will not be issued in the following situations:</p>
-      <ul>
-        <li><strong>Successful Transactions:</strong> Transactions where the recharge or payment is successfully processed.</li>
-      </ul>
-
-      <h2>Contact Us</h2>
-      <p>If you have any questions about our Refund Policy, please contact us at WhatsApp - +91 7085 742871 / +91 6009 359518.</p>
+      <h1 className="text-3xl font-bold">Refund and Cancellation Policy</h1>
+      <p>
+        At Gammerce, we aim to provide a seamless experience when purchasing digital content 
+        or services. Please note the following policies regarding refunds and cancellations:
+      </p>
+      
+      <h2 className="text-xl font-semibold">1. Non-Refundable Items</h2>
+      <p>
+        Due to the nature of our products, which include digital content such as game credits, 
+        virtual items, and pre-paid gift cards, all sales are final. Once payment is processed 
+        and the product is delivered, cancellations or refunds cannot be made.
+      </p>
+      
+      <h2 className="text-xl font-semibold">2. Payment Issues</h2>
+      <p>
+        In the event that payment has been successfully made but the purchased items are not 
+        delivered, customers are encouraged to contact our support team with the relevant 
+        details, including the order number and proof of payment.
+      </p>
+      
+      <h2 className="text-xl font-semibold">3. Support Contact</h2>
+      <p>
+        If you experience any issues with your purchase or have questions regarding your order, 
+        please reach out to our support team at <nbsp/> 
+        <a href="mailto:gammerce.in@gmail.com" className="text-blue-500 underline">
+          gammerce.in@gmail.com
+        </a>.
+      </p>
+      
+      <p>
+        For more information, please review our <a href="/terms-and-condition" className="text-blue-500 underline">Terms and Conditions</a>.
+      </p>
     </div>
   );
 };

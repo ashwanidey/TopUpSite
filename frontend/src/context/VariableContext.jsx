@@ -49,7 +49,7 @@ export const VariableProvider = ({children}) => {
   return(
     <VariableContext.Provider
     value={{
-      host,imageUrl,selected,setSelected,input1,setInput1,input2,setInput2,payment,setPayment,order,setOrder,product,setProduct,after,setAfter,admin1,admin2,admin3,show,setShow,productPageLoading,setProductPageLoading,isLoggedIn,deleteUser,user,token,verified,setVerified,mlbb,mlbbph, product, setProduct
+      host,imageUrl,selected,setSelected,input1,setInput1,input2,setInput2,payment,setPayment,order,setOrder,product,setProduct,after,setAfter,admin1,admin2,admin3,show,setShow,productPageLoading,setProductPageLoading,isLoggedIn,deleteUser,user,token,verified,setVerified,mlbb,mlbbph,
     }}
   >
     {children}

@@ -6,16 +6,16 @@ const Footer = () => {
     <div className='flex flex-col w-full py-[50px] md:px-[100px] px-[50px] border-t mt-10 bg-[#23292A]'>
       <div className='flex flex-col items-center w-full gap-4'>
         <div className='font-[800] text-[#ff962d] text-[2rem]'>Gammerce.in</div>
-        <div className='text-white'>Welcome to Gammerce, your one-stop shop for quick and easy gaming recharges. Boost your gaming experience with our fast, reliable services. Join us and game on!</div>
-        <div className='text-white'>+91 98830 84820 | firefalls2004@gmail.com | West Sikkim, Sikkim 737121</div>
+        <div className='text-white'>Welcome to Gammerce, your one-stop shop for quick and easy gaming recharges.<br></br> Boost your gaming experience with our fast, reliable services.</div>
+        {/* <div className='text-white'>gammerce.in@gmail.com | West Sikkim, Sikkim 737121</div> */}
       </div>
 
       <div className='grid md:grid-cols-3 sm:grid-cols-2 gap-4 mt-6 text-white'>
         <div className=''>
           <div className='text-[#ff962d] text-[1.2rem]  font-[600]'>Important Links</div>
           <div className='flex flex-col'>
-          <a href='/privacypage'>Privacy Policy</a>
           <a href='/terms-and-condition'>Terms & Conditions</a>
+          <a href='/privacypage'>Privacy Policy</a>
           <a href='/refund-policy'>Refund Policy</a>
           </div>
         </div>
