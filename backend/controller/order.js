@@ -141,7 +141,7 @@ export const checkId = async (req, res) => {
     let uid = process.env.API_UID;
 
     let product = "mobilelegends";
-    let productid = "13"; // Assuming productid remains "13" as per previous code
+    let productid = "212"; // Assuming productid remains "13" as per previous code
     let time = Math.floor(Date.now() / 1000);
     // console.log(time + " ");
 
@@ -179,7 +179,7 @@ export const checkId = async (req, res) => {
     let sign = md5(md5(str + m_key));
 
     const response = await fetch(
-      "https://www.smile.one/smilecoin/api/getrole",
+      "https://www.smile.one/ph/smilecoin/api/getrole",
       {
         method: "POST",
         headers: {
